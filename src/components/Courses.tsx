@@ -82,18 +82,18 @@ export default function Courses() {
   return (
     <section id="courses" className="section-padding bg-light-blue">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-dark-blue mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="heading-lg text-dark-blue mb-3 sm:mb-4">
             Featured Courses
           </h2>
-          <p className="text-xl text-text-dark max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-text-dark max-w-3xl mx-auto px-4">
             Discover wealth-building strategies and investment mastery from Dr. Stephen Akintayo's 
             comprehensive course library at Stephen Akintayo University.
           </p>
-          <div className="w-24 h-1 bg-sky-blue mx-auto mt-6"></div>
+          <div className="w-16 sm:w-24 h-1 bg-sky-blue mx-auto mt-4 sm:mt-6"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
           {featuredCourses.map((course, index) => (
             <div 
               key={index}
@@ -102,43 +102,44 @@ export default function Courses() {
               }`}
               style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
+              <div className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4">
+                  <div className="flex-shrink-0 mx-auto sm:mx-0">
                     <Image 
                       src={course.image} 
                       alt={course.instructor}
                       width={80}
                       height={80}
-                      className="w-20 h-20 rounded-full object-cover"
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover"
                     />
                   </div>
                   
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-sky-blue text-white">
+                  <div className="flex-1 min-w-0 w-full sm:w-auto">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                      <span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-sky-blue text-white">
                         {course.category}
                       </span>
                       <div className="flex items-center text-yellow-500">
-                        <i className="fas fa-star text-sm"></i>
-                        <span className="ml-1 text-sm font-medium text-text-dark">
+                        <i className="fas fa-star text-xs sm:text-sm"></i>
+                        <span className="ml-1 text-xs sm:text-sm font-medium text-text-dark">
                           {course.rating}
                         </span>
                       </div>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-dark-blue mb-2 line-clamp-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-dark-blue mb-2 line-clamp-2">
                       {course.title}
                     </h3>
                     
-                    <p className="text-text-dark text-sm mb-3 line-clamp-2">
+                    <p className="text-xs sm:text-sm text-text-dark mb-3 line-clamp-2">
                       {course.description}
                     </p>
                     
-                    <div className="flex items-center justify-between text-sm text-text-light mb-4">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-text-light mb-4">
                       <span className="flex items-center">
                         <i className="fas fa-user mr-1"></i>
-                        {course.instructor}
+                        <span className="hidden sm:inline">{course.instructor}</span>
+                        <span className="sm:hidden">Dr. S. Akintayo</span>
                       </span>
                       <span className="flex items-center">
                         <i className="fas fa-clock mr-1"></i>
@@ -146,19 +147,19 @@ export default function Courses() {
                       </span>
                       <span className="flex items-center">
                         <i className="fas fa-users mr-1"></i>
-                        {course.students} students
+                        {course.students}
                       </span>
                     </div>
                     
-                    <div className="flex items-center justify-between">
-                      <div className="text-2xl font-bold text-dark-blue">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
+                      <div className="text-xl sm:text-2xl font-bold text-dark-blue">
                         {course.price}
                       </div>
                       <a
                         href={course.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary flex items-center"
+                        className="btn-primary flex items-center w-full sm:w-auto justify-center"
                       >
                         <span>View Course</span>
                         <i className="fas fa-external-link-alt ml-2 text-xs"></i>
@@ -173,20 +174,20 @@ export default function Courses() {
 
         {/* Call to Action */}
         <div className={`text-center ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <div className="bg-gradient-to-r from-sky-blue to-dark-blue rounded-2xl p-8 text-white">
-            <h3 className="text-3xl font-bold mb-4">
+          <div className="bg-gradient-to-r from-sky-blue to-dark-blue rounded-2xl p-6 sm:p-8 text-white">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
               Ready to Transform Your Wealth Journey?
             </h3>
-            <p className="text-xl mb-6 opacity-90">
+            <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 opacity-90">
               Join 1,033+ students who have already enrolled in Dr. Stephen Akintayo's courses 
               and are building their wealth through proven strategies.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <a
                 href="https://stephenakintayouniversity.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary bg-white text-dark-blue hover:bg-gray-100 flex items-center justify-center"
+                className="btn-secondary bg-white text-dark-blue hover:bg-gray-100 flex items-center justify-center w-full sm:w-auto"
               >
                 <i className="fas fa-graduation-cap mr-2"></i>
                 Explore All Courses
@@ -196,7 +197,7 @@ export default function Courses() {
                 href="https://stephenakintayouniversity.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary bg-transparent border-2 border-white text-white hover:bg-white hover:text-dark-blue flex items-center justify-center"
+                className="btn-primary bg-transparent border-2 border-white text-white hover:bg-white hover:text-dark-blue flex items-center justify-center w-full sm:w-auto"
               >
                 <i className="fas fa-crown mr-2"></i>
                 Start Free Course

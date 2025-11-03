@@ -1,81 +1,67 @@
 'use client'
 
+import Link from 'next/link'
+import Image from 'next/image'
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const footerLinks = {
-    'Quick Links': [
-      { name: 'About', href: '#about' },
-      { name: 'Businesses', href: '#businesses' },
-      { name: 'Events', href: '#events' },
-      { name: 'Books', href: '#books' },
-      { name: 'Contact', href: '#contact' }
+    'LEARN MORE': [
+      { name: 'Akintayo University', href: '/store' },
+      { name: 'Gtext Holdings', href: '/businesses' },
+      { name: 'Licensee Program', href: '/contact' },
+      { name: 'Akintayo On-Demand', href: '/media' },
+      { name: 'Akintayo Ventures', href: '/businesses' }
     ],
-    'Services': [
-      { name: 'Speaking Engagements', href: '#contact' },
-      { name: 'Investment Consulting', href: '#businesses' },
-      { name: 'Real Estate Tours', href: '#events' },
-      { name: 'Mentorship Programs', href: '#about' }
+    'COMPANY': [
+      { name: 'About', href: '/about' },
+      { name: 'Hire Dr. Akintayo', href: '/contact' },
+      { name: 'Careers', href: '/contact' }
     ],
-    'Resources': [
-      { name: 'Books & Publications', href: '#books' },
-      { name: 'Events & Conferences', href: '#events' },
-      { name: 'Foundation', href: '#' },
-      { name: 'Media Kit', href: '#' }
+    'SUPPORT': [
+      { name: 'Contact Us', href: '/contact' },
+      { name: 'Privacy Policy', href: '#' },
+      { name: 'Terms & Conditions', href: '#' },
+      { name: 'Careers', href: '/contact' },
+      { name: 'Free eBooks', href: '/store' },
+      { name: 'Free Books', href: '/store' }
+    ],
+    'RESOURCES': [
+      { name: 'Quotes', href: '#' },
+      { name: 'Free eBooks', href: '/store' },
+      { name: 'Subscribe', href: '#' },
+      { name: 'Free Books', href: '/store' }
     ]
   }
 
-  const socialLinks = [
-    { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/stephenakintayo', label: 'LinkedIn' },
-    { icon: 'fab fa-twitter', href: 'https://twitter.com/stephenakintayo', label: 'Twitter' },
-    { icon: 'fab fa-instagram', href: 'https://instagram.com/stephenakintayo', label: 'Instagram' },
-    { icon: 'fab fa-youtube', href: 'https://youtube.com/@stephenakintayo', label: 'YouTube' },
-    { icon: 'fab fa-facebook', href: 'https://facebook.com/stephenakintayo', label: 'Facebook' }
+  const partnerLogos = [
+    { name: 'DR. STEPHEN AKINTAYO', href: '/' },
+    { name: 'SA AKINTAYO TV', href: '/media' },
+    { name: 'AKINTAYO ON-DEMAND', href: '/media' },
+    { name: 'GTEXT HOLDINGS', href: '/businesses' },
+    { name: 'MM2050 FOUNDATION', href: '/foundation' }
   ]
 
   return (
-    <footer className="bg-dark-blue text-white">
+    <footer className="bg-black text-white">
       <div className="container-custom">
         {/* Main Footer Content */}
-        <div className="py-16">
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-            {/* Brand Section */}
-            <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold mb-4">Dr. Stephen Akintayo</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Distinguished Nigerian entrepreneur, investor, and mentor. Forbes Best of Africa Leading Investment Coach 
-                and Real Estate Mogul. Chairman & CEO of Gtext Holdings.
-              </p>
-              
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-sky-blue hover:bg-white hover:text-dark-blue rounded-full flex items-center justify-center transition-all duration-300"
-                    aria-label={social.label}
-                  >
-                    <i className={`${social.icon}`}></i>
-                  </a>
-                ))}
-              </div>
-            </div>
-
+        <div className="py-12 sm:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
             {/* Footer Links */}
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
-                <h4 className="text-lg font-semibold mb-4">{category}</h4>
-                <ul className="space-y-2">
+                <h4 className="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6 uppercase tracking-wider">{category}</h4>
+                <ul className="space-y-3">
                   {links.map((link, index) => (
                     <li key={index}>
-                      <a
+                      <Link
                         href={link.href}
-                        className="text-gray-300 hover:text-sky-blue transition-colors duration-300"
+                        className="text-white/70 hover:text-red-600 transition-colors duration-300 text-sm sm:text-base"
                       >
                         {link.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -84,36 +70,40 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Logo Section */}
+        <div className="border-t border-white/10 py-6 sm:py-8">
+          <div className="flex justify-center mb-6 sm:mb-8">
+            <Link href="/" className="relative w-32 h-16 sm:w-40 sm:h-20 md:w-48 md:h-24 hover:opacity-90 transition-opacity duration-300">
+              <Image 
+                src="/images/SAL.png" 
+                alt="Stephen Akintayo Consulting Logo" 
+                fill
+                className="object-contain"
+              />
+            </Link>
+          </div>
+          
+          {/* Partner Logos */}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 px-4">
+            {partnerLogos.map((partner, index) => (
+              <Link
+                key={index}
+                href={partner.href}
+                className="text-white/60 hover:text-red-600 transition-colors duration-300 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider text-center"
+              >
+                {partner.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* Bottom Footer */}
-        <div className="border-t border-gray-700 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-300 text-sm mb-4 md:mb-0">
-              © {currentYear} Dr. Stephen Akintayo. All rights reserved.
-            </div>
-            
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-300 hover:text-sky-blue transition-colors duration-300">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-300 hover:text-sky-blue transition-colors duration-300">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-300 hover:text-sky-blue transition-colors duration-300">
-                Cookie Policy
-              </a>
-            </div>
+        <div className="border-t border-white/10 py-6 sm:py-8">
+          <div className="text-center text-xs sm:text-sm text-white/60">
+            Copyright © {currentYear} Dr. Stephen Akintayo Training Technologies, Inc., All Rights Reserved.
           </div>
         </div>
       </div>
-
-      {/* Back to Top Button */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-sky-blue hover:bg-dark-blue text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
-        aria-label="Back to top"
-      >
-        <i className="fas fa-chevron-up"></i>
-      </button>
     </footer>
   )
 } 

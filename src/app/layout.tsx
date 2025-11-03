@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://stephenakintayo.com'),
   title: 'Dr. Stephen Akintayo - Entrepreneur, Investor & Real Estate Mogul | Forbes Best of Africa',
   description: 'Dr. Stephen Akintayo is a distinguished Nigerian entrepreneur, investor, and mentor. Chairman & CEO of Gtext Holdings, Forbes Best of Africa Leading Investment Coach, and author of 45+ books on real estate and wealth-building.',
   keywords: 'Stephen Akintayo, real estate, investment coach, entrepreneur, Gtext Holdings, Forbes Best of Africa, billionaire habits, real estate investment, wealth building, Nigeria entrepreneur',
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     url: 'https://stephenakintayo.com',
     images: [
       {
-        url: 'https://stephenakintayo.com/images/stephen-akintayo-profile.jpg',
+        url: '/images/stephen-akintayo-profile.jpg',
         width: 1200,
         height: 630,
         alt: 'Dr. Stephen Akintayo',
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Dr. Stephen Akintayo - Entrepreneur, Investor & Real Estate Mogul',
     description: 'Forbes Best of Africa Leading Investment Coach and Real Estate Mogul. Chairman & CEO of Gtext Holdings.',
-    images: ['https://stephenakintayo.com/images/stephen-akintayo-profile.jpg'],
+    images: ['/images/stephen-akintayo-profile.jpg'],
   },
   robots: {
     index: true,

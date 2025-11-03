@@ -1,24 +1,22 @@
 import Header from '@/components/Header'
-import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Businesses from '@/components/Businesses'
-import Events from '@/components/Events'
-import Books from '@/components/Books'
-import Courses from '@/components/Courses'
-import Contact from '@/components/Contact'
+import HeroCardone from '@/components/HeroCardone'
+import IntroductionSection from '@/components/IntroductionSection'
+import OfferingsSection from '@/components/OfferingsSection'
+import TestimonialsSection from '@/components/TestimonialsSection'
+import StrategySignup from '@/components/StrategySignup'
+import SocialConnection from '@/components/SocialConnection'
 import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Header />
-      <Hero />
-      <About />
-      <Businesses />
-      <Events />
-      <Books />
-      <Courses />
-      <Contact />
+      <HeroCardone />
+      <IntroductionSection />
+      <OfferingsSection />
+      <TestimonialsSection />
+      <StrategySignup />
+      <SocialConnection />
       <Footer />
     </main>
   )

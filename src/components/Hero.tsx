@@ -5,98 +5,125 @@ import Image from 'next/image'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isVideoOpen, setIsVideoOpen] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-sky-blue via-powder-blue to-light-blue flex items-center relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-white rounded-full"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-white rounded-full"></div>
-        <div className="absolute bottom-32 left-1/4 w-16 h-16 bg-white rounded-full"></div>
-      </div>
+    <section id="home" className="relative overflow-hidden bg-white pt-[110px] sm:pt-[120px] md:pt-[130px]">
+      {/* Main Hero Section */}
+      <div className="relative bg-black">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center py-16 sm:py-20 md:py-28 min-h-[85vh]">
+            {/* Left Side - Text Content - Grant Cardone Style */}
+            <div className={`space-y-8 sm:space-y-10 relative z-10 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+              {/* Title Section */}
+              <div className="space-y-6">
+                {/* Small Title/Subtitle */}
+                <div className="text-white/80 text-sm sm:text-base font-semibold uppercase tracking-wider">
+                  PRIVATE EQUITY FUND MANAGER & REAL ESTATE INVESTOR
+                </div>
+                
+                {/* Main Heading - Bold and Impactful */}
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] tracking-tight">
+                  DR. STEPHEN
+                  <span className="block text-red-600">AKINTAYO</span>
+                </h1>
+                
+                {/* Role/Tagline */}
+                <p className="text-white text-lg sm:text-xl md:text-2xl font-medium max-w-2xl leading-relaxed">
+                  CEO of Gtext Holdings and Global Investment Group
+                </p>
+              </div>
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className={`space-y-6 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold text-dark-blue leading-tight">
-                Dr. Stephen{' '}
-                <span className="text-gradient">Akintayo</span>
-              </h1>
-              <p className="text-xl lg:text-2xl text-text-light font-medium">
-                Forbes Best of Africa Leading Investment Coach & Real Estate Mogul
-              </p>
-            </div>
+              {/* Achievement Statement - Grant Cardone Style */}
+              <div className="space-y-4 pt-4 border-t-2 border-white/20">
+                <p className="text-white text-base sm:text-lg leading-relaxed max-w-2xl">
+                  Dr. Stephen Akintayo owns and operates multiple privately held companies, and an investment firm with a portfolio of assets worth over <span className="font-bold text-red-600">$200 Million</span>. He is one of the Top Investment Coaches in the world, having empowered over <span className="font-bold text-red-600">1 Million</span> individuals worldwide.
+                </p>
+                <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-2xl">
+                  A bestselling author of 45+ business books, including multiple #1 bestsellers, Dr. Akintayo has established a global movement featuring investment conferences and wealth-building programs, known as some of the most influential business and entrepreneur events in Africa and beyond.
+                </p>
+              </div>
 
-            <div className="space-y-4">
-              <p className="text-lg text-text-dark leading-relaxed">
-                Distinguished Nigerian entrepreneur, investor, and mentor. Chairman & CEO of Gtext Holdings, 
-                author of 45+ books, and mentor to millions worldwide.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <a href="#about" className="btn-primary">
-                  Learn More
+              {/* CTA Buttons - Bold and Prominent */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                <a 
+                  href="/contact" 
+                  className="bg-red-600 hover:bg-red-700 text-white font-black py-4 px-8 sm:px-12 rounded-md transition-all duration-300 transform hover:scale-105 shadow-2xl text-center text-base sm:text-lg uppercase tracking-wider"
+                >
+                  SECURE YOUR SEAT NOW
                 </a>
-                <a href="#contact" className="btn-secondary">
-                  Get In Touch
+                <a 
+                  href="/about" 
+                  className="bg-white hover:bg-gray-100 text-black font-bold py-4 px-8 sm:px-12 rounded-md border-2 border-white transition-all duration-300 transform hover:scale-105 text-center text-base sm:text-lg uppercase tracking-wider"
+                >
+                  LEARN MORE
                 </a>
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-dark-blue">45+</div>
-                <div className="text-sm text-text-light">Books Published</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-dark-blue">5M+</div>
-                <div className="text-sm text-text-light">People Mentored</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-dark-blue">4</div>
-                <div className="text-sm text-text-light">Continents</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className={`flex justify-center lg:justify-end ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
-            <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 bg-white rounded-full shadow-2xl flex items-center justify-center p-2">
+            {/* Right Side - Photo - Full Height */}
+            <div className={`relative ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
+              <div className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden shadow-2xl">
                 <Image 
                   src="/images/stephen.png" 
                   alt="Dr. Stephen Akintayo" 
-                  width={320}
-                  height={320}
-                  className="w-full h-full object-cover rounded-full"
+                  fill
+                  className="object-cover object-center"
+                  priority
                 />
-              </div>
-              
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg">
-                <i className="fas fa-trophy text-sky-blue text-xl"></i>
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-3 shadow-lg">
-                <i className="fas fa-chart-line text-sky-blue text-xl"></i>
+                {/* Overlay for better contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-        <a href="#about" className="text-dark-blue">
-          <i className="fas fa-chevron-down text-2xl"></i>
-        </a>
+      {/* Stats Bar - Grant Cardone Style */}
+      <div className="bg-gray-900 border-t-4 border-red-600">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 py-10 sm:py-12">
+            <div className="text-center sm:text-left border-b sm:border-b-0 sm:border-r border-white/10 pb-4 sm:pb-0">
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-red-600 mb-2">45+</div>
+              <div className="text-white text-sm sm:text-base font-semibold uppercase tracking-wider">Published Books</div>
+            </div>
+            <div className="text-center sm:text-left border-b sm:border-b-0 sm:border-r border-white/10 pb-4 sm:pb-0">
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-red-600 mb-2">$200M</div>
+              <div className="text-white text-sm sm:text-base font-semibold uppercase tracking-wider">Global Expansion</div>
+            </div>
+            <div className="text-center sm:text-left border-b sm:border-b-0 sm:border-r border-white/10 pb-4 sm:pb-0">
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-red-600 mb-2">4</div>
+              <div className="text-white text-sm sm:text-base font-semibold uppercase tracking-wider">Continents</div>
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-red-600 mb-2">1M</div>
+              <div className="text-white text-sm sm:text-base font-semibold uppercase tracking-wider">Millionaires Mission 2050</div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* Video Modal */}
+      {isVideoOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4" onClick={() => setIsVideoOpen(false)}>
+          <div className="relative w-full max-w-5xl bg-black rounded-lg overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setIsVideoOpen(false)}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 z-10 text-3xl font-bold w-10 h-10 flex items-center justify-center bg-black/50 rounded-full hover:bg-black/70 transition-colors"
+              aria-label="Close video"
+            >
+              ×
+            </button>
+            <div className="aspect-video bg-gray-900 flex items-center justify-center">
+              <p className="text-white text-xl">Video Player - Add your video URL here</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 } 

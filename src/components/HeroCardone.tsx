@@ -88,11 +88,6 @@ export default function HeroCardone() {
           </div>
         </div>
       </div>
-
-      {/* Help Button - Floating Right - Responsive */}
-      <button className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-20 w-10 h-10 sm:w-12 sm:h-12 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-xl transition-all duration-300">
-        <i className="fas fa-question text-white text-sm sm:text-lg"></i>
-      </button>
     </section>
   )
 }

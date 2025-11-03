@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Chatbot from '@/components/Chatbot'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://stephenakintayo.com'),
@@ -78,6 +79,7 @@ export default function RootLayout({
       </head>
       <body className="font-inter">
         {children}
+        <Chatbot />
       </body>
     </html>
   )

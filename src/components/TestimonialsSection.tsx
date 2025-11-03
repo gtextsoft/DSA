@@ -1,37 +1,67 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import BooksSection from './BooksSection'
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const testimonials = [
     {
-      name: 'Business Leader',
-      role: 'CEO, Fortune 500 Company',
-      quote: 'Dr. Stephen Akintayo\'s investment strategies transformed our company\'s financial trajectory. His guidance is invaluable.',
+      name: 'Kevin Harris',
+      quote: 'Dr. Stephen Akintayo is teaching us to take the game to the next level. His investment strategies are unmatched.',
       image: '/images/stephen.png'
     },
     {
-      name: 'Entrepreneur',
-      role: 'Founder, Tech Startup',
-      quote: 'The knowledge I gained from Dr. Akintayo\'s programs helped me scale my business from startup to multimillion-dollar company.',
+      name: 'Jorge Masvidal',
+      quote: 'Everybody wants to learn from the best. Dr. Akintayo shows us how to achieve financial freedom.',
       image: '/images/stephen.png'
     },
     {
-      name: 'Investor',
-      role: 'Real Estate Mogul',
-      quote: 'Dr. Akintayo\'s approach to real estate investment is revolutionary. His mentorship changed my entire investment strategy.',
+      name: 'Jon Taffer',
+      quote: 'There\'s nothing I wouldn\'t do to support Dr. Akintayo. He\'s transformed countless lives through his mentorship.',
       image: '/images/stephen.png'
     },
     {
-      name: 'Industry Expert',
-      role: 'Financial Advisor',
-      quote: 'I\'ve witnessed Dr. Akintayo empower thousands of individuals to achieve financial freedom. His impact is unparalleled.',
+      name: 'Udonis Haslem',
+      quote: 'Really appreciate Dr. Akintayo bringing people together and being a 10X example.',
+      image: '/images/stephen.png'
+    },
+    {
+      name: 'Danelle Delgado',
+      quote: 'Dr. Stephen Akintayo changed my life forever through his investment coaching.',
+      image: '/images/stephen.png'
+    },
+    {
+      name: 'Ricardo Allen',
+      quote: 'Dr. Akintayo shows us how to think bigger and go bigger in wealth building.',
+      image: '/images/stephen.png'
+    },
+    {
+      name: 'Tim Grover',
+      quote: 'Dr. Akintayo is never satisfied, always looking for the next level of success.',
+      image: '/images/stephen.png'
+    },
+    {
+      name: 'Usher Raymond',
+      quote: 'Dr. Akintayo represents the future of investment coaching.',
+      image: '/images/stephen.png'
+    },
+    {
+      name: 'Mayweather',
+      quote: 'Many different leaders have been part of Dr. Akintayo\'s 10X movement.',
       image: '/images/stephen.png'
     }
   ]
+
+  // Auto-slide testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+    }, 4000) // Slide every 4 seconds
+    return () => clearInterval(interval)
+  }, [testimonials.length])
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length)
@@ -42,48 +72,63 @@ export default function TestimonialsSection() {
   }
 
   return (
-    <section className="bg-gray-900 py-16 sm:py-20">
+    <section className="bg-black py-16 sm:py-20">
       <div className="container-custom">
         {/* Section Title */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tight mb-4">
             WHAT INDUSTRY LEADERS
-            <span className="block text-red-600 border-b-4 border-red-600 inline-block pb-2 mt-2">
-              HAVE TO SAY
+            <span className="block">
+              <span className="border-b-4 border-red-600 inline-block pb-2">HAVE TO SAY</span>
             </span>
           </h2>
         </div>
 
-        {/* Testimonials Carousel */}
+        {/* Testimonials Carousel - Auto Sliding */}
         <div className="relative">
-          {/* Testimonial Display */}
-          <div className="relative bg-black rounded-lg p-4 sm:p-6 md:p-8 lg:p-12 min-h-[350px] sm:min-h-[400px] md:min-h-[450px] flex items-center">
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center w-full">
-              {/* Quote Section */}
-              <div className="space-y-4 sm:space-y-6 order-2 md:order-1">
-                <div className="text-4xl sm:text-5xl md:text-6xl text-red-600 font-black leading-none">"</div>
-                <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed font-medium">
-                  {testimonials[currentIndex].quote}
-                </p>
-                <div className="pt-2 sm:pt-4">
-                  <p className="text-white font-bold text-base sm:text-lg">
-                    {testimonials[currentIndex].name}
-                  </p>
-                  <p className="text-white/70 text-xs sm:text-sm uppercase tracking-wider">
-                    {testimonials[currentIndex].role}
-                  </p>
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0"
+                >
+                  <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 px-4">
+                    {/* Portrait Image */}
+                    <div className="relative w-full md:w-1/2 h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                        style={{
+                          position: 'absolute',
+                          left: 0,
+                          top: 0,
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: 'center top'
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Quote and Name */}
+                    <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
+                      <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
+                        "{testimonial.quote}"
+                      </p>
+                      <p className="text-white font-bold text-lg sm:text-xl md:text-2xl uppercase tracking-wider">
+                        {testimonial.name}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              {/* Image Section */}
-              <div className="relative w-full h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden order-1 md:order-2">
-                <Image 
-                  src={testimonials[currentIndex].image}
-                  alt={testimonials[currentIndex].name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              ))}
             </div>
           </div>
 
@@ -118,6 +163,9 @@ export default function TestimonialsSection() {
             />
           ))}
         </div>
+
+        {/* Books Section */}
+        <BooksSection />
       </div>
     </section>
   )

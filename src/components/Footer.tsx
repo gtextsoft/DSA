@@ -78,6 +78,7 @@ export default function Footer() {
                 src="/images/SAL.png" 
                 alt="Stephen Akintayo Consulting Logo" 
                 fill
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
                 className="object-contain"
               />
             </Link>

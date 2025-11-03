@@ -77,6 +77,7 @@ export default function Header() {
                 src="/images/SAL.png" 
                 alt="Stephen Akintayo Consulting Logo" 
                 fill
+                sizes="(max-width: 640px) 80px, (max-width: 768px) 112px, 128px"
                 className="object-contain"
                 priority
               />

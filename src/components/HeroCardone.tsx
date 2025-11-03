@@ -28,6 +28,7 @@ export default function HeroCardone() {
           src="/images/stephen.png" 
           alt="Dr. Stephen Akintayo" 
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

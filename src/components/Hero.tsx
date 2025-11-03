@@ -72,6 +72,7 @@ export default function Hero() {
                   src="/images/stephen.png" 
                   alt="Dr. Stephen Akintayo" 
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center"
                   priority
                 />

@@ -11,6 +11,7 @@ export default function AboutHero() {
           src="/images/stephen.png" 
           alt="Dr. Stephen Akintayo" 
           fill
+          sizes="100vw"
           className="object-cover grayscale"
           priority
         />

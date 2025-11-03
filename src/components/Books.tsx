@@ -30,35 +30,54 @@ export default function Books() {
       description: 'The habits billionaires use that the poor ignore. Discover the daily routines and mindset shifts that separate the wealthy from the average.',
       category: 'Wealth Building',
       icon: 'fas fa-crown',
-      color: 'from-yellow-400 to-yellow-600'
+      color: 'from-yellow-400 to-yellow-600',
+      orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+billionaire+habits',
+      image: '/images/book-billionaire-habits.jpg'
     },
     {
       title: 'Billionaire Codes',
       description: 'The secrets and systems for scalable wealth. Unlock the secret principles and strategies used by the world\'s most successful entrepreneurs.',
       category: 'Business Strategy',
       icon: 'fas fa-key',
-      color: 'from-blue-400 to-blue-600'
+      color: 'from-blue-400 to-blue-600',
+      orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+billionaire+codes',
+      image: '/images/book-billionaire-codes.jpg'
     },
     {
       title: 'Becoming a Billionaire Land Banker',
       description: 'Strategic playbook for real estate success. A comprehensive guide to building wealth through strategic land banking and real estate investments.',
       category: 'Real Estate',
       icon: 'fas fa-home',
-      color: 'from-green-400 to-green-600'
+      color: 'from-green-400 to-green-600',
+      orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+billionaire+land+banker',
+      image: '/images/book-land-banker.jpg'
     },
     {
       title: 'The Information Millionaire',
       description: 'How to monetize knowledge and digital opportunities. Master the art of leveraging information for wealth creation.',
       category: 'Digital Wealth',
       icon: 'fas fa-laptop',
-      color: 'from-purple-400 to-purple-600'
+      color: 'from-purple-400 to-purple-600',
+      orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+information+millionaire',
+      image: '/images/book-information-millionaire.jpg'
     },
     {
       title: 'Managing Family Finance',
       description: 'Financial wisdom for sustainable homes. Practical strategies for building and maintaining family wealth across generations.',
       category: 'Financial Planning',
       icon: 'fas fa-users',
-      color: 'from-pink-400 to-pink-600'
+      color: 'from-pink-400 to-pink-600',
+      orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+managing+family+finance',
+      image: '/images/book-family-finance.jpg'
+    },
+    {
+      title: 'Real Estate Investment Mastery',
+      description: 'Complete guide to building wealth through real estate. Learn proven strategies for successful property investment and portfolio building.',
+      category: 'Real Estate',
+      icon: 'fas fa-building',
+      color: 'from-indigo-400 to-indigo-600',
+      orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+real+estate+investment',
+      image: '/images/book-real-estate-mastery.jpg'
     }
   ]
 
@@ -113,36 +132,45 @@ export default function Books() {
         </div>
 
         {/* Featured Books */}
-        <div className={`grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 mb-12 sm:mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+        <div className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           {featuredBooks.map((book, index) => (
             <div
               key={book.title}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="p-4 sm:p-6">
-                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${book.color} rounded-full flex items-center justify-center mb-3 sm:mb-4`}>
-                  <i className={`${book.icon} text-white text-base sm:text-xl`}></i>
+              {/* Book Cover Placeholder */}
+              <div className={`w-full h-48 bg-gradient-to-br ${book.color} flex items-center justify-center relative`}>
+                <div className="absolute inset-0 bg-black/10"></div>
+                <div className="w-24 h-32 bg-white/20 rounded-lg shadow-lg flex items-center justify-center z-10">
+                  <i className={`${book.icon} text-white text-4xl`}></i>
                 </div>
-                
+              </div>
+              
+              <div className="p-4 sm:p-6">
                 <div className="mb-2 sm:mb-3">
-                  <span className="text-xs font-semibold text-sky-blue uppercase tracking-wide">
+                  <span className="text-xs font-semibold text-red-600 uppercase tracking-wide">
                     {book.category}
                   </span>
                 </div>
                 
-                <h3 className="text-lg sm:text-xl font-bold text-dark-blue mb-2 sm:mb-3">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
                   {book.title}
                 </h3>
                 
-                <p className="text-xs sm:text-sm text-text-dark leading-relaxed mb-3 sm:mb-4">
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4 sm:mb-5">
                   {book.description}
                 </p>
                 
-                <button className="w-full btn-primary text-sm">
+                <a
+                  href={book.orderLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center text-sm sm:text-base"
+                >
                   <i className="fas fa-shopping-cart mr-2"></i>
-                  Get Book
-                </button>
+                  Order Now
+                </a>
               </div>
             </div>
           ))}
@@ -228,14 +256,22 @@ export default function Books() {
               Get access to Dr. Stephen Akintayo's complete library of wealth-building and real estate investment books
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
-              <button className="bg-white text-dark-blue hover:bg-light-blue font-semibold py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base w-full sm:w-auto">
+              <a
+                href="/store"
+                className="bg-white text-dark-blue hover:bg-light-blue font-semibold py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base w-full sm:w-auto text-center"
+              >
                 <i className="fas fa-book mr-2"></i>
                 Explore All Books
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-dark-blue font-semibold py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base w-full sm:w-auto">
-                <i className="fas fa-users mr-2"></i>
-                Join the Mentorship Community
-              </button>
+              </a>
+              <a
+                href="https://www.amazon.com/s?k=stephen+akintayo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-white text-white hover:bg-white hover:text-dark-blue font-semibold py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base w-full sm:w-auto text-center"
+              >
+                <i className="fas fa-shopping-bag mr-2"></i>
+                Shop on Amazon
+              </a>
             </div>
           </div>
         </div>

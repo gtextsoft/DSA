@@ -11,6 +11,7 @@ export default function AboutLargeQuote() {
           src="/images/stephen.png" 
           alt="Conference" 
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/70"></div>

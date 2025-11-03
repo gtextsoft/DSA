@@ -55,6 +55,7 @@ export default function OfferingsSection() {
                   src={offering.image}
                   alt={offering.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>

@@ -2,17 +2,17 @@
 
 export default function AboutIntroduction() {
   return (
-    <section className="bg-white py-16 sm:py-20 md:py-24">
-      <div className="container-custom">
-        <div className="max-w-4xl mx-auto space-y-8">
+    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="container-custom px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
           {/* Opening Quote */}
-          <div className="space-y-4 sm:space-y-6">
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-black leading-tight sm:leading-relaxed">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black text-black leading-[1.2] sm:leading-tight md:leading-relaxed px-2 sm:px-0">
               <span className="text-red-600">"</span>I work with small companies and Fortune 500 companies to grow investments 
               by finding overlooked opportunities and customizing the investment process to be more effective.<span className="text-red-600">"</span>
             </p>
             
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed px-2 sm:px-0">
               Dr. Stephen Akintayo has worked with companies like Google, Microsoft, IBM, and various Fortune 500 companies to 
               transform their investment strategies and wealth-building approaches. He is a New York Times bestselling author, 
               international speaker, and social media expert with over 1 million followers across all platforms. As the founder 
@@ -22,7 +22,7 @@ export default function AboutIntroduction() {
           </div>
 
           {/* Supporting Content */}
-          <div className="space-y-6 text-base sm:text-lg leading-relaxed text-gray-800">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-lg leading-relaxed text-gray-800 px-2 sm:px-0">
             <p>
               His journey from humble beginnings to becoming a Forbes Best of Africa Leading Investment Coach and Real Estate 
               Mogul is a testament to his unwavering commitment to excellence, integrity, and service to humanity. Through decades 

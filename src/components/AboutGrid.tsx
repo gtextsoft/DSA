@@ -62,18 +62,18 @@ export default function AboutGrid() {
   ]
 
   return (
-    <section className="bg-white py-16 sm:py-20 md:py-24">
-      <div className="container-custom">
+    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="container-custom px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black mb-6 uppercase tracking-tight">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-4 sm:mb-5 md:mb-6 uppercase tracking-tight px-2">
             THE AKINTAYO
-            <span className="block text-red-600 border-b-4 border-red-600 inline-block pb-2 mt-2">
+            <span className="block text-red-600 border-b-2 md:border-b-4 border-red-600 inline-block pb-1 sm:pb-2 mt-1 sm:mt-2">
               MOVEMENT
             </span>
           </h2>
           
-          <div className="max-w-4xl mx-auto space-y-6 text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed">
+          <div className="max-w-4xl mx-auto space-y-4 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed px-2 sm:px-4">
             <p>
               The Akintayo Movement originated from Dr. Stephen Akintayo's bestselling books and investment philosophy. 
               The movement has grown into a global phenomenon featuring investment conferences, wealth-building programs, 
@@ -87,15 +87,15 @@ export default function AboutGrid() {
         </div>
 
         {/* Grid of Facets */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12">
           {facets.map((facet, index) => (
             <Link
               key={index}
               href={facet.href}
-              className="group bg-white border-2 border-gray-200 hover:border-red-600 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105"
+              className="group bg-white border-2 border-gray-200 hover:border-red-600 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] sm:hover:scale-105"
             >
               {/* Image */}
-              <div className="relative w-full h-48 sm:h-64 overflow-hidden">
+              <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden">
                 <Image 
                   src={facet.image}
                   alt={facet.title}
@@ -106,14 +106,14 @@ export default function AboutGrid() {
               </div>
               
               {/* Content */}
-              <div className="p-6 space-y-4">
-                <h3 className="text-lg sm:text-xl font-black text-black uppercase tracking-tight leading-tight">
+              <div className="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4">
+                <h3 className="text-base sm:text-lg md:text-xl font-black text-black uppercase tracking-tight leading-[1.2] sm:leading-tight">
                   {facet.title}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed line-clamp-4">
                   {facet.description}
                 </p>
-                <div className="text-red-600 font-bold text-sm uppercase tracking-wider group-hover:text-red-700">
+                <div className="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wider group-hover:text-red-700">
                   LEARN MORE →
                 </div>
               </div>

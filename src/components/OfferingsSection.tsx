@@ -7,33 +7,33 @@ export default function OfferingsSection() {
   const offerings = [
     {
       title: 'EVENTS',
-      subtitle: '10X',
+      subtitle: 'BGC',
       description: 'Join Dr. Stephen Akintayo at exclusive investment conferences and masterclasses',
-      image: '/images/stephen.png',
+      image: '/images/bgc261.jpg',
       href: '/events',
       bgColor: 'bg-gray-900'
     },
     {
       title: 'PODCAST',
-      subtitle: '10X',
+      subtitle: 'BGC',
       description: 'Listen to weekly episodes featuring investment strategies and success stories',
-      image: '/images/stephen.png',
+      image: '/images/bgc262.jpg',
       href: '/media',
       bgColor: 'bg-gray-800'
     },
     {
       title: 'TRAINING',
-      subtitle: '10X',
+      subtitle: 'BGC',
       description: 'Comprehensive investment and wealth-building training programs',
-      image: '/images/stephen.png',
+      image: '/images/bgc261.jpg',
       href: '/coaching',
       bgColor: 'bg-gray-900'
     },
     {
       title: 'STUDIOS',
-      subtitle: '10X',
+      subtitle: 'BGC',
       description: 'Exclusive content and behind-the-scenes access to Dr. Akintayo\'s world',
-      image: '/images/stephen.png',
+      image: '/images/bgc262.jpg',
       href: '/media',
       bgColor: 'bg-black'
     }
@@ -63,7 +63,7 @@ export default function OfferingsSection() {
               
               {/* Content Overlay */}
               <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                {/* 10X Badge */}
+                {/* BGC Badge */}
                 <div className="text-6xl sm:text-7xl font-black text-white/20 uppercase leading-none">
                   {offering.subtitle}
                 </div>

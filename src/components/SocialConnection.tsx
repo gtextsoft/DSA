@@ -63,7 +63,7 @@ export default function SocialConnection() {
           <div className="space-y-6 sm:space-y-8 order-1 lg:order-2">
             <div className="space-y-6">
               <p className="text-white/90 text-base sm:text-lg leading-relaxed max-w-2xl">
-                Everyday I spend several hours across all of my platforms to meet as many of you as I can and share strategies, connections and education for how to grow your business, increase your income, boost your sales, hire the right people and 10X your life.
+                Everyday I spend several hours across all of my platforms to meet as many of you as I can and share strategies, connections and education for how to grow your business, increase your income, boost your sales, hire the right people and BGC your life.
               </p>
             </div>
 

@@ -11,47 +11,47 @@ export default function TestimonialsSection() {
     {
       name: 'Kevin Harris',
       quote: 'Dr. Stephen Akintayo is teaching us to take the game to the next level. His investment strategies are unmatched.',
-      image: '/images/stephen.png'
+      image: '/images/bgc261.jpg'
     },
     {
       name: 'Jorge Masvidal',
       quote: 'Everybody wants to learn from the best. Dr. Akintayo shows us how to achieve financial freedom.',
-      image: '/images/stephen.png'
+      image: '/images/bgc262.jpg'
     },
     {
       name: 'Jon Taffer',
       quote: 'There\'s nothing I wouldn\'t do to support Dr. Akintayo. He\'s transformed countless lives through his mentorship.',
-      image: '/images/stephen.png'
+      image: '/images/bgc261.jpg'
     },
     {
       name: 'Udonis Haslem',
-      quote: 'Really appreciate Dr. Akintayo bringing people together and being a 10X example.',
-      image: '/images/stephen.png'
+      quote: 'Really appreciate Dr. Akintayo bringing people together and being a BGC example.',
+      image: '/images/bgc262.jpg'
     },
     {
       name: 'Danelle Delgado',
       quote: 'Dr. Stephen Akintayo changed my life forever through his investment coaching.',
-      image: '/images/stephen.png'
+      image: '/images/bgc261.jpg'
     },
     {
       name: 'Ricardo Allen',
       quote: 'Dr. Akintayo shows us how to think bigger and go bigger in wealth building.',
-      image: '/images/stephen.png'
+      image: '/images/bgc262.jpg'
     },
     {
       name: 'Tim Grover',
       quote: 'Dr. Akintayo is never satisfied, always looking for the next level of success.',
-      image: '/images/stephen.png'
+      image: '/images/bgc261.jpg'
     },
     {
       name: 'Usher Raymond',
       quote: 'Dr. Akintayo represents the future of investment coaching.',
-      image: '/images/stephen.png'
+      image: '/images/bgc262.jpg'
     },
     {
       name: 'Mayweather',
-      quote: 'Many different leaders have been part of Dr. Akintayo\'s 10X movement.',
-      image: '/images/stephen.png'
+      quote: 'Many different leaders have been part of Dr. Akintayo\'s BGC movement.',
+      image: '/images/bgc261.jpg'
     }
   ]
 

@@ -858,14 +858,11 @@ video {
 .hidden {
   display: none;
 }
-.aspect-\[3\/4\] {
-  aspect-ratio: 3/4;
+.aspect-\[2\/3\] {
+  aspect-ratio: 2/3;
 }
 .aspect-video {
   aspect-ratio: 16 / 9;
-}
-.aspect-\[2\/3\] {
-  aspect-ratio: 2/3;
 }
 .h-0\.5 {
   height: 0.125rem;

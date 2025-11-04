@@ -15,10 +15,10 @@ export default function SocialConnection() {
 
   return (
     <section className="relative bg-black py-16 sm:py-20 md:py-24 overflow-hidden">
-      {/* Background 10X Graphic */}
+      {/* Background BGC Graphic */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="text-[20rem] sm:text-[30rem] font-black text-white/5 leading-none uppercase">
-          10X
+          BGC
         </div>
       </div>
 
@@ -30,7 +30,6 @@ export default function SocialConnection() {
               {/* Mobile Screen */}
               <div className="bg-black rounded-xl sm:rounded-2xl overflow-hidden">
                 <div className="bg-gray-800 p-3 sm:p-4 border-b border-gray-700">
-                  <div className="text-white text-xs sm:text-sm font-bold">10X TALKS</div>
                   <div className="text-white/60 text-[10px] sm:text-xs mt-1">IF YOU'RE NOT FIRST YOU'RE LAST</div>
                 </div>
                 <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
@@ -63,13 +62,6 @@ export default function SocialConnection() {
           {/* Right Side - Content */}
           <div className="space-y-6 sm:space-y-8 order-1 lg:order-2">
             <div className="space-y-6">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">
-                LET'S CONNECT ON
-                <span className="block text-red-600 border-b-4 border-red-600 pb-2 mt-2">
-                  SOCIAL MEDIA
-                </span>
-              </h2>
-              
               <p className="text-white/90 text-base sm:text-lg leading-relaxed max-w-2xl">
                 Everyday I spend several hours across all of my platforms to meet as many of you as I can and share strategies, connections and education for how to grow your business, increase your income, boost your sales, hire the right people and 10X your life.
               </p>

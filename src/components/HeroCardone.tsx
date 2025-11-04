@@ -22,15 +22,15 @@ export default function HeroCardone() {
 
   return (
     <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0">
-        <Image 
-          src="/images/stephen.png" 
-          alt="Dr. Stephen Akintayo" 
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
+        <video 
+          src="/video/DSA profile.mp4" 
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>

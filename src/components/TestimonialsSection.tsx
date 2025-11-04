@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import BooksSection from './BooksSection'
 
 export default function TestimonialsSection() {
@@ -96,34 +95,14 @@ export default function TestimonialsSection() {
                   key={index}
                   className="w-full flex-shrink-0"
                 >
-                  <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 px-4">
-                    {/* Portrait Image */}
-                    <div className="relative w-full md:w-1/2 h-[400px] sm:h-[450px] md:h-[500px] overflow-hidden">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
-                        style={{
-                          position: 'absolute',
-                          left: 0,
-                          top: 0,
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
-                          objectPosition: 'center top'
-                        }}
-                      />
-                    </div>
-                    
+                  <div className="flex items-center justify-center px-4">
                     {/* Quote and Name */}
-                    <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
-                      <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
+                    <div className="w-full max-w-4xl text-center space-y-6 py-8">
+                      <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-relaxed font-medium italic">
                         "{testimonial.quote}"
                       </p>
                       <p className="text-white font-bold text-lg sm:text-xl md:text-2xl uppercase tracking-wider">
-                        {testimonial.name}
+                        — {testimonial.name}
                       </p>
                     </div>
                   </div>

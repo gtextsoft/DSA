@@ -12,7 +12,8 @@ export default function BooksSection() {
       orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+billionaire+habits',
       coverColor: 'from-yellow-400 to-yellow-600',
       accentColor: 'yellow',
-      gradient: 'bg-gradient-to-br'
+      gradient: 'bg-gradient-to-br',
+      image: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1618844694i/57783562.jpg'
     },
     {
       title: 'Billionaire Codes',
@@ -20,7 +21,8 @@ export default function BooksSection() {
       orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+billionaire+codes',
       coverColor: 'from-blue-500 to-blue-700',
       accentColor: 'blue',
-      gradient: 'bg-gradient-to-br'
+      gradient: 'bg-gradient-to-br',
+      image: 'https://m.media-amazon.com/images/I/61Z5k8t+j1L._AC_UF1000,1000_QL80_.jpg'
     },
     {
       title: 'Becoming a Billionaire Land Banker',
@@ -28,7 +30,8 @@ export default function BooksSection() {
       orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+billionaire+land+banker',
       coverColor: 'from-green-500 to-green-700',
       accentColor: 'green',
-      gradient: 'bg-gradient-to-br'
+      gradient: 'bg-gradient-to-br',
+      image: 'https://m.media-amazon.com/images/I/61M2130f5EL._AC_UF1000,1000_QL80_.jpg'
     },
     {
       title: 'The Information Millionaire',
@@ -36,7 +39,8 @@ export default function BooksSection() {
       orderLink: 'https://www.amazon.com/s?k=stephen+akintayo+information+millionaire',
       coverColor: 'from-purple-500 to-purple-700',
       accentColor: 'purple',
-      gradient: 'bg-gradient-to-br'
+      gradient: 'bg-gradient-to-br',
+      image: 'https://m.media-amazon.com/images/I/61mGRSkSXyL._AC_SX148_SY213_QL70_.jpg'
     }
   ]
 
@@ -83,10 +87,23 @@ export default function BooksSection() {
               >
                 <div className="flex flex-col h-full bg-gray-900 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/20 hover:-translate-y-2">
                   {/* Book Cover */}
-                  <div className={`relative ${book.gradient} ${book.coverColor} aspect-[3/4] flex flex-col justify-between p-6 sm:p-8 overflow-hidden`}>
+                  <div className={`relative ${!book.image ? `${book.gradient} ${book.coverColor}` : ''} aspect-[2/3] flex flex-col justify-between p-6 sm:p-8 overflow-hidden`}>
+                    {/* Book Image */}
+                    {book.image && (
+                      <img
+                        src={book.image}
+                        alt={book.title}
+                        className="absolute inset-0 w-full h-full object-contain"
+                      />
+                    )}
+                    
                     {/* Decorative Elements */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-black/20 rounded-full -ml-12 -mb-12 blur-xl"></div>
+                    {!book.image && (
+                      <>
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-black/20 rounded-full -ml-12 -mb-12 blur-xl"></div>
+                      </>
+                    )}
                     
                     {/* Book Title */}
                     <div className="relative z-10 flex-1 flex flex-col justify-center">

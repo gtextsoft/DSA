@@ -56,9 +56,4 @@ node_modules/
 
 # Build directories
 dist/
-build/
-
-# Large video files
-public/video/*.mp4
-public/video/*.mov
-public/video/*.avi 
+build/ 

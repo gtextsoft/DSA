@@ -8,7 +8,7 @@ export default function SocialConnection() {
     { icon: 'fab fa-instagram', href: 'https://instagram.com/stephenakintayo', label: 'Instagram', color: 'text-pink-500' },
     { icon: 'fab fa-facebook', href: 'https://facebook.com/stephenakintayo', label: 'Facebook', color: 'text-blue-600' },
     { icon: 'fab fa-tiktok', href: 'https://tiktok.com/@stephenakintayo', label: 'TikTok', color: 'text-white' },
-    { icon: 'fab fa-snapchat', href: 'https://snapchat.com/add/stephenakintayo', label: 'Snapchat', color: 'text-yellow-400' },
+    { icon: 'fab fa-spotify', href: 'https://open.spotify.com/show/1OBuNEZ0NQWYG9g5fqhEG9?si=eaf1020392804fe4', label: 'Spotify', color: 'text-green-500' },
     { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/stephenakintayo', label: 'LinkedIn', color: 'text-blue-500' },
     { icon: 'fab fa-twitter', href: 'https://twitter.com/stephenakintayo', label: 'X (Twitter)', color: 'text-white' },
   ]

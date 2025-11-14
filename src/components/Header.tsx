@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -39,11 +40,31 @@ export default function Header() {
 
   const navItems = [
     { name: 'About', href: '/about' },
-    { name: 'Store', href: '/store' },
+    { name: 'Store', href: 'https://stephenakintayouniversity.com/products' },
     { name: 'Events', href: '/events' },
     { name: 'Foundation', href: '/foundation' },
-    { name: 'Contact', href: '/contact' },
   ]
+
+  const contactOptions = [
+    { name: 'Book a Speaking Engagement', href: '/contact?type=event' },
+    { name: 'Book a One-on-One Consultation', href: '/contact?type=session' },
+    { name: 'General Inquiry', href: '/contact' },
+  ]
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement
+      if (!target.closest('.contact-dropdown')) {
+        setIsContactDropdownOpen(false)
+      }
+    }
+
+    if (isContactDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isContactDropdownOpen])
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -95,10 +116,42 @@ export default function Header() {
                     ? 'text-red-600'
                     : 'text-white hover:text-red-600'
                 }`}
+                {...(item.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
               >
                 {item.name}
               </Link>
             ))}
+            
+            {/* Contact Dropdown */}
+            <div className="relative contact-dropdown">
+              <button
+                onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}
+                className={`text-sm xl:text-base font-semibold transition-colors duration-300 whitespace-nowrap uppercase tracking-wider flex items-center gap-1 ${
+                  pathname === '/contact'
+                    ? 'text-red-600'
+                    : 'text-white hover:text-red-600'
+                }`}
+              >
+                Contact
+                <i className={`fas fa-chevron-down text-xs transition-transform duration-300 ${isContactDropdownOpen ? 'rotate-180' : ''}`}></i>
+              </button>
+              
+              {isContactDropdownOpen && (
+                <div className="absolute top-full right-0 mt-2 w-64 bg-black border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50">
+                  {contactOptions.map((option, index) => (
+                    <Link
+                      key={index}
+                      href={option.href}
+                      className="block px-4 py-3 text-sm text-white hover:bg-gray-900 hover:text-red-600 transition-colors duration-300 border-b border-white/5 last:border-b-0"
+                      onClick={() => setIsContactDropdownOpen(false)}
+                    >
+                      {option.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <button className="text-white hover:text-red-600 transition-colors">
               <i className="fas fa-search text-xl"></i>
             </button>
@@ -122,7 +175,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-[500px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'
+          isMenuOpen ? 'max-h-[600px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'
         }`}>
           <nav className="bg-black border-t border-white/10 py-3">
             {navItems.map((item) => (
@@ -135,10 +188,44 @@ export default function Header() {
                     : 'text-white hover:text-red-600'
                 }`}
                 onClick={() => setIsMenuOpen(false)}
+                {...(item.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
               >
                 {item.name}
               </Link>
             ))}
+            
+            {/* Mobile Contact Dropdown */}
+            <div className="contact-dropdown">
+              <button
+                onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}
+                className={`w-full flex items-center justify-between py-3 px-4 hover:bg-gray-900 transition-colors duration-300 uppercase tracking-wider ${
+                  pathname === '/contact'
+                    ? 'text-red-600 font-bold bg-gray-900'
+                    : 'text-white hover:text-red-600'
+                }`}
+              >
+                Contact
+                <i className={`fas fa-chevron-down text-xs transition-transform duration-300 ${isContactDropdownOpen ? 'rotate-180' : ''}`}></i>
+              </button>
+              
+              <div className={`overflow-hidden transition-all duration-300 ${
+                isContactDropdownOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                {contactOptions.map((option, index) => (
+                  <Link
+                    key={index}
+                    href={option.href}
+                    className="block py-2.5 px-8 text-sm text-white/80 hover:bg-gray-900 hover:text-red-600 transition-colors duration-300"
+                    onClick={() => {
+                      setIsMenuOpen(false)
+                      setIsContactDropdownOpen(false)
+                    }}
+                  >
+                    {option.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </nav>
         </div>
       </div>

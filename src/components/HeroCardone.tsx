@@ -24,19 +24,25 @@ export default function HeroCardone() {
     <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
-        <video 
-          src="/video/DSA profile.mp4" 
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
+        <iframe
+          src="https://www.youtube.com/embed/i45_4AMAx54?autoplay=1&loop=1&mute=1&playlist=i45_4AMAx54&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover',
+            pointerEvents: 'none'
+          }}
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+          frameBorder="0"
+          title="Background Video"
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       {/* Event Card Overlay - Responsive Positioning */}
-      <div className={`absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto md:left-12 lg:left-16 z-10 max-w-full sm:max-w-md transition-all duration-700 ${
+      <div className={`absolute bottom-1 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto md:left-12 lg:left-16 z-10 max-w-full sm:max-w-md transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}>
         <div className="bg-black/90 backdrop-blur-sm p-4 sm:p-6 rounded-lg border-2 border-white/20">

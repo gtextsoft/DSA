@@ -23,15 +23,13 @@ export default function HeroCardone() {
   return (
     <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
       {/* Background Video */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <iframe
           src="https://www.youtube.com/embed/i45_4AMAx54?autoplay=1&loop=1&mute=1&playlist=i45_4AMAx54&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute top-1/2 left-1/2 w-[177.77777778vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2"
           style={{ 
-            width: '100%', 
-            height: '100%', 
-            objectFit: 'cover',
-            pointerEvents: 'none'
+            pointerEvents: 'none',
+            border: 'none'
           }}
           allow="autoplay; encrypted-media"
           allowFullScreen

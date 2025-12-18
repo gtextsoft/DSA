@@ -43,6 +43,7 @@ export default function Header() {
     { name: 'Store', href: 'https://stephenakintayouniversity.com/products' },
     { name: 'Events', href: '/events' },
     { name: 'Foundation', href: '/foundation' },
+    { name: 'Book Mentorship', href: 'https://dsamentorship.vercel.app/', isHighlight: true },
   ]
 
   const contactOptions = [
@@ -75,7 +76,6 @@ export default function Header() {
         <div className="container-custom">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-0 text-white text-xs sm:text-sm">
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap">
-              <span className="hidden sm:inline">LOGIN:</span>
               <Link href="#" className="hover:text-red-600 transition-colors text-xs sm:text-sm whitespace-nowrap">SA INDIVIDUAL</Link>
               <Link href="#" className="hover:text-red-600 transition-colors text-xs sm:text-sm whitespace-nowrap">SA CORPORATE</Link>
               <Link href="#" className="hover:text-red-600 transition-colors text-xs sm:text-sm whitespace-nowrap hidden md:inline">AKINTAYO ON DEMAND</Link>
@@ -112,7 +112,9 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={`text-sm xl:text-base font-semibold transition-colors duration-300 whitespace-nowrap uppercase tracking-wider ${
-                  pathname === item.href
+                  item.isHighlight 
+                    ? 'bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md'
+                    : pathname === item.href
                     ? 'text-red-600'
                     : 'text-white hover:text-red-600'
                 }`}
@@ -183,7 +185,9 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={`block py-3 px-4 hover:bg-gray-900 transition-colors duration-300 uppercase tracking-wider ${
-                  pathname === item.href
+                  item.isHighlight
+                    ? 'bg-red-600 hover:bg-red-700 text-white font-bold mx-4 rounded-md text-center'
+                    : pathname === item.href
                     ? 'text-red-600 font-bold bg-gray-900'
                     : 'text-white hover:text-red-600'
                 }`}

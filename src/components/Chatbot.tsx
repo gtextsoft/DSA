@@ -259,10 +259,11 @@ export default function Chatbot() {
             setCurrentStep('greeting')
             setUserData({ name: '', phone: '', email: '', issue: '' })
           }}
-          className="text-white hover:text-gray-200 transition-colors"
+          className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 text-white transition-all duration-200 hover:rotate-90"
           aria-label="Close chatbot"
+          title="Close chat"
         >
-          <i className="fas fa-times text-xl"></i>
+          <i className="fas fa-times text-lg"></i>
         </button>
       </div>
 

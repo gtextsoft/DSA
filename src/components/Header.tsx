@@ -37,7 +37,7 @@ export default function Header() {
 
   const navItems = [
     { name: 'About', href: '/about' },
-    { name: 'Store', href: 'https://stephenakintayouniversity.com/products' },
+    { name: 'Products', href: 'https://stephenakintayouniversity.com/products' },
     { name: 'Events', href: '/events' },
     { name: 'Foundation', href: 'https://stephenakintayofoundation.org' },
     { name: 'SACI Holdings', href: 'https://www.saciholding.com/' },

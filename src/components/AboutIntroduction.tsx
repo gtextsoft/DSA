@@ -1,42 +1,71 @@
 'use client'
 
-export default function AboutIntroduction() {
-  return (
-    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
-      <div className="container-custom px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
-          {/* Opening Quote */}
-          <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black text-black leading-[1.2] sm:leading-tight md:leading-relaxed px-2 sm:px-0">
-              <span className="text-red-600">"</span>I work with small companies and Fortune 500 companies to grow investments 
-              by finding overlooked opportunities and customizing the investment process to be more effective.<span className="text-red-600">"</span>
-            </p>
-            
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed px-2 sm:px-0">
-              Dr. Stephen Akintayo has worked with companies like Google, Microsoft, IBM, and various Fortune 500 companies to 
-              transform their investment strategies and wealth-building approaches. He is a New York Times bestselling author, 
-              international speaker, and social media expert with over 1 million followers across all platforms. As the founder 
-              of Gtext Holdings, a $200M investment firm, Dr. Akintayo has helped empower over 1 million individuals worldwide to 
-              achieve financial freedom and build lasting wealth.
-            </p>
-          </div>
+import { motion } from 'framer-motion'
 
-          {/* Supporting Content */}
-          <div className="space-y-4 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-lg leading-relaxed text-gray-800 px-2 sm:px-0">
-            <p>
-              His journey from humble beginnings to becoming a Forbes Best of Africa Leading Investment Coach and Real Estate 
-              Mogul is a testament to his unwavering commitment to excellence, integrity, and service to humanity. Through decades 
-              of experience in real estate, investment coaching, and business development, Dr. Akintayo has helped millions of 
-              individuals transform their financial lives and reach their full potential.
-            </p>
-            
-            <p>
-              His philosophy centers on the belief that wealth is a service to humanity and that everyone has the potential to 
-              achieve greatness. This core principle drives all his initiatives, from his businesses to his foundation, ensuring 
-              that every endeavor creates positive impact and lasting value.
-            </p>
-          </div>
-        </div>
+export default function AboutIntroduction() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  }
+
+  return (
+    <section className="bg-white py-24 sm:py-32 relative overflow-hidden">
+      <div className="container-custom">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto space-y-16"
+        >
+          {/* Opening Quote */}
+          <motion.div variants={itemVariants} className="relative">
+            <div className="absolute -top-10 -left-10 text-luxury-gold opacity-10">
+              <i className="fas fa-quote-left text-[140px]"></i>
+            </div>
+
+            <div className="relative z-10 space-y-8">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-deep-navy leading-tight">
+                "I work with small companies and <span className="text-gradient-gold non-italic font-sans font-black">FORTUNE 500</span> giants to grow investments by finding overlooked opportunities and customizing the process of building wealth."
+              </p>
+
+              <div className="flex items-center gap-4">
+                <span className="w-12 h-[1px] bg-luxury-gold"></span>
+                <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.3em] font-serif italic">The Mission</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Supporting Content Grid */}
+          <motion.div variants={itemVariants} className="grid md:grid-cols-2 gap-12 text-lg text-text-dark/80 leading-relaxed font-medium">
+            <div className="space-y-6">
+              <p>
+                Dr. Stephen Akintayo has partnered with global entities like <span className="text-deep-navy font-bold underline decoration-luxury-gold/30">Google, Microsoft, and IBM</span> to transform their investment landscapes. As the founder of Gtext Holdings, his visionary leadership has built a $200M empire.
+              </p>
+              <p>
+                His journey is a testament to the power of <span className="text-deep-navy font-bold">Billionaire Habits</span>—a framework he developed through decades of high-stakes real estate and investment mastery.
+              </p>
+            </div>
+            <div className="space-y-6 md:pt-12">
+              <p>
+                Beyond business, Dr. Akintayo's commitment to service is unparalleled. Through the MM2050 Foundation, he is dedicated to lifting millions out of poverty and creating a legacy of global impact.
+              </p>
+              <div className="p-8 border-l-2 border-luxury-gold/20 bg-luxury-gold/5 italic font-serif text-deep-navy">
+                "Wealth is not just a destination; it's a vehicle for transformation and service to humanity."
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

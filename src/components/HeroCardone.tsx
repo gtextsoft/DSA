@@ -3,9 +3,14 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function HeroCardone() {
   const [isVisible, setIsVisible] = useState(false)
+  const { scrollY } = useScroll()
+
+  const y1 = useTransform(scrollY, [0, 500], [0, 200])
+  const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
   useEffect(() => {
     setIsVisible(true)
@@ -16,83 +21,140 @@ export default function HeroCardone() {
     { icon: 'fab fa-instagram', href: 'https://instagram.com/stephenakintayo', label: 'Instagram' },
     { icon: 'fab fa-youtube', href: 'https://youtube.com/@stephenakintayo', label: 'YouTube' },
     { icon: 'fab fa-twitter', href: 'https://twitter.com/stephenakintayo', label: 'Twitter' },
-    { icon: 'fab fa-tiktok', href: 'https://tiktok.com/@stephenakintayo', label: 'TikTok' },
     { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/stephenakintayo', label: 'LinkedIn' },
   ]
 
   return (
-    <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
-      {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden bg-deep-navy">
+      {/* Background Cinematic Layer */}
+      <motion.div
+        style={{ y: y1 }}
+        className="absolute inset-0 w-full h-full overflow-hidden"
+      >
         <iframe
           src="https://www.youtube.com/embed/i45_4AMAx54?autoplay=1&loop=1&mute=1&playlist=i45_4AMAx54&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
-          className="absolute top-1/2 left-1/2 w-[177.77777778vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2"
-          style={{ 
+          className="absolute top-1/2 left-1/2 w-[177.77777778vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 scale-110"
+          style={{
             pointerEvents: 'none',
-            border: 'none'
+            border: 'none',
+            filter: 'grayscale(0.3) brightness(0.4)'
           }}
           allow="autoplay; encrypted-media"
           allowFullScreen
           frameBorder="0"
-          title="Background Video"
+          title="Cinematic Background"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-deep-navy/40 via-transparent to-deep-navy"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-deep-navy via-transparent to-transparent"></div>
+      </motion.div>
+
+      {/* Content Layer */}
+      <div className="relative z-10 container-custom h-full flex flex-col justify-center pt-20">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="max-w-4xl"
+        >
+          <div className="flex items-center gap-4 mb-6">
+            <span className="w-12 h-[1px] bg-luxury-gold"></span>
+            <span className="text-luxury-gold text-xs sm:text-sm font-bold uppercase tracking-[0.3em]">Forbes Best of Africa</span>
+          </div>
+
+          <h1 className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-8 italic font-serif">
+            DR. STEPHEN <br />
+            <span className="text-gradient-gold non-italic font-sans">AKINTAYO</span>
+          </h1>
+
+          <p className="text-white/70 text-lg sm:text-xl md:text-2xl max-w-2xl mb-12 font-medium leading-relaxed">
+            Chairman & CEO of Gtext Holdings. Private Equity Fund Manager, Real Estate Mogul & Global Investment Coach.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-6">
+            <Link
+              href="/events"
+              className="btn-luxury text-center"
+            >
+              Secure Your Vision
+            </Link>
+            <Link
+              href="/about"
+              className="btn-outline-gold text-center"
+            >
+              The Legacy
+            </Link>
+          </div>
+        </motion.div>
       </div>
 
-      {/* Event Card Overlay - Responsive Positioning */}
-      <div className={`absolute bottom-1 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto md:left-12 lg:left-16 z-10 max-w-full sm:max-w-md transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}>
-        <div className="bg-black/90 backdrop-blur-sm p-4 sm:p-6 rounded-lg border-2 border-white/20">
-          <div className="text-white/60 text-xs uppercase tracking-wider mb-3 sm:mb-4">NEXT EVENT</div>
-          
-          {/* Event Card */}
-          <div className="bg-gray-900/80 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4 flex gap-3 sm:gap-4 items-center">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded overflow-hidden">
-              <Image 
-                src="/images/stephen.png" 
-                alt="Event" 
-                width={80}
-                height={80}
-                className="object-cover w-full h-full"
+      {/* Floating Event Card - Bottom Right */}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="absolute bottom-20 right-4 sm:right-8 md:right-12 lg:right-16 z-20 hidden md:block"
+      >
+        <div className="glass-dark p-6 rounded-sm border-l-4 border-luxury-gold max-w-sm">
+          <div className="text-luxury-gold text-[10px] font-black uppercase tracking-[0.2em] mb-4">Upcoming Global Summit</div>
+          <div className="flex gap-4 items-center">
+            <div className="w-16 h-16 rounded-sm overflow-hidden bg-luxury-gold/20 relative group">
+              <Image
+                src="/images/stephen.png"
+                alt="Event"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
             </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-white font-bold text-sm sm:text-base md:text-lg mb-1 truncate">REAL ESTATE LIVE TRAINING</div>
-              <div className="text-white/80 text-xs sm:text-sm mb-1 sm:mb-2">22 NOV</div>
-              <div className="text-white/70 text-xs">Virtual Event</div>
-              <div className="text-white/70 text-xs">12:00 pm - 5:00 pm</div>
+            <div>
+              <div className="text-white font-bold text-sm mb-1 leading-tight">BUSINESS GROWTH CONFERENCE Lagos</div>
+              <div className="text-luxury-gold text-xs font-bold">28th Feb</div>
             </div>
           </div>
-
-          {/* Secure Your Seat Button */}
-          <Link 
-            href="/events" 
-            className="block w-full bg-red-600 hover:bg-red-700 text-white font-black py-2.5 sm:py-3 px-4 sm:px-6 rounded-md transition-all duration-300 text-center uppercase tracking-wider text-xs sm:text-sm"
+          <Link
+            href="https://businessgrowthconference.org/nigeria"
+            className="mt-6 block text-center py-3 bg-white text-deep-navy text-[10px] font-black uppercase tracking-widest hover:bg-luxury-gold transition-colors duration-300"
           >
-            SECURE YOUR SEAT
+            Claim Your Access
           </Link>
-
-          {/* Follow Us Section */}
-          <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-white/20">
-            <div className="text-white/80 text-xs uppercase tracking-wider mb-2 sm:mb-3">FOLLOW US</div>
-            <div className="flex gap-2 sm:gap-3 flex-wrap">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-7 h-7 sm:w-8 sm:h-8 bg-white/10 hover:bg-red-600 rounded-full flex items-center justify-center transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  <i className={`${social.icon} text-white text-xs`}></i>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Social Links Side Bar */}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col gap-6"
+      >
+        {socialLinks.map((social, index) => (
+          <a
+            key={index}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/40 hover:text-luxury-gold transition-all duration-300 transform hover:scale-125"
+            aria-label={social.label}
+          >
+            <i className={`${social.icon} text-lg`}></i>
+          </a>
+        ))}
+      </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        style={{ opacity }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4"
+      >
+        <span className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-bold">Scroll to Explore</span>
+        <div className="w-[1px] h-16 bg-gradient-to-b from-luxury-gold via-luxury-gold/50 to-transparent">
+          <motion.div
+            animate={{ y: [0, 40, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-full h-1/3 bg-white"
+          />
+        </div>
+      </motion.div>
     </section>
   )
 }

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,20 +18,16 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
       setIsScrolled(currentScrollY > 50)
-      
-      // Show header when at top or scrolling up, hide when scrolling down
+
       if (currentScrollY < 100) {
-        // Always show when near the top
         setIsVisible(true)
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down - hide header
         setIsVisible(false)
-        setIsMenuOpen(false) // Close mobile menu when hiding
+        setIsMenuOpen(false)
       } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show header
         setIsVisible(true)
       }
-      
+
       setLastScrollY(currentScrollY)
     }
 
@@ -42,7 +39,7 @@ export default function Header() {
     { name: 'About', href: '/about' },
     { name: 'Store', href: 'https://stephenakintayouniversity.com/products' },
     { name: 'Events', href: '/events' },
-    { name: 'Foundation', href: '/foundation' },
+    { name: 'Foundation', href: 'https://stephenakintayofoundation.org' },
     { name: 'Book Mentorship', href: 'https://dsamentorship.vercel.app/', isHighlight: true },
   ]
 
@@ -52,7 +49,6 @@ export default function Header() {
     { name: 'General Inquiry', href: '/contact' },
   ]
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement
@@ -68,171 +64,151 @@ export default function Header() {
   }, [isContactDropdownOpen])
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black/95 backdrop-blur-sm' : 'bg-black'
-    } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-      {/* Top Bar */}
-      <div className="bg-black border-b border-white/10 py-1.5">
-        <div className="container-custom">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-0 text-white text-xs sm:text-sm">
-            <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap">
-              <Link href="#" className="hover:text-red-600 transition-colors text-xs sm:text-sm whitespace-nowrap">SA INDIVIDUAL</Link>
-              <Link href="#" className="hover:text-red-600 transition-colors text-xs sm:text-sm whitespace-nowrap">SA CORPORATE</Link>
-              <Link href="#" className="hover:text-red-600 transition-colors text-xs sm:text-sm whitespace-nowrap hidden md:inline">AKINTAYO ON DEMAND</Link>
-            </div>
-            <div className="flex items-center gap-2">
-              <i className="fas fa-phone text-red-600 text-xs sm:text-sm"></i>
-              <span className="text-xs sm:text-sm">Call: (234) XXX-XXXX</span>
-            </div>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-deep-navy/95 backdrop-blur-lg shadow-2xl py-2' : 'bg-transparent py-4'
+      } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+
+      {/* Search Bar / Top Highlight (Optional) */}
+      <div className={`overflow-hidden transition-all duration-300 bg-luxury-gold/10 backdrop-blur-sm ${isScrolled ? 'h-0' : 'h-8'}`}>
+        <div className="container-custom flex items-center justify-between h-full">
+          <div className="flex items-center gap-6 text-[10px] uppercase tracking-[0.2em] font-bold text-white/70">
+            <span className="hover:text-luxury-gold cursor-pointer transition-colors">Global Investment Group</span>
+            <span className="hover:text-luxury-gold cursor-pointer transition-colors hidden md:block">Real Estate Mogul</span>
+          </div>
+          <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.1em] font-bold text-luxury-gold">
+            <i className="fas fa-crown"></i>
+            <span>Forbes Best of Africa</span>
           </div>
         </div>
       </div>
 
-      {/* Main Header */}
       <div className="container-custom">
-        <div className="flex items-center justify-between py-2.5">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 hover:opacity-90 transition-opacity duration-300">
-            <div className="relative w-24 h-12 sm:w-28 sm:h-14 md:w-32 md:h-16 flex-shrink-0">
-              <Image 
-                src="/images/SAL.png" 
-                alt="Stephen Akintayo Consulting Logo" 
+          <Link href="/" className="flex items-center group">
+            <div className="relative w-32 h-16 sm:w-40 sm:h-20 transition-transform duration-500 group-hover:scale-105">
+              <Image
+                src="/images/SAL.png"
+                alt="Stephen Akintayo Consulting"
                 fill
-                sizes="(max-width: 640px) 80px, (max-width: 768px) 112px, 128px"
-                className="object-contain"
+                className="object-contain filter brightness-0 invert"
                 priority
               />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm xl:text-base font-semibold transition-colors duration-300 whitespace-nowrap uppercase tracking-wider ${
-                  item.isHighlight 
-                    ? 'bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md'
-                    : pathname === item.href
-                    ? 'text-red-600'
-                    : 'text-white hover:text-red-600'
-                }`}
+                className={`group relative text-[11px] xl:text-[13px] font-bold uppercase tracking-[0.15em] transition-colors duration-300 ${item.isHighlight
+                  ? 'bg-luxury-gold hover:bg-gold-dark text-deep-navy px-6 py-3 rounded-sm shadow-[0_5px_15px_rgba(212,175,55,0.2)]'
+                  : pathname === item.href
+                    ? 'text-luxury-gold'
+                    : 'text-white hover:text-luxury-gold'
+                  }`}
                 {...(item.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
               >
                 {item.name}
+                {!item.isHighlight && (
+                  <span className={`absolute -bottom-1 left-0 w-0 h-[2px] bg-luxury-gold transition-all duration-300 group-hover:w-full ${pathname === item.href ? 'w-full' : ''}`}></span>
+                )}
               </Link>
             ))}
-            
+
             {/* Contact Dropdown */}
             <div className="relative contact-dropdown">
               <button
                 onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}
-                className={`text-sm xl:text-base font-semibold transition-colors duration-300 whitespace-nowrap uppercase tracking-wider flex items-center gap-1 ${
-                  pathname === '/contact'
-                    ? 'text-red-600'
-                    : 'text-white hover:text-red-600'
-                }`}
+                className={`text-[11px] xl:text-[13px] font-bold uppercase tracking-[0.15em] transition-colors duration-300 flex items-center gap-2 ${pathname === '/contact' ? 'text-luxury-gold' : 'text-white hover:text-luxury-gold'
+                  }`}
               >
                 Contact
-                <i className={`fas fa-chevron-down text-xs transition-transform duration-300 ${isContactDropdownOpen ? 'rotate-180' : ''}`}></i>
+                <i className={`fas fa-chevron-down text-[10px] transition-transform duration-500 ${isContactDropdownOpen ? 'rotate-180' : ''}`}></i>
               </button>
-              
-              {isContactDropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-64 bg-black border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50">
-                  {contactOptions.map((option, index) => (
-                    <Link
-                      key={index}
-                      href={option.href}
-                      className="block px-4 py-3 text-sm text-white hover:bg-gray-900 hover:text-red-600 transition-colors duration-300 border-b border-white/5 last:border-b-0"
-                      onClick={() => setIsContactDropdownOpen(false)}
-                    >
-                      {option.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
 
-            <button className="text-white hover:text-red-600 transition-colors">
-              <i className="fas fa-search text-xl"></i>
-            </button>
+              <AnimatePresence>
+                {isContactDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full right-0 mt-4 w-72 glass-dark rounded-sm overflow-hidden z-50 p-2"
+                  >
+                    {contactOptions.map((option, index) => (
+                      <Link
+                        key={index}
+                        href={option.href}
+                        className="block px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-white/80 hover:bg-luxury-gold hover:text-deep-navy transition-all duration-300 rounded-sm mb-1 last:mb-0"
+                        onClick={() => setIsContactDropdownOpen(false)}
+                      >
+                        {option.name}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="lg:hidden text-white p-1.5 hover:text-red-600 transition-colors duration-300 relative z-50 cursor-pointer"
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              setIsMenuOpen(!isMenuOpen)
-            }}
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
+            className="lg:hidden text-white flex flex-col items-center justify-center w-10 h-10 space-y-1.5 focus:outline-none"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-lg`}></i>
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-500 ${isMenuOpen ? 'rotate-45 translate-y-2 !bg-luxury-gold' : ''}`}></span>
+            <span className={`block w-4 h-0.5 bg-white transition-all duration-500 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-500 ${isMenuOpen ? '-rotate-45 -translate-y-2 !bg-luxury-gold' : ''}`}></span>
           </button>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-[600px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'
-        }`}>
-          <nav className="bg-black border-t border-white/10 py-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`block py-3 px-4 hover:bg-gray-900 transition-colors duration-300 uppercase tracking-wider ${
-                  item.isHighlight
-                    ? 'bg-red-600 hover:bg-red-700 text-white font-bold mx-4 rounded-md text-center'
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden glass-dark border-t border-white/5 overflow-hidden"
+          >
+            <nav className="container-custom py-8 flex flex-col space-y-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`block py-4 px-6 text-[11px] font-bold uppercase tracking-widest transition-all duration-300 rounded-sm ${item.isHighlight
+                    ? 'bg-luxury-gold text-deep-navy text-center'
                     : pathname === item.href
-                    ? 'text-red-600 font-bold bg-gray-900'
-                    : 'text-white hover:text-red-600'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-                {...(item.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
-              >
-                {item.name}
-              </Link>
-            ))}
-            
-            {/* Mobile Contact Dropdown */}
-            <div className="contact-dropdown">
-              <button
-                onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}
-                className={`w-full flex items-center justify-between py-3 px-4 hover:bg-gray-900 transition-colors duration-300 uppercase tracking-wider ${
-                  pathname === '/contact'
-                    ? 'text-red-600 font-bold bg-gray-900'
-                    : 'text-white hover:text-red-600'
-                }`}
-              >
-                Contact
-                <i className={`fas fa-chevron-down text-xs transition-transform duration-300 ${isContactDropdownOpen ? 'rotate-180' : ''}`}></i>
-              </button>
-              
-              <div className={`overflow-hidden transition-all duration-300 ${
-                isContactDropdownOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}>
+                      ? 'text-luxury-gold bg-white/5'
+                      : 'text-white hover:text-luxury-gold hover:bg-white/5'
+                    }`}
+                  onClick={() => setIsMenuOpen(false)}
+                  {...(item.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
+                >
+                  {item.name}
+                </Link>
+              ))}
+
+              <div className="pt-4 border-t border-white/10 mt-4">
+                <div className="px-6 mb-4 text-[10px] font-bold uppercase tracking-widest text-white/40">Contact Us</div>
                 {contactOptions.map((option, index) => (
                   <Link
                     key={index}
                     href={option.href}
-                    className="block py-2.5 px-8 text-sm text-white/80 hover:bg-gray-900 hover:text-red-600 transition-colors duration-300"
-                    onClick={() => {
-                      setIsMenuOpen(false)
-                      setIsContactDropdownOpen(false)
-                    }}
+                    className="block py-3 px-6 text-[10px] font-bold uppercase tracking-[0.15em] text-white/70 hover:text-luxury-gold transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     {option.name}
                   </Link>
                 ))}
               </div>
-            </div>
-          </nav>
-        </div>
-      </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 } 

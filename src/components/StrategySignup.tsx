@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export default function StrategySignup() {
   const [email, setEmail] = useState('')
@@ -9,55 +10,74 @@ export default function StrategySignup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Add your form submission logic here
     setTimeout(() => {
       setIsSubmitting(false)
       setEmail('')
-      alert('Thank you for subscribing!')
+      alert('Welcome to the Inner Circle. Thank you for subscribing!')
     }, 1000)
   }
 
   return (
-    <section className="bg-black border-t-4 border-red-600 py-16 sm:py-20">
-      <div className="container-custom">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-900 rounded-lg p-8 sm:p-12">
-            {/* Heading Section */}
-            <div className="text-center mb-8">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight mb-4">
-                SIGN UP TO GET{' '}
-                <span className="text-red-600 border-b-4 border-red-600 inline-block pb-2">
-                  DR. AKINTAYO'S
-                </span>
-                {' '}STRATEGY OF THE WEEK
+    <section className="bg-deep-navy py-24 sm:py-32 relative overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:40px_40px]"></div>
+      </div>
+
+      <div className="container-custom relative z-10">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto"
+        >
+          <div className="glass-dark border-luxury-gold/20 p-8 sm:p-16 text-center relative overflow-hidden">
+            {/* Corner Accents */}
+            <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-luxury-gold/30"></div>
+            <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-luxury-gold/30"></div>
+
+            <div className="relative z-10 mb-12">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <span className="w-8 h-[1px] bg-luxury-gold"></span>
+                <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.3em]">The Inner Circle</span>
+                <span className="w-8 h-[1px] bg-luxury-gold"></span>
+              </div>
+
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white font-serif italic mb-6">
+                Access the <span className="text-gradient-gold non-italic font-sans uppercase">Wealth Intelligence</span>
               </h2>
-              <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto">
-                Get exclusive investment strategies, market insights, and wealth-building tips delivered directly to your inbox.
+              <p className="text-white/60 text-lg max-w-2xl mx-auto">
+                Join 850,000+ others receiving weekly high-stakes investment strategies and masterclass insights directly from Dr. Stephen Akintayo.
               </p>
             </div>
 
-            {/* Form Section */}
             <div className="max-w-2xl mx-auto">
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 bg-white text-black py-3 px-4 sm:px-6 rounded-md font-semibold text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-red-600 w-full"
-                />
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+                <div className="flex-1 relative group">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your elite email address"
+                    required
+                    className="w-full bg-white/5 border border-white/10 text-white py-4 px-6 rounded-sm font-medium focus:outline-none focus:border-luxury-gold transition-all duration-300 placeholder:text-white/20"
+                  />
+                  <div className="absolute inset-0 bg-luxury-gold/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                </div>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-red-600 hover:bg-red-700 text-white font-black py-3 px-6 sm:px-8 rounded-md transition-all duration-300 uppercase tracking-wider whitespace-nowrap disabled:opacity-50 text-sm sm:text-base w-full sm:w-auto"
+                  className="btn-luxury whitespace-nowrap disabled:opacity-50 min-w-[200px]"
                 >
-                  {isSubmitting ? 'SUBSCRIBING...' : 'SUBSCRIBE NOW'}
+                  {isSubmitting ? 'Processing...' : 'Secure Access'}
                 </button>
               </form>
+              <p className="mt-6 text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold">
+                Privacy Guaranteed. Exclusive Content Only.
+              </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

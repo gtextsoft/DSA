@@ -1,46 +1,63 @@
 'use client'
 
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function AboutHero() {
   return (
-    <section className="relative w-full min-h-[85vh] sm:min-h-[90vh] md:min-h-[95vh] overflow-hidden mt-16 sm:mt-20 md:mt-24 lg:mt-28 bg-black">
-      <div className="container-custom px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center min-h-[85vh] sm:min-h-[90vh] md:min-h-[95vh] py-8 sm:py-12 lg:py-0">
-          {/* Image Section - Takes up more space */}
-          <div className="relative h-[45vh] sm:h-[50vh] md:h-[60vh] lg:h-[75vh] xl:h-[80vh] order-2 lg:order-1">
-            <div className="relative w-full h-full rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-2xl">
-              <Image 
-                src="/images/stephen.png" 
-                alt="Dr. Stephen Akintayo" 
+    <section className="relative w-full h-[90vh] overflow-hidden bg-deep-navy pt-20">
+      <div className="container-custom h-full flex items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="relative z-10 space-y-8"
+          >
+            <div className="flex items-center gap-4">
+              <span className="w-12 h-[1px] bg-luxury-gold"></span>
+              <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.3em]">The Visionary</span>
+            </div>
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-white font-serif italic leading-[0.9]">
+              Legacy of <br />
+              <span className="text-gradient-gold non-italic font-sans uppercase">A Giant</span>
+            </h1>
+            <p className="text-white/60 text-lg sm:text-xl max-w-xl leading-relaxed">
+              Dr. Stephen Akintayo is a Forbes-recognized leader, managing over $200M in assets. A pioneer in real estate and a mentor to millions worldwide.
+            </p>
+          </motion.div>
+
+          {/* Image Section */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2 }}
+            className="relative h-[60vh] lg:h-[80vh] w-full"
+          >
+            <div className="relative w-full h-full group overflow-hidden">
+              <Image
+                src="/images/stephen.png"
+                alt="Dr. Stephen Akintayo"
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-500"
+                className="object-cover object-top grayscale transition-all duration-1000 group-hover:grayscale-0"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              {/* Luxury Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-t from-deep-navy via-transparent to-transparent"></div>
+              <div className="absolute inset-0 border-[20px] border-white/5 pointer-events-none"></div>
             </div>
-          </div>
 
-          {/* Text Content Section */}
-          <div className="flex flex-col justify-center space-y-4 sm:space-y-6 lg:space-y-8 order-1 lg:order-2 px-2 sm:px-4 lg:px-0">
-            <div className="space-y-3 sm:space-y-4 lg:space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-white uppercase tracking-tight leading-[1.1] sm:leading-tight">
-                MEET DR. STEPHEN
-                <span className="block text-red-600 border-b-2 md:border-b-4 border-red-600 pb-1 sm:pb-2 mt-1 sm:mt-2">
-                  AKINTAYO
-                </span>
-              </h1>
-              
-              <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed font-medium max-w-full">
-                Nigerian businessman, Investment Fund Manager ($200M Assets Under Management), Real Estate Investor, 
-                Business author and Founder of Millionaires Mission 2050, Akintayo Ventures & Global Investment Group. 
-                Also author of 45+ best selling business books, creator of Akintayo University online education and 
-                investment conferences (the largest investment conferences in Africa.)
-              </p>
-            </div>
-          </div>
+            {/* Decorative Gold Frame */}
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 border-l border-b border-luxury-gold/30 -z-10"></div>
+            <div className="absolute -top-10 -right-10 w-40 h-40 border-r border-t border-luxury-gold/30 -z-10"></div>
+          </motion.div>
         </div>
+      </div>
+
+      {/* Background Text */}
+      <div className="absolute bottom-10 left-0 text-[20rem] font-black text-white/[0.02] leading-none pointer-events-none select-none font-serif italic">
+        VISION
       </div>
     </section>
   )

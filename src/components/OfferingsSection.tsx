@@ -2,40 +2,37 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function OfferingsSection() {
   const offerings = [
     {
-      title: 'EVENTS',
-      subtitle: 'BGC',
-      description: 'Join Dr. Stephen Akintayo at exclusive investment conferences and masterclasses',
+      title: 'GLOBAL EVENTS',
+      subtitle: 'Exclusive',
+      description: 'Join Dr. Stephen Akintayo at exclusive investment conferences and masterclasses worldwide.',
       image: '/images/bgc261.jpg',
       href: '/events',
-      bgColor: 'bg-gray-900'
     },
     {
-      title: 'PODCAST',
-      subtitle: 'BGC',
-      description: 'Listen to weekly episodes featuring investment strategies and success stories',
+      title: 'MEDIA KIT',
+      subtitle: 'Impact',
+      description: 'Access premium content, podcast episodes, and historical success stories.',
       image: '/images/bgc262.jpg',
       href: '/media',
-      bgColor: 'bg-gray-800'
     },
     {
-      title: 'TRAINING',
-      subtitle: 'BGC',
-      description: 'Comprehensive investment and wealth-building training programs',
+      title: 'SA UNIVERSITY',
+      subtitle: 'Mastery',
+      description: 'Comprehensive investment and wealth-building training programs tailored for the elite.',
       image: '/images/bgc261.jpg',
       href: 'https://stephenakintayouniversity.com/',
-      bgColor: 'bg-gray-900'
     },
     {
-      title: 'STORE',
-      subtitle: 'BGC',
-      description: 'Browse our collection of books, courses, and exclusive products',
+      title: 'SA STORE',
+      subtitle: 'Legacy',
+      description: 'Browse our collection of 45+ books, courses, and exclusive mentorship products.',
       image: '/images/bgc262.jpg',
       href: 'https://stephenakintayouniversity.com/products',
-      bgColor: 'bg-black',
       isStore: true
     }
   ]
@@ -46,107 +43,83 @@ export default function OfferingsSection() {
   ]
 
   return (
-    <section className="bg-black py-16 sm:py-20">
-      <div className="container-custom">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {offerings.map((offering, index) => {
-            // Special handling for STORE with dropdown
-            if (offering.isStore) {
-              return (
-                <div
-                  key={index}
-                  className="group relative bg-black rounded-lg overflow-visible hover:scale-105 transition-all duration-300 shadow-2xl"
-                >
-                  {/* Background Image */}
-                  <div className="relative w-full h-64 sm:h-80 rounded-lg overflow-hidden">
-                    <Image 
-                      src={offering.image}
-                      alt={offering.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                  </div>
-                  
-                  {/* Content Overlay */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-between rounded-lg">
-                    {/* BGC Badge */}
-                    <div className="text-6xl sm:text-7xl font-black text-white/20 uppercase leading-none">
-                      {offering.subtitle}
-                    </div>
-                    
-                    {/* Title and Description */}
-                    <div className="space-y-2">
-                      <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
-                        {offering.title}
-                      </h3>
-                      <p className="text-white/80 text-sm leading-relaxed">
-                        {offering.description}
-                      </p>
-                    </div>
-                  </div>
+    <section className="bg-deep-navy py-24 sm:py-32 relative">
+      <div className="container-custom relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <div className="inline-block px-6 py-2 border border-luxury-gold/30 rounded-full mb-6">
+            <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.3em]">Our Ecosystem</span>
+          </div>
+          <h2 className="text-4xl sm:text-6xl font-black text-white font-serif italic mb-6">
+            The World of <span className="text-gradient-gold non-italic font-sans uppercase"> Stephen Akintayo</span>
+          </h2>
+          <p className="text-white/60 max-w-2xl mx-auto text-lg">
+            Empowering the next generation of global leaders through high-stakes investment intelligence and real estate mastery.
+          </p>
+        </motion.div>
 
-                  {/* Dropdown Menu on Hover */}
-                  <div className="absolute top-full left-0 right-0 mt-2 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50">
-                    <div className="bg-black border border-white/10 rounded-lg shadow-2xl overflow-hidden">
-                      {storeOptions.map((option, optIndex) => (
-                        <Link
-                          key={optIndex}
-                          href={option.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block px-4 py-3 text-sm text-white hover:bg-gray-900 hover:text-red-600 transition-colors duration-300 border-b border-white/5 last:border-b-0"
-                        >
-                          {option.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )
-            }
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {offerings.map((offering, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group relative h-[450px] overflow-hidden"
+            >
+              <div className="absolute inset-0 transition-transform duration-1000 group-hover:scale-110">
+                <Image
+                  src={offering.image}
+                  alt={offering.title}
+                  fill
+                  className="object-cover opacity-40 group-hover:opacity-60 transition-opacity"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-deep-navy via-deep-navy/20 to-transparent"></div>
+              </div>
 
-            // Regular cards
-            return (
-              <Link 
-                key={index}
-                href={offering.href}
-                className={`group relative ${offering.bgColor} rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 shadow-2xl`}
-                {...(offering.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
-              >
-                {/* Background Image */}
-                <div className="relative w-full h-64 sm:h-80">
-                  <Image 
-                    src={offering.image}
-                    alt={offering.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                </div>
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                  {/* BGC Badge */}
-                  <div className="text-6xl sm:text-7xl font-black text-white/20 uppercase leading-none">
-                    {offering.subtitle}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <span className="text-luxury-gold text-[10px] uppercase tracking-[0.4em] font-bold mb-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                  {offering.subtitle}
+                </span>
+                <h3 className="text-2xl font-black text-white uppercase tracking-tighter mb-4">
+                  {offering.title}
+                </h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-6 line-clamp-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                  {offering.description}
+                </p>
+
+                {offering.isStore ? (
+                  <div className="flex flex-col gap-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                    {storeOptions.map((option, optIdx) => (
+                      <Link
+                        key={optIdx}
+                        href={option.href}
+                        target="_blank"
+                        className="text-[10px] font-bold text-white uppercase tracking-widest hover:text-luxury-gold py-2 border-b border-white/10"
+                      >
+                        {option.name}
+                      </Link>
+                    ))}
                   </div>
-                  
-                  {/* Title and Description */}
-                  <div className="space-y-2">
-                    <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
-                      {offering.title}
-                    </h3>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      {offering.description}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            )
-          })}
+                ) : (
+                  <Link
+                    href={offering.href}
+                    className="inline-flex items-center gap-2 text-luxury-gold text-xs font-bold uppercase tracking-widest transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-200"
+                  >
+                    Explore Now <i className="fas fa-arrow-right text-[10px] transition-transform group-hover:translate-x-2"></i>
+                  </Link>
+                )}
+              </div>
+
+              {/* Decorative Luxury Border on hover */}
+              <div className="absolute inset-0 border border-luxury-gold/0 group-hover:border-luxury-gold/30 transition-all duration-500 pointer-events-none m-4"></div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

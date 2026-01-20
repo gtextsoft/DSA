@@ -2,6 +2,14 @@
 const nextConfig = {
   // App directory is stable in Next.js 14, no experimental flag needed
   
+  // Static export configuration for cPanel deployment
+  output: 'export',
+  
+  // Disable image optimization for static export
+  images: {
+    unoptimized: true,
+  },
+  
   // Windows-specific optimizations for path length issues
   distDir: '.next',
   

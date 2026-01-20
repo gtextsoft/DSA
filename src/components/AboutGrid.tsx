@@ -2,122 +2,131 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function AboutGrid() {
   const facets = [
     {
-      title: 'Internationally Renowned Investment and Real Estate Expert',
-      description: 'Dr. Stephen Akintayo is recognized as the number-one investment trainer and real estate mogul in Africa. Voted one of the top Investment Influencers by Forbes, his strategies have transformed millions of lives.',
+      title: 'Global Investment Strategist',
+      description: 'Voted one of the top Investment Influencers by Forbes, his high-stakes strategies have redefined wealth-building for millions.',
       image: '/images/stephen.png',
       href: '/about'
     },
     {
-      title: 'Author of 45+ Sales and Business Books',
-      description: 'Bestselling author including multiple #1 bestsellers like "Investment Mastery," "Real Estate Wealth Building," and "The Millionaires Path." His books have sold millions of copies worldwide.',
+      title: 'Master of 45+ Bestsellers',
+      description: 'Bestselling author with multiple #1 hits globally. His works like "Investment Mastery" are the blueprint for financial independence.',
       image: '/images/stephen.png',
       href: '/store'
     },
     {
-      title: 'Creator of Akintayo University',
-      description: 'Premier online investment and wealth-building education platform with over 8,000 video segments. Serving over 850,000 individuals and Fortune 100 companies worldwide.',
+      title: 'Akintayo University',
+      description: 'The world\'s premier wealth education platform. Empowering over 850,000 elites and corporations with elite investment intelligence.',
       image: '/images/stephen.png',
       href: '/store'
     },
     {
-      title: 'A Dynamic, Highly Sought After, International Speaker, Coach and Consultant',
-      description: 'Dr. Akintayo speaks to audiences of hundreds of thousands worldwide, sharing investment strategies, wealth-building principles, and entrepreneurial insights on stages across Africa, Europe, and the Americas.',
+      title: 'Global Keynote Speaker',
+      description: 'Commanding stages across five continents. Dr. Akintayo shares his vision on sales, real estate, and the mindset of giants.',
       image: '/images/stephen.png',
       href: '/events'
     },
     {
-      title: 'An Incredibly Successful Entrepreneur',
-      description: 'Founder and CEO of Gtext Holdings, a $200M investment firm. Dr. Akintayo offers insights on sales, marketing, real estate investment, wealth building, and entrepreneurship through his global ventures.',
+      title: 'Gtext Holdings CEO',
+      description: 'At the helm of a $200M investment powerhouse. A visionary disrupting real estate, technology, and equity markets.',
       image: '/images/stephen.png',
       href: '/businesses'
     },
     {
-      title: 'Regular Commentator and Guest Appearing on Major Media Outlets',
-      description: 'Featured on CNN, BBC, CNBC Africa, and Forbes. Regular contributor to major publications and media outlets, sharing expert insights on investment, real estate, and wealth building.',
+      title: 'Media Authority',
+      description: 'A regular voice on CNN, BBC, and Forbes. Dr. Akintayo provides expert insights on the global economy and future markets.',
       image: '/images/stephen.png',
       href: '/media'
     },
     {
-      title: 'Real Estate Investor, Disrupter, Mogul and Founder of Gtext Holdings',
-      description: 'Dr. Akintayo owns and operates a private equity real estate firm with assets worth over $200 Million. He is one of the Top Crowdfunders in Africa, raising significant equity through innovative platforms.',
+      title: 'Real Estate Mogul',
+      description: 'Leading a private equity real estate portfolio worth over $200M. Africa\'s most transparent crowdfunding pioneer.',
       image: '/images/stephen.png',
       href: '/businesses'
     },
     {
-      title: 'Philanthropist and Believer in Giving Back',
-      description: 'Through the Millionaires Mission 2050 Foundation, Dr. Akintayo mentors underprivileged youth in financial literacy and entrepreneurship, creating opportunities for the next generation.',
+      title: 'Impact Philanthropy',
+      description: 'Through the MM2050 Foundation, he is architecting a future where every youth has the tools for financial dominance.',
       image: '/images/stephen.png',
       href: '/foundation'
     },
     {
-      title: 'International Social Media Influencer',
-      description: 'With over 1 million followers across all platforms, Dr. Akintayo uses his massive following to educate, inspire, and empower individuals worldwide. Voted one of the top Investment Influencers to watch.',
+      title: 'Digital Visionary',
+      description: 'Leading a community of 1 million+ high-performers. One of the world\'s most influential investment coaches to watch.',
       image: '/images/stephen.png',
       href: '/media'
     }
   ]
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
-      <div className="container-custom px-4 sm:px-6 lg:px-8">
+    <section className="bg-deep-navy py-24 sm:py-32 relative">
+      <div className="container-custom">
         {/* Section Title */}
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-4 sm:mb-5 md:mb-6 uppercase tracking-tight px-2">
-            THE AKINTAYO
-            <span className="block text-red-600 border-b-2 md:border-b-4 border-red-600 inline-block pb-1 sm:pb-2 mt-1 sm:mt-2">
-              MOVEMENT
-            </span>
-          </h2>
-          
-          <div className="max-w-4xl mx-auto space-y-4 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed px-2 sm:px-4">
-            <p>
-              The Akintayo Movement originated from Dr. Stephen Akintayo's bestselling books and investment philosophy. 
-              The movement has grown into a global phenomenon featuring investment conferences, wealth-building programs, 
-              and educational platforms that have empowered millions worldwide.
-            </p>
-            <p>
-              Learn more about the <Link href="/events" className="text-red-600 hover:text-red-700 font-bold underline">investment conferences</Link> and 
-              {' '}<Link href="/events" className="text-red-600 hover:text-red-700 font-bold underline">HERE!</Link>
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <span className="w-12 h-[1px] bg-luxury-gold"></span>
+            <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.3em]">The Movement</span>
+            <span className="w-12 h-[1px] bg-luxury-gold"></span>
           </div>
-        </div>
+          <h2 className="text-4xl sm:text-6xl font-black text-white font-serif italic mb-6">
+            Dimensions of <span className="text-gradient-gold non-italic font-sans uppercase">A Legacy</span>
+          </h2>
+          <p className="text-white/60 max-w-3xl mx-auto text-lg">
+            A comprehensive overview of the facets that make Dr. Stephen Akintayo a global force in investment, mentorship, and excellence.
+          </p>
+        </motion.div>
 
         {/* Grid of Facets */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {facets.map((facet, index) => (
-            <Link
+            <motion.div
               key={index}
-              href={facet.href}
-              className="group bg-white border-2 border-gray-200 hover:border-red-600 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] sm:hover:scale-105"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
             >
-              {/* Image */}
-              <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden">
-                <Image 
-                  src={facet.image}
-                  alt={facet.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              
-              {/* Content */}
-              <div className="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4">
-                <h3 className="text-base sm:text-lg md:text-xl font-black text-black uppercase tracking-tight leading-[1.2] sm:leading-tight">
-                  {facet.title}
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed line-clamp-4">
-                  {facet.description}
-                </p>
-                <div className="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wider group-hover:text-red-700">
-                  LEARN MORE →
+              <Link
+                href={facet.href}
+                className="group block relative h-full glass-dark bg-deep-navy/50 border border-luxury-gold/10 hover:border-luxury-gold transition-all duration-500 overflow-hidden"
+              >
+                {/* Image */}
+                <div className="relative w-full h-64 overflow-hidden">
+                  <Image
+                    src={facet.image}
+                    alt={facet.title}
+                    fill
+                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-deep-navy via-deep-navy/20 to-transparent"></div>
                 </div>
-              </div>
-            </Link>
+
+                {/* Content */}
+                <div className="p-8 space-y-4">
+                  <h3 className="text-xl font-black text-white uppercase tracking-tight font-serif italic group-hover:text-luxury-gold transition-colors">
+                    {facet.title}
+                  </h3>
+                  <p className="text-sm text-white/50 leading-relaxed line-clamp-3">
+                    {facet.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-luxury-gold text-[10px] font-bold uppercase tracking-widest pt-4 transform translate-x-0 group-hover:translate-x-2 transition-transform">
+                    Discover More <i className="fas fa-arrow-right"></i>
+                  </div>
+                </div>
+
+                {/* Decorative Accent */}
+                <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-luxury-gold/0 group-hover:border-luxury-gold/30 transition-all m-4"></div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

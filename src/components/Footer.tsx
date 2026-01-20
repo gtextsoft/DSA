@@ -2,63 +2,98 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const footerLinks = {
-    'LEARN MORE': [
-      { name: 'Akintayo University', href: '/store' },
+    'THE VISIONARY': [
+      { name: 'About the Legacy', href: '/about' },
+      { name: 'Media Kit', href: '/media' },
+      { name: 'Speaking Engagements', href: '/contact' },
+      { name: 'Foundation Impact', href: '/foundation' }
+    ],
+    'ECOSYSTEM': [
       { name: 'Gtext Holdings', href: '/businesses' },
-      { name: 'Licensee Program', href: '/contact' },
-      { name: 'Akintayo On-Demand', href: '/media' },
-      { name: 'Akintayo Ventures', href: '/businesses' }
+      { name: 'SA University', href: 'https://stephenakintayouniversity.com/' },
+      { name: 'Ventures & Equity', href: '/businesses' },
+      { name: 'Global Store', href: '/store' }
     ],
-    'COMPANY': [
-      { name: 'About', href: '/about' },
-      { name: 'Hire Dr. Akintayo', href: '/contact' },
-      { name: 'Careers', href: '/contact' }
-    ],
-    'SUPPORT': [
-      { name: 'Contact Us', href: '/contact' },
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Terms & Conditions', href: '#' },
-      { name: 'Careers', href: '/contact' },
-      { name: 'Free eBooks', href: '/store' },
-      { name: 'Free Books', href: '/store' }
+    'CLIENT CARE': [
+      { name: 'Contact Inquiry', href: '/contact' },
+      { name: 'Mentorship Access', href: '/contact' },
+      { name: 'Privacy Protocol', href: '#' },
+      { name: 'Terms of Excellence', href: '#' }
     ],
     'RESOURCES': [
-      { name: 'Quotes', href: '#' },
-      { name: 'Free eBooks', href: '/store' },
-      { name: 'Subscribe', href: '#' },
-      { name: 'Free Books', href: '/store' }
+      { name: 'Bestselling Books', href: '/store' },
+      { name: 'Market Intelligence', href: '#' },
+      { name: 'Daily Quotes', href: '#' },
+      { name: 'Free Resources', href: '/store' }
     ]
   }
 
-  const partnerLogos = [
-    { name: 'DR. STEPHEN AKINTAYO', href: '/' },
-    { name: 'SA AKINTAYO TV', href: '/media' },
-    { name: 'AKINTAYO ON-DEMAND', href: '/media' },
-    { name: 'GTEXT HOLDINGS', href: '/businesses' },
-    { name: 'MM2050 FOUNDATION', href: '/foundation' }
+  const socialLinks = [
+    { icon: 'fab fa-youtube', href: 'https://youtube.com/@stephenakintayo' },
+    { icon: 'fab fa-instagram', href: 'https://instagram.com/stephenakintayo' },
+    { icon: 'fab fa-facebook', href: 'https://facebook.com/stephenakintayo' },
+    { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/stephenakintayo' },
+    { icon: 'fab fa-twitter', href: 'https://twitter.com/stephenakintayo' }
   ]
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-deep-navy text-white relative overflow-hidden">
+      {/* Top Gradient Border */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-luxury-gold/50 to-transparent"></div>
+
       <div className="container-custom">
         {/* Main Footer Content */}
-        <div className="py-12 sm:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
-            {/* Footer Links */}
+        <div className="py-24 sm:py-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-8">
+            {/* Brand Section */}
+            <div className="lg:col-span-2 space-y-10">
+              <Link href="/" className="inline-block group">
+                <div className="relative w-48 h-24 transition-transform duration-500 group-hover:scale-105">
+                  <Image
+                    src="/images/SAL.png"
+                    alt="Stephen Akintayo Consulting"
+                    fill
+                    className="object-contain filter brightness-0 invert"
+                  />
+                </div>
+              </Link>
+              <p className="text-white/50 text-base max-w-sm leading-relaxed">
+                Empowering individuals and corporations worldwide through strategic investment coaching and real estate excellence. Voted Forbes Best of Africa Leading Investment Coach.
+              </p>
+              <div className="flex gap-6">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    className="text-white/30 hover:text-luxury-gold transition-colors text-xl"
+                  >
+                    <i className={social.icon}></i>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Links Sections */}
             {Object.entries(footerLinks).map(([category, links]) => (
-              <div key={category}>
-                <h4 className="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6 uppercase tracking-wider">{category}</h4>
-                <ul className="space-y-3">
+              <div key={category} className="space-y-8">
+                <h4 className="text-luxury-gold font-bold text-xs uppercase tracking-[0.3em] font-serif italic">{category}</h4>
+                <ul className="space-y-4">
                   {links.map((link, index) => (
                     <li key={index}>
                       <Link
                         href={link.href}
-                        className="text-white/70 hover:text-red-600 transition-colors duration-300 text-sm sm:text-base"
+                        className="text-white/40 hover:text-white transition-colors duration-300 text-sm font-bold tracking-wider"
                       >
                         {link.name}
                       </Link>
@@ -70,40 +105,27 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Logo Section */}
-        <div className="border-t border-white/10 py-6 sm:py-8">
-          <div className="flex justify-center mb-6 sm:mb-8">
-            <Link href="/" className="relative w-32 h-16 sm:w-40 sm:h-20 md:w-48 md:h-24 hover:opacity-90 transition-opacity duration-300">
-              <Image 
-                src="/images/SAL.png" 
-                alt="Stephen Akintayo Consulting Logo" 
-                fill
-                sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
-                className="object-contain"
-              />
-            </Link>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/5 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/30">
+            Copyright © {currentYear} Dr. Stephen Akintayo Global. All Rights Reserved.
           </div>
-          
-          {/* Partner Logos */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 px-4">
-            {partnerLogos.map((partner, index) => (
-              <Link
-                key={index}
-                href={partner.href}
-                className="text-white/60 hover:text-red-600 transition-colors duration-300 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-wider text-center"
-              >
-                {partner.name}
-              </Link>
-            ))}
-          </div>
-        </div>
 
-        {/* Bottom Footer */}
-        <div className="border-t border-white/10 py-6 sm:py-8">
-          <div className="text-center text-xs sm:text-sm text-white/60">
-            Copyright © {currentYear} Dr. Stephen Akintayo Training Technologies, Inc., All Rights Reserved.
-          </div>
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-4 group"
+          >
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 group-hover:text-luxury-gold transition-colors">Back to Top</span>
+            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-luxury-gold transition-colors">
+              <i className="fas fa-arrow-up text-xs text-white/30 group-hover:text-luxury-gold"></i>
+            </div>
+          </button>
         </div>
+      </div>
+
+      {/* Decorative background text */}
+      <div className="absolute bottom-40 left-0 text-[15rem] font-black text-white/[0.02] leading-none pointer-events-none select-none font-serif italic translate-x-[-10%]">
+        EXCELLENCE
       </div>
     </footer>
   )

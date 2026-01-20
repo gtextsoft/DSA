@@ -6,6 +6,7 @@
     "predev": "node -e \"try { require('fs').rmSync('.next', { recursive: true, force: true }); } catch(e) {}\"",
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && node -e \"const fs = require('fs'); const path = require('path'); if (fs.existsSync('dist')) fs.rmSync('dist', { recursive: true, force: true }); fs.renameSync('out', 'dist'); console.log('Static export completed! Deploy the dist folder to cPanel.');\"",
     "start": "next start",
     "lint": "next lint",
     "clean": "node -e \"try { require('fs').rmSync('.next', { recursive: true, force: true }); require('fs').rmSync('node_modules/.cache', { recursive: true, force: true }); console.log('Cleaned!'); } catch(e) { console.log('Clean complete (or already clean)'); }\""

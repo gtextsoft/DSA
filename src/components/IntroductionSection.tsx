@@ -2,88 +2,117 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function IntroductionSection() {
   return (
-    <section className="bg-black text-white py-16 sm:py-20 md:py-24">
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="bg-white py-24 sm:py-32 relative overflow-hidden">
+      {/* Background Decorative Element */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-deep-navy/5 -skew-x-12 transform translate-x-1/2"></div>
+
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left Side - Text Content */}
-          <div className="space-y-8">
-            {/* Name and Title */}
-            <div className="space-y-4">
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight">
-                DR. STEPHEN
-                <span className="block text-red-600 border-b-4 border-red-600 inline-block pb-2 mt-2">
-                  AKINTAYO
-                </span>
+          <div className="space-y-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
+            >
+              <div className="flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-luxury-gold"></span>
+                <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.2em]">The Visionary</span>
+              </div>
+
+              <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-deep-navy leading-tight font-serif italic">
+                A Legacy of <br />
+                <span className="text-gradient-gold non-italic font-sans uppercase">Excellence</span>
               </h2>
-              
-              <p className="text-red-600 font-bold text-lg sm:text-xl uppercase tracking-wider">
-                PRIVATE EQUITY FUND MANAGER & REAL ESTATE INVESTOR
-              </p>
-              
-              <p className="text-white/90 text-base sm:text-lg">
-                CEO of Gtext Holdings and Global Investment Group
-              </p>
-            </div>
 
-            {/* Content */}
-            <div className="space-y-6 text-base sm:text-lg leading-relaxed text-white/90">
-              <p>
-                Dr. Stephen Akintayo owns and operates multiple privately held companies, and an investment firm, <span className="font-bold text-white">Gtext Holdings</span>, with a portfolio of assets worth over <span className="font-bold text-red-600">$200 Million</span>. He is one of the Top Investment Coaches in the world, having empowered over <span className="font-bold text-red-600">1 Million</span> individuals worldwide.
+              <p className="text-luxury-gold font-bold text-lg uppercase tracking-widest bg-deep-navy/5 inline-block px-4 py-2 border-l-4 border-luxury-gold">
+                Investment Coach & Philanthropist
               </p>
-              
-              <p>
-                A bestselling author of <span className="font-bold text-white">45+ business books</span>, including multiple #1 bestsellers, Dr. Akintayo has established a global movement featuring investment conferences and wealth-building programs, known as some of the most influential business and entrepreneur events in Africa and beyond.
-              </p>
-              
-              <p>
-                For over <span className="font-bold text-white">20 years</span>, Dr. Stephen Akintayo and his global investment group have been trusted providers of comprehensive business training and consulting. The online business and investment educational platforms Dr. Akintayo created serve over <span className="font-bold text-red-600">850,000</span> individuals, businesses, and clients throughout the world.
-              </p>
-              
-              <p>
-                Voted one of the top Investment Influencers by Forbes, Dr. Akintayo uses his massive following to give back via his <span className="font-bold text-white">Millionaires Mission 2050 Foundation</span>, a non-profit organization dedicated to mentoring underprivileged and troubled youth in financial literacy.
-              </p>
-            </div>
+            </motion.div>
 
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link 
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6 text-lg leading-relaxed text-text-dark/80"
+            >
+              <p>
+                Dr. Stephen Akintayo owns and operates multiple privately held companies, and an investment firm, <span className="font-bold text-deep-navy">Gtext Holdings</span>, with a portfolio of assets worth over <span className="font-bold text-luxury-gold">$200 Million</span>.
+              </p>
+
+              <p>
+                As a bestselling author of <span className="font-bold text-deep-navy italic font-serif">45+ business books</span>, Dr. Akintayo has established a global movement featuring investment conferences and wealth-building programs, known as some of the most influential business and entrepreneur events in Africa and beyond.
+              </p>
+
+              <p>
+                For over <span className="font-bold text-deep-navy">20 years</span>, his global investment group has been a trusted provider of comprehensive business training. His educational platforms serve over <span className="font-bold text-luxury-gold">850,000</span> individuals and businesses worldwide.
+              </p>
+
+              <p className="border-l-4 border-luxury-gold pl-6 italic font-serif text-xl text-deep-navy/70">
+                "Real estate is the only investment where you can use other people's money to build your own wealth safely."
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-6 pt-4"
+            >
+              <Link
                 href="/about"
-                className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-md transition-all duration-300 text-center uppercase tracking-wider"
+                className="btn-luxury text-center"
               >
-                About Dr. Akintayo
+                Explore the Journey
               </Link>
-              <Link 
+              <Link
                 href="/media"
-                className="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white font-bold py-3 px-8 rounded-md transition-all duration-300 text-center uppercase tracking-wider"
+                className="btn-outline-gold text-center"
               >
-                Media Kit
+                Media & Press
               </Link>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Side - Photo */}
-          <div className="relative mt-8 lg:mt-0">
-            <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] rounded-lg overflow-hidden shadow-2xl">
-              <Image 
-                src="/images/stephen.png" 
-                alt="Dr. Stephen Akintayo" 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="relative"
+          >
+            <div className="relative w-full aspect-[4/5] rounded-none overflow-hidden shadow-[30px_30px_0px_#0A1128] group">
+              <Image
+                src="/images/stephen.png"
+                alt="Dr. Stephen Akintayo"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
+              {/* Luxury Frame Overlay */}
+              <div className="absolute inset-0 border-[20px] border-white/10 pointer-events-none"></div>
             </div>
-            
-            {/* Credentials Badge */}
-            <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl p-4 sm:p-6 text-center w-[90%] sm:w-auto max-w-xs">
-              <div className="text-gray-400 text-[10px] sm:text-xs uppercase tracking-wider mb-1 sm:mb-2">The New York Times</div>
-              <div className="text-black font-black text-sm sm:text-lg md:text-xl uppercase tracking-wider leading-tight">
-                BEST-SELLING AUTHOR
-              </div>
-            </div>
-          </div>
+
+            {/* Achievement Badge */}
+            <motion.div
+              initial={{ rotate: -10, scale: 0 }}
+              whileInView={{ rotate: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: 'spring', damping: 12, delay: 0.8 }}
+              className="absolute -bottom-10 -right-10 bg-deep-navy text-white p-8 shadow-2xl z-20 hidden md:block"
+            >
+              <div className="text-luxury-gold text-4xl font-black mb-2">20+</div>
+              <div className="text-[10px] uppercase tracking-[0.3em] font-bold text-white/60">Years of Impact</div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,94 +1,87 @@
 'use client'
 
-import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function SocialConnection() {
   const socialLinks = [
-    { icon: 'fab fa-youtube', href: 'https://youtube.com/@stephenakintayo', label: 'YouTube', color: 'text-red-600' },
-    { icon: 'fab fa-instagram', href: 'https://instagram.com/stephenakintayo', label: 'Instagram', color: 'text-pink-500' },
-    { icon: 'fab fa-facebook', href: 'https://facebook.com/stephenakintayo', label: 'Facebook', color: 'text-blue-600' },
-    { icon: 'fab fa-tiktok', href: 'https://tiktok.com/@stephenakintayo', label: 'TikTok', color: 'text-white' },
-    { icon: 'fab fa-spotify', href: 'https://open.spotify.com/show/1OBuNEZ0NQWYG9g5fqhEG9?si=eaf1020392804fe4', label: 'Spotify', color: 'text-green-500' },
-    { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/stephenakintayo', label: 'LinkedIn', color: 'text-blue-500' },
-    { icon: 'fab fa-twitter', href: 'https://twitter.com/stephenakintayo', label: 'X (Twitter)', color: 'text-white' },
+    { icon: 'fab fa-youtube', href: 'https://youtube.com/@stephenakintayo', label: 'YouTube' },
+    { icon: 'fab fa-instagram', href: 'https://instagram.com/stephenakintayo', label: 'Instagram' },
+    { icon: 'fab fa-facebook', href: 'https://facebook.com/stephenakintayo', label: 'Facebook' },
+    { icon: 'fab fa-tiktok', href: 'https://tiktok.com/@stephenakintayo', label: 'TikTok' },
+    { icon: 'fab fa-spotify', href: 'https://open.spotify.com/show/1OBuNEZ0NQWYG9g5fqhEG9?si=eaf1020392804fe4', label: 'Spotify' },
+    { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/stephenakintayo', label: 'LinkedIn' },
+    { icon: 'fab fa-twitter', href: 'https://twitter.com/stephenakintayo', label: 'X (Twitter)' },
   ]
 
   return (
-    <section className="relative bg-black py-16 sm:py-20 md:py-24 overflow-hidden">
-      {/* Background BGC Graphic */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-[20rem] sm:text-[30rem] font-black text-white/5 leading-none uppercase">
-          BGC
+    <section className="relative bg-white py-24 sm:py-32 overflow-hidden">
+      {/* Background Legacy Graphic */}
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none overflow-hidden">
+        <div className="text-[15rem] sm:text-[25rem] font-black text-deep-navy/3 leading-none uppercase select-none font-serif italic">
+          LEGACY
         </div>
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Side - Mobile Preview */}
-          <div className="relative order-2 lg:order-1">
-            <div className="relative bg-gray-900 rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xl max-w-xs sm:max-w-sm mx-auto">
-              {/* Mobile Screen */}
-              <div className="bg-black rounded-xl sm:rounded-2xl overflow-hidden">
-                <div className="bg-gray-800 p-3 sm:p-4 border-b border-gray-700">
-                  <div className="text-white/60 text-[10px] sm:text-xs mt-1">IF YOU'RE NOT FIRST YOU'RE LAST</div>
-                </div>
-                <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-red-600 flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <div className="h-2 sm:h-3 bg-white/20 rounded w-20 sm:w-24 mb-1 sm:mb-2"></div>
-                      <div className="h-1.5 sm:h-2 bg-white/10 rounded w-24 sm:w-32"></div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-600 flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <div className="h-2 sm:h-3 bg-white/20 rounded w-16 sm:w-20 mb-1 sm:mb-2"></div>
-                      <div className="h-1.5 sm:h-2 bg-white/10 rounded w-20 sm:w-28"></div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-600 flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <div className="h-2 sm:h-3 bg-white/20 rounded w-20 sm:w-28 mb-1 sm:mb-2"></div>
-                      <div className="h-1.5 sm:h-2 bg-white/10 rounded w-28 sm:w-36"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Content */}
-          <div className="space-y-6 sm:space-y-8 order-1 lg:order-2">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Left Side - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-10"
+          >
             <div className="space-y-6">
-              <p className="text-white/90 text-base sm:text-lg leading-relaxed max-w-2xl">
-                Everyday I spend several hours across all of my platforms to meet as many of you as I can and share strategies, connections and education for how to grow your business, increase your income, boost your sales, hire the right people and BGC your life.
+              <div className="flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-luxury-gold"></span>
+                <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.2em]">Global Network</span>
+              </div>
+              <h2 className="text-4xl sm:text-6xl font-black text-deep-navy font-serif italic">
+                Connect with the <span className="text-gradient-gold non-italic font-sans uppercase">Visionary</span>
+              </h2>
+              <p className="text-text-dark/80 text-lg leading-relaxed max-w-xl">
+                Every day I share high-stakes strategies and wealth-building intelligence across all global platforms. Join our community of 1 million+ high-performers and transform your financial future.
               </p>
             </div>
 
-            {/* Social Icons Grid */}
-            <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 gap-3 sm:gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-6">
+              <a
+                href="/about"
+                className="text-deep-navy font-bold text-sm uppercase tracking-widest flex items-center gap-3 group"
+              >
+                Learn More About the Mission
+                <span className="w-10 h-[1px] bg-luxury-gold group-hover:w-16 transition-all"></span>
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right Side - Social Icon Grid */}
+          <div className="relative">
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6">
               {socialLinks.map((social, index) => (
-                <a
+                <motion.a
                   key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-900 hover:bg-red-600 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group border-2 border-gray-800 hover:border-red-600"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ y: -10, rotate: 5 }}
+                  className="aspect-square glass-dark bg-deep-navy rounded-sm flex items-center justify-center transition-all duration-300 shadow-xl border border-luxury-gold/10 hover:border-luxury-gold group"
                   aria-label={social.label}
                 >
-                  <i className={`${social.icon} ${social.color} group-hover:text-white text-lg sm:text-2xl md:text-3xl transition-colors duration-300`}></i>
-                </a>
+                  <i className={`${social.icon} text-white group-hover:text-luxury-gold text-2xl sm:text-3xl transition-colors`}></i>
+                </motion.a>
               ))}
+              <div className="aspect-square bg-luxury-gold rounded-sm flex items-center justify-center shadow-xl p-4 text-center">
+                <span className="text-deep-navy font-black text-[10px] uppercase tracking-widest">Join 1M+</span>
+              </div>
             </div>
 
-            <a
-              href="#"
-              className="inline-block text-red-600 hover:text-red-700 font-bold text-lg uppercase tracking-wider transition-colors duration-300"
-            >
-              LEARN MORE →
-            </a>
+            {/* Decorative Dots */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[radial-gradient(#D4AF37_2px,transparent_2px)] [background-size:20px_20px] opacity-20 -z-10"></div>
           </div>
         </div>
       </div>

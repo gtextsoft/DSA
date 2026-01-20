@@ -15,9 +15,9 @@ export default function SocialConnection() {
 
   return (
     <section className="relative bg-white py-24 sm:py-32 overflow-hidden">
-      {/* Background Legacy Graphic */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none overflow-hidden">
-        <div className="text-[15rem] sm:text-[25rem] font-black text-deep-navy/3 leading-none uppercase select-none font-serif italic">
+      {/* Background Legacy Graphic - Reduced opacity for better readability */}
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none overflow-hidden z-0">
+        <div className="text-[15rem] sm:text-[25rem] font-black text-deep-navy/[0.05] leading-none uppercase select-none font-serif italic">
           LEGACY
         </div>
       </div>
@@ -29,17 +29,18 @@ export default function SocialConnection() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-10 relative z-20"
           >
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 <span className="w-8 h-[1px] bg-luxury-gold"></span>
                 <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.2em]">Global Network</span>
               </div>
-              <h2 className="text-4xl sm:text-6xl font-black text-deep-navy font-serif italic">
-                Connect with the <span className="text-gradient-gold non-italic font-sans uppercase">Visionary</span>
+              <h2 className="text-4xl sm:text-6xl font-black text-deep-navy font-serif italic leading-tight">
+                Connect with the{' '}
+                <span className="text-gradient-gold non-italic font-sans uppercase block mt-2">Visionary</span>
               </h2>
-              <p className="text-text-dark/80 text-lg leading-relaxed max-w-xl">
+              <p className="text-text-dark/90 text-lg leading-relaxed max-w-xl relative z-10">
                 Every day I share high-stakes strategies and wealth-building intelligence across all global platforms. Join our community of 1 million+ high-performers and transform your financial future.
               </p>
             </div>
@@ -56,8 +57,8 @@ export default function SocialConnection() {
           </motion.div>
 
           {/* Right Side - Social Icon Grid */}
-          <div className="relative">
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6">
+          <div className="relative z-20">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
@@ -68,16 +69,23 @@ export default function SocialConnection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -10, rotate: 5 }}
-                  className="aspect-square glass-dark bg-deep-navy rounded-sm flex items-center justify-center transition-all duration-300 shadow-xl border border-luxury-gold/10 hover:border-luxury-gold group"
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  className="aspect-square bg-deep-navy rounded-sm flex items-center justify-center transition-all duration-300 shadow-xl border border-luxury-gold/10 hover:border-luxury-gold hover:shadow-2xl group"
                   aria-label={social.label}
                 >
                   <i className={`${social.icon} text-white group-hover:text-luxury-gold text-2xl sm:text-3xl transition-colors`}></i>
                 </motion.a>
               ))}
-              <div className="aspect-square bg-luxury-gold rounded-sm flex items-center justify-center shadow-xl p-4 text-center">
-                <span className="text-deep-navy font-black text-[10px] uppercase tracking-widest">Join 1M+</span>
-              </div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: socialLinks.length * 0.05 }}
+                whileHover={{ y: -8, scale: 1.05 }}
+                className="aspect-square bg-luxury-gold rounded-sm flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 p-4 text-center"
+              >
+                <span className="text-deep-navy font-black text-[10px] sm:text-xs uppercase tracking-widest">Join 1M+</span>
+              </motion.div>
             </div>
 
             {/* Decorative Dots */}

@@ -40,6 +40,7 @@ export default function Header() {
     { name: 'Store', href: 'https://stephenakintayouniversity.com/products' },
     { name: 'Events', href: '/events' },
     { name: 'Foundation', href: 'https://stephenakintayofoundation.org' },
+    { name: 'SACI Holdings', href: 'https://www.saciholding.com/' },
     { name: 'Book Mentorship', href: 'https://dsamentorship.vercel.app/', isHighlight: true },
   ]
 

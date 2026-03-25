@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: 'Dr. Stephen Akintayo - Entrepreneur, Investor & Real Estate Mogul | Forbes Best of Africa',
   description: 'Dr. Stephen Akintayo is a distinguished Nigerian entrepreneur, investor, and mentor. Chairman & CEO of Gtext Holdings, Forbes Best of Africa Leading Investment Coach, and author of 45+ books on real estate and wealth-building.',
   keywords: 'Stephen Akintayo, real estate, investment coach, entrepreneur, Gtext Holdings, Forbes Best of Africa, billionaire habits, real estate investment, wealth building, Nigeria entrepreneur',
+  icons: {
+    icon: '/images/SAL.png',
+    shortcut: '/images/SAL.png',
+    apple: '/images/SAL.png',
+  },
   authors: [{ name: 'Dr. Stephen Akintayo' }],
   openGraph: {
     title: 'Dr. Stephen Akintayo - Entrepreneur, Investor & Real Estate Mogul',
@@ -45,7 +50,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/SAL.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/SAL.png" type="image/png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <script
           type="application/ld+json"

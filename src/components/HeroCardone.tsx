@@ -107,12 +107,12 @@ export default function HeroCardone() {
               />
             </div>
             <div>
-              <div className="text-white font-bold text-sm mb-1 leading-tight">BUSINESS GROWTH CONFERENCE Lagos</div>
-              <div className="text-luxury-gold text-xs font-bold">28th Feb</div>
+              <div className="text-white font-bold text-sm mb-1 leading-tight">CHINA BUSINESS RETREAT 2026</div>
+              <div className="text-luxury-gold text-xs font-bold leading-snug">7-Day · 4 Cities · 2026</div>
             </div>
           </div>
           <Link
-            href="https://businessgrowthconference.org/nigeria"
+            href="https://stephenakintayo.com/chinaretreat"
             className="mt-6 block text-center py-3 bg-white text-deep-navy text-[10px] font-black uppercase tracking-widest hover:bg-luxury-gold transition-colors duration-300"
           >
             Claim Your Access

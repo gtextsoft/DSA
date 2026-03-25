@@ -88,6 +88,14 @@ function EventCard({
           >
             Cancelled
           </button>
+        ) : event.done ? (
+          <button
+            type="button"
+            disabled
+            className="w-full border border-luxury-gold/40 bg-luxury-gold/15 text-deep-navy font-bold py-3 px-6 rounded-sm text-sm uppercase tracking-widest text-center cursor-not-allowed"
+          >
+            Done
+          </button>
         ) : event.link ? (
           <a
             href={event.link}

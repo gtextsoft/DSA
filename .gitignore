@@ -57,3 +57,9 @@ node_modules/
 # Build directories
 dist/
 build/ 
+
+# Next.js build output
+.next/
+
+# Next export output (if you use `next export` / static export)
+out/

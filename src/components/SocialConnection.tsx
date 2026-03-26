@@ -23,7 +23,7 @@ export default function SocialConnection() {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Side - Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -58,7 +58,7 @@ export default function SocialConnection() {
 
           {/* Right Side - Social Icon Grid */}
           <div className="relative z-20">
-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
@@ -70,10 +70,10 @@ export default function SocialConnection() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                   whileHover={{ y: -8, scale: 1.05 }}
-                  className="aspect-square bg-deep-navy rounded-sm flex items-center justify-center transition-all duration-300 shadow-xl border border-luxury-gold/10 hover:border-luxury-gold hover:shadow-2xl group"
+                  className="w-20 h-20 sm:w-24 sm:h-24 bg-deep-navy rounded-sm flex items-center justify-center transition-all duration-300 shadow-xl border border-luxury-gold/10 hover:border-luxury-gold hover:shadow-2xl group"
                   aria-label={social.label}
                 >
-                  <i className={`${social.icon} text-white group-hover:text-luxury-gold text-2xl sm:text-3xl transition-colors`}></i>
+                  <i className={`${social.icon} text-white group-hover:text-luxury-gold text-xl sm:text-2xl transition-colors`}></i>
                 </motion.a>
               ))}
               <motion.div 
@@ -82,9 +82,11 @@ export default function SocialConnection() {
                 viewport={{ once: true }}
                 transition={{ delay: socialLinks.length * 0.05 }}
                 whileHover={{ y: -8, scale: 1.05 }}
-                className="aspect-square bg-luxury-gold rounded-sm flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 p-4 text-center"
+                className="w-20 h-20 sm:w-24 sm:h-24 bg-luxury-gold rounded-sm flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 p-3 text-center"
               >
-                <span className="text-deep-navy font-black text-[10px] sm:text-xs uppercase tracking-widest">Join 1M+</span>
+                <span className="text-deep-navy font-black text-[9px] sm:text-[10px] uppercase tracking-widest leading-tight">
+                  Join 1M+
+                </span>
               </motion.div>
             </div>
 

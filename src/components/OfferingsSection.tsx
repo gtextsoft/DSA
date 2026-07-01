@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { EXTERNAL_LINKS } from '@/lib/links'
 
 export default function OfferingsSection() {
   const offerings = [
@@ -14,11 +15,11 @@ export default function OfferingsSection() {
       href: '/events',
     },
     {
-      title: 'MEDIA KIT',
+      title: 'STEPHEN AKINTAYO PRODUCTION',
       subtitle: 'Impact',
-      description: 'Access premium content, podcast episodes, and historical success stories.',
+      description: 'Watch exclusive content, interviews, and productions from Dr. Stephen Akintayo on YouTube.',
       image: '/images/bgc262.jpg',
-      href: '/media',
+      href: EXTERNAL_LINKS.youtubeProduction,
     },
     {
       title: 'SA UNIVERSITY',
@@ -32,14 +33,14 @@ export default function OfferingsSection() {
       subtitle: 'Legacy',
       description: 'Browse our collection of 45+ books, courses, and exclusive mentorship products.',
       image: '/images/bgc262.jpg',
-      href: 'https://stephenakintayouniversity.com/products',
+      href: EXTERNAL_LINKS.officialStore,
       isStore: true
     }
   ]
 
   const storeOptions = [
-    { name: 'Shop on Amazon', href: 'https://www.amazon.com/s?k=stephen+akintayo&ref=sr_pg_1' },
-    { name: 'Official Store', href: 'https://stephenakintayouniversity.com/products' }
+    { name: 'Shop on Amazon', href: EXTERNAL_LINKS.amazonBooks },
+    { name: 'Official Store', href: EXTERNAL_LINKS.officialStore }
   ]
 
   return (
@@ -96,19 +97,21 @@ export default function OfferingsSection() {
                 {offering.isStore ? (
                   <div className="flex flex-col gap-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                     {storeOptions.map((option, optIdx) => (
-                      <Link
+                      <a
                         key={optIdx}
                         href={option.href}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="text-[10px] font-bold text-white uppercase tracking-widest hover:text-luxury-gold py-2 border-b border-white/10"
                       >
                         {option.name}
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 ) : (
                   <Link
                     href={offering.href}
+                    {...(offering.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
                     className="inline-flex items-center gap-2 text-luxury-gold text-xs font-bold uppercase tracking-widest transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-200"
                   >
                     Explore Now <i className="fas fa-arrow-right text-[10px] transition-transform group-hover:translate-x-2"></i>

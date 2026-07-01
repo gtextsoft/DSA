@@ -1,4 +1,13 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
+import { createPageMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Dr. Stephen Akintayo - Entrepreneur, Investor & Real Estate Mogul',
+  description:
+    'Official home of Dr. Stephen Akintayo — Forbes Best of Africa Leading Investment Coach, Chairman & CEO of Gtext Holdings, and author of 45+ books on wealth-building and real estate.',
+  path: '/',
+})
 import HeroCardone from '@/components/HeroCardone'
 import IntroductionSection from '@/components/IntroductionSection'
 import OfferingsSection from '@/components/OfferingsSection'

@@ -32,7 +32,7 @@ export default function Contact() {
       <div className="pt-24 pb-16">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-12 text-center">
-            Contact Us
+            Contact Dr. Stephen Akintayo
           </h1>
 
           <div className="max-w-2xl mx-auto">

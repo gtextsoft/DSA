@@ -44,7 +44,7 @@ export default function Speaking() {
         <div className="container-custom">
           {/* Main Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
-            Book Dr. Stephen Akintayo for Your Next Event
+            Book a Speaking Engagement with Dr. Stephen Akintayo
           </h1>
 
           {/* Contact Information */}

@@ -1,0 +1,5 @@
+# Static assets (images, favicon) belong in this folder.
+# Required files referenced by the site:
+# - SAL.png (favicon / logo)
+# - stephen-akintayo-profile.jpg (Open Graph image)
+# - stephen.png, bgc261.jpg, bgc262.jpg, book cover images, etc.

@@ -1,4 +1,13 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
+import { createPageMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'About Dr. Stephen Akintayo - Biography & Legacy',
+  description:
+    'Learn about Dr. Stephen Akintayo\'s journey from entrepreneur to Forbes-recognized investment coach, real estate mogul, philanthropist, and mentor to millions worldwide.',
+  path: '/about',
+})
 import AboutHero from '@/components/AboutHero'
 import AboutIntroduction from '@/components/AboutIntroduction'
 import AboutQuote from '@/components/AboutQuote'

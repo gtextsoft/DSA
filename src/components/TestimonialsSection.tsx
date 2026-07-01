@@ -9,27 +9,27 @@ export default function TestimonialsSection() {
 
   const testimonials = [
     {
-      name: 'Kevin Harris',
-      role: 'Global Entrepreneur',
-      quote: 'Dr. Stephen Akintayo is teaching us to take the game to the next level. His investment strategies are unmatched.',
+      name: 'Adaeze Okafor',
+      role: 'Real Estate Developer, Lagos',
+      quote: 'Dr. Akintayo\'s mentorship helped me structure my first land banking deal. Within 18 months I closed three profitable transactions.',
       image: '/images/bgc261.jpg'
     },
     {
-      name: 'Jorge Masvidal',
-      role: 'MMA Legend & Investor',
-      quote: 'Everybody wants to learn from the best. Dr. Akintayo shows us how to achieve financial freedom.',
+      name: 'James Mitchell',
+      role: 'CEO, Mitchell Capital Group',
+      quote: 'The investment frameworks I learned at his masterclass transformed how our firm evaluates real estate opportunities across Africa and the diaspora.',
       image: '/images/bgc262.jpg'
     },
     {
-      name: 'Jon Taffer',
-      role: 'Industry Icon',
-      quote: "There's nothing I wouldn't do to support Dr. Akintayo. He's transformed countless lives through his mentorship.",
+      name: 'Fatima Al-Rashid',
+      role: 'Entrepreneur & SA University Graduate',
+      quote: 'His coaching gave me clarity on building multiple income streams. I went from employee to business owner with a clear wealth-building roadmap.',
       image: '/images/bgc261.jpg'
     },
     {
-      name: 'Udonis Haslem',
-      role: 'Athlete & Wealth Advocate',
-      quote: 'Really appreciate Dr. Akintayo bringing people together and being a BGC example.',
+      name: 'David Emeka',
+      role: 'Business Owner, Abuja',
+      quote: 'Attending the Business Growth Conference was a turning point. The strategies were practical, actionable, and immediately applicable to my company.',
       image: '/images/bgc262.jpg'
     }
   ]

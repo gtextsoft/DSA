@@ -258,9 +258,12 @@ export default function Events() {
               <span className="w-12 h-[1px] bg-luxury-gold"></span>
               <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.2em]">Upcoming Events</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-deep-navy font-serif italic mb-4">
-              SA Events <span className="text-gradient-gold non-italic font-sans uppercase">Itinerary</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-deep-navy font-serif mb-4">
+              Stephen Akintayo Events &amp; Conferences
             </h1>
+            <h2 className="text-luxury-gold text-sm font-bold uppercase tracking-[0.2em] mb-4">
+              SA Events Itinerary
+            </h2>
             <p className="text-text-dark/80 text-lg sm:text-xl max-w-3xl">
               Join Dr. Stephen Akintayo at these exclusive events designed to transform your business, leadership, and financial future.
             </p>

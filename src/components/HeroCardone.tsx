@@ -62,10 +62,13 @@ export default function HeroCardone() {
             <span className="text-luxury-gold text-xs sm:text-sm font-bold uppercase tracking-[0.3em]">Forbes Best of Africa</span>
           </div>
 
-          <h1 className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-8 italic font-serif">
-            DR. STEPHEN <br />
-            <span className="text-gradient-gold non-italic font-sans">AKINTAYO</span>
+          <h1 className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-4 italic font-serif">
+            Dr. Stephen <br />
+            <span className="text-gradient-gold non-italic font-sans">Akintayo</span>
           </h1>
+          <p className="text-luxury-gold text-sm sm:text-base font-bold uppercase tracking-[0.25em] mb-6">
+            Entrepreneur · Investor · Real Estate Mogul
+          </p>
 
           <p className="text-white/70 text-lg sm:text-xl md:text-2xl max-w-2xl mb-12 font-medium leading-relaxed">
             Chairman & CEO of Gtext Holdings. Private Equity Fund Manager, Real Estate Mogul & Global Investment Coach.

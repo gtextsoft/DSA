@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { EXTERNAL_LINKS } from '@/lib/links'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -37,11 +38,11 @@ export default function Header() {
 
   const navItems = [
     { name: 'About', href: '/about' },
-    { name: 'Products', href: 'https://stephenakintayouniversity.com/products' },
+    { name: 'Blog', href: EXTERNAL_LINKS.blog, external: true },
     { name: 'Events', href: '/events' },
-    { name: 'Foundation', href: 'https://stephenakintayofoundation.org' },
-    { name: 'SACI Holdings', href: 'https://www.saciholding.com/' },
-    { name: 'Book Mentorship', href: 'https://paystack.shop/pay/drkshfwy1g', isHighlight: true },
+    { name: 'Foundation', href: EXTERNAL_LINKS.foundation, external: true },
+    { name: 'SACI Holdings', href: EXTERNAL_LINKS.saciHolding, external: true },
+    { name: 'Book Mentorship', href: 'https://paystack.shop/pay/drkshfwy1g', isHighlight: true, external: true },
   ]
 
   const contactOptions = [
@@ -109,7 +110,7 @@ export default function Header() {
                     ? 'text-luxury-gold'
                     : 'text-white hover:text-luxury-gold'
                   }`}
-                {...(item.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
+                {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
               >
                 {item.name}
                 {!item.isHighlight && (
@@ -187,7 +188,7 @@ export default function Header() {
                       : 'text-white hover:text-luxury-gold hover:bg-white/5'
                     }`}
                   onClick={() => setIsMenuOpen(false)}
-                  {...(item.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
+                  {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
                 >
                   {item.name}
                 </Link>

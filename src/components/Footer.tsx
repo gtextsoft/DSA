@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { EXTERNAL_LINKS } from '@/lib/links'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -10,27 +10,27 @@ export default function Footer() {
   const footerLinks = {
     'THE VISIONARY': [
       { name: 'About the Legacy', href: '/about' },
-      { name: 'Media Kit', href: '/media' },
-      { name: 'Speaking Engagements', href: '/contact' },
-      { name: 'Foundation Impact', href: '/foundation' }
+      { name: 'Stephen Akintayo Production', href: EXTERNAL_LINKS.youtubeProduction },
+      { name: 'Speaking Engagements', href: '/speaking' },
+      { name: 'Foundation Impact', href: EXTERNAL_LINKS.foundation }
     ],
     'ECOSYSTEM': [
       { name: 'Gtext Holdings', href: '/businesses' },
-      { name: 'SA University', href: 'https://stephenakintayouniversity.com/' },
+      { name: 'SA University', href: EXTERNAL_LINKS.university },
       { name: 'Ventures & Equity', href: '/businesses' },
-      { name: 'Global Store', href: '/store' }
+      { name: 'Global Store', href: EXTERNAL_LINKS.officialStore }
     ],
     'CLIENT CARE': [
       { name: 'Contact Inquiry', href: '/contact' },
       { name: 'Mentorship Access', href: '/contact' },
-      { name: 'Privacy Protocol', href: '#' },
-      { name: 'Terms of Excellence', href: '#' }
+      { name: 'Privacy Protocol', href: '/privacy' },
+      { name: 'Terms of Excellence', href: '/terms' }
     ],
     'RESOURCES': [
-      { name: 'Bestselling Books', href: '/store' },
-      { name: 'Market Intelligence', href: '#' },
-      { name: 'Daily Quotes', href: '#' },
-      { name: 'Free Resources', href: '/store' }
+      { name: 'Bestselling Books', href: EXTERNAL_LINKS.amazonBooks },
+      { name: 'Blog & Insights', href: EXTERNAL_LINKS.blog },
+      { name: 'Daily Quotes', href: EXTERNAL_LINKS.blog },
+      { name: 'Free Resources', href: EXTERNAL_LINKS.university }
     ]
   }
 
@@ -91,12 +91,23 @@ export default function Footer() {
                 <ul className="space-y-4">
                   {links.map((link, index) => (
                     <li key={index}>
-                      <Link
-                        href={link.href}
-                        className="text-white/40 hover:text-white transition-colors duration-300 text-sm font-bold tracking-wider"
-                      >
-                        {link.name}
-                      </Link>
+                      {link.href.startsWith('http') ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white/40 hover:text-white transition-colors duration-300 text-sm font-bold tracking-wider"
+                        >
+                          {link.name}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-white/40 hover:text-white transition-colors duration-300 text-sm font-bold tracking-wider"
+                        >
+                          {link.name}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

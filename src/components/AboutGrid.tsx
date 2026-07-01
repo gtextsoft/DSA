@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { EXTERNAL_LINKS } from '@/lib/links'
 
 export default function AboutGrid() {
   const facets = [
@@ -16,13 +17,15 @@ export default function AboutGrid() {
       title: 'Master of 45+ Bestsellers',
       description: 'Bestselling author with multiple #1 hits globally. His works like "Investment Mastery" are the blueprint for financial independence.',
       image: '/images/stephen.png',
-      href: '/store'
+      href: EXTERNAL_LINKS.amazonBooks,
+      external: true,
     },
     {
       title: 'Akintayo University',
       description: 'The world\'s premier wealth education platform. Empowering over 850,000 elites and corporations with elite investment intelligence.',
       image: '/images/stephen.png',
-      href: '/store'
+      href: EXTERNAL_LINKS.university,
+      external: true,
     },
     {
       title: 'Global Keynote Speaker',
@@ -52,7 +55,8 @@ export default function AboutGrid() {
       title: 'Impact Philanthropy',
       description: 'Through the MM2050 Foundation, he is architecting a future where every youth has the tools for financial dominance.',
       image: '/images/stephen.png',
-      href: '/foundation'
+      href: EXTERNAL_LINKS.foundation,
+      external: true,
     },
     {
       title: 'Digital Visionary',
@@ -97,6 +101,9 @@ export default function AboutGrid() {
             >
               <Link
                 href={facet.href}
+                {...('external' in facet && facet.external
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
                 className="group block relative h-full glass-dark bg-deep-navy/50 border border-luxury-gold/10 hover:border-luxury-gold transition-all duration-500 overflow-hidden"
               >
                 {/* Image */}

@@ -1,4 +1,13 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
+import { createPageMetadata } from '@/lib/metadata'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Stephen Akintayo Businesses & Ventures - Gtext Holdings',
+  description:
+    'Explore the Stephen Akintayo business ecosystem including Gtext Homes, Gtext Land, GVest, Gtext Media, and SACI Holdings portfolio companies.',
+  path: '/businesses',
+})
 import Footer from '@/components/Footer'
 
 export default function Businesses() {
@@ -56,10 +65,13 @@ export default function Businesses() {
       <div className="pt-24 pb-16">
         <div className="container-custom">
           {/* SACI Holdings Section */}
-          <section className="mb-20">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              SACI Holdings
+            <section className="mb-20">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+              Stephen Akintayo Businesses &amp; Ventures
             </h1>
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 mb-6">
+              SACI Holdings Portfolio
+            </h2>
             <p className="text-lg md:text-xl text-gray-700 max-w-3xl mb-12 leading-relaxed">
               SACI Holdings is the parent company of a diverse portfolio of businesses, each contributing to our mission of empowering individuals and communities through innovative solutions and impactful initiatives.
             </p>

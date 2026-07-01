@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { EXTERNAL_LINKS } from '@/lib/links'
 
 export default function IntroductionSection() {
   return (
@@ -73,12 +74,14 @@ export default function IntroductionSection() {
               >
                 Explore the Journey
               </Link>
-              <Link
-                href="/media"
+              <a
+                href={EXTERNAL_LINKS.youtubeProduction}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-outline-gold text-center"
               >
-                Media & Press
-              </Link>
+                Stephen Akintayo Production
+              </a>
             </motion.div>
           </div>
 

@@ -19,10 +19,13 @@ export default function AboutHero() {
               <span className="w-12 h-[1px] bg-luxury-gold"></span>
               <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.3em]">The Visionary</span>
             </div>
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-white font-serif italic leading-[0.9]">
-              Legacy of <br />
-              <span className="text-gradient-gold non-italic font-sans uppercase">A Giant</span>
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-white font-serif leading-[0.9]">
+              About Dr. Stephen <br />
+              <span className="text-gradient-gold non-italic font-sans uppercase">Akintayo</span>
             </h1>
+            <h2 className="text-luxury-gold text-sm font-bold uppercase tracking-[0.3em]">
+              Legacy of a Giant
+            </h2>
             <p className="text-white/60 text-lg sm:text-xl max-w-xl leading-relaxed">
               Dr. Stephen Akintayo is a Forbes-recognized leader, managing over $200M in assets. A pioneer in real estate and a mentor to millions worldwide.
             </p>

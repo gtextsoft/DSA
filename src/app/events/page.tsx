@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import EventsHero from '@/components/EventsHero'
+import { EXTERNAL_LINKS } from '@/lib/links'
 import { motion } from 'framer-motion'
 
 type EventItem = {
@@ -14,6 +16,7 @@ type EventItem = {
   time?: string
   done?: boolean
   cancelled?: boolean
+  recapLink?: string
 }
 
 const BGC_NIGERIA_LINK = 'https://businessgrowthconference.org/nigeria'
@@ -28,9 +31,11 @@ function formatEventDate(dateString: string) {
 function EventCard({
   event,
   index,
+  showPastEvents,
 }: {
   event: EventItem
   index: number
+  showPastEvents: boolean
 }) {
   return (
     <motion.div
@@ -89,13 +94,16 @@ function EventCard({
             Cancelled
           </button>
         ) : event.done ? (
-          <button
-            type="button"
-            disabled
-            className="w-full border border-luxury-gold/40 bg-luxury-gold/15 text-deep-navy font-bold py-3 px-6 rounded-sm text-sm uppercase tracking-widest text-center cursor-not-allowed"
-          >
-            Done
-          </button>
+          showPastEvents && event.recapLink ? (
+            <a
+              href={event.recapLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full border border-luxury-gold/40 bg-luxury-gold/15 hover:bg-luxury-gold text-deep-navy font-bold py-3 px-6 rounded-sm text-sm uppercase tracking-widest text-center transition-colors"
+            >
+              View Recap
+            </a>
+          ) : null
         ) : event.link ? (
           <a
             href={event.link}
@@ -127,6 +135,7 @@ export default function Events() {
       description: 'Join Dr. Stephen Akintayo for an exclusive sales masterclass designed for business owners, combined with a special birthday celebration.',
       link: 'https://stephenakintayo.com/salesmasterclass',
       done: true,
+      recapLink: EXTERNAL_LINKS.youtubeProduction,
     },
     {
       title: 'Barbecue CEO hangout with Dr Stephen Akintayo for 40 CEOs',
@@ -143,6 +152,7 @@ export default function Events() {
       description: 'Celebrate Dr. Stephen Akintayo\'s 40th birthday at this special conference featuring keynote sessions, networking, and exclusive insights.',
       link: 'https://www.stephenakintayoat40.com/',
       done: true,
+      recapLink: EXTERNAL_LINKS.youtubeProduction,
     },
     {
       title: 'Business Growth Conference Lagos',
@@ -151,6 +161,7 @@ export default function Events() {
       description: 'A comprehensive business growth conference featuring strategies, insights, and networking opportunities for entrepreneurs and business leaders.',
       link: BGC_NIGERIA_LINK,
       done: true,
+      recapLink: EXTERNAL_LINKS.youtubeProduction,
     },
     {
       title: 'Business Growth Conference Abuja',
@@ -159,6 +170,7 @@ export default function Events() {
       description: 'Join us in Abuja for transformative business growth strategies, expert insights, and powerful networking opportunities.',
       link: BGC_NIGERIA_LINK,
       done: true,
+      recapLink: EXTERNAL_LINKS.youtubeProduction,
     },
     {
       title: "Founders Meet & Greet (USA Tour)",
@@ -240,41 +252,20 @@ export default function Events() {
   ]
 
   const [selectedYear, setSelectedYear] = useState<YearTab>(2026)
-  const visibleEvents = selectedYear === 2026 ? events2026 : events2027
+  const [showPastEvents, setShowPastEvents] = useState(false)
+
+  const yearEvents = selectedYear === 2026 ? events2026 : events2027
+  const visibleEvents = showPastEvents ? yearEvents : yearEvents.filter((e) => !e.done)
 
   return (
     <main className="min-h-screen bg-white">
       <Header />
-      <div className="pt-24 pb-16 sm:pb-24">
-        <div className="container-custom">
-          {/* Header Section */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-12 sm:mb-16"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <span className="w-12 h-[1px] bg-luxury-gold"></span>
-              <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.2em]">Upcoming Events</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-deep-navy font-serif mb-4">
-              Stephen Akintayo Events &amp; Conferences
-            </h1>
-            <h2 className="text-luxury-gold text-sm font-bold uppercase tracking-[0.2em] mb-4">
-              SA Events Itinerary
-            </h2>
-            <p className="text-text-dark/80 text-lg sm:text-xl max-w-3xl">
-              Join Dr. Stephen Akintayo at these exclusive events designed to transform your business, leadership, and financial future.
-            </p>
-          </motion.div>
-
+      <EventsHero />
+      <div className="pb-16 sm:pb-24">
+        <div className="container-custom pt-10 sm:pt-12">
           {/* Year tabs */}
-          <div
-            className="mb-8 sm:mb-12 flex flex-wrap items-center gap-3"
-            role="tablist"
-            aria-label="Events by year"
-          >
+          <div className="mb-6 sm:mb-8 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-3" role="tablist" aria-label="Events by year">
             <button
               type="button"
               role="tab"
@@ -301,17 +292,40 @@ export default function Events() {
             >
               2027
             </button>
+            </div>
+            <button
+              type="button"
+              onClick={() => setShowPastEvents(!showPastEvents)}
+              className="text-sm font-bold uppercase tracking-widest text-deep-navy/70 hover:text-luxury-gold border border-deep-navy/20 hover:border-luxury-gold/50 px-4 py-2 rounded-sm transition-colors"
+            >
+              {showPastEvents ? 'Hide past events' : 'Show past events'}
+            </button>
           </div>
 
+          {visibleEvents.length === 0 ? (
+            <p className="text-center text-text-dark/60 py-12">
+              No upcoming events for {selectedYear}.{' '}
+              {!showPastEvents && (
+                <button
+                  type="button"
+                  onClick={() => setShowPastEvents(true)}
+                  className="text-luxury-gold font-bold hover:underline"
+                >
+                  Show past events
+                </button>
+              )}
+            </p>
+          ) : (
           <div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
             role="tabpanel"
             aria-label={selectedYear === 2026 ? '2026 events' : '2027 events'}
           >
             {visibleEvents.map((event, index) => (
-              <EventCard key={`${selectedYear}-${index}`} event={event} index={index} />
+              <EventCard key={`${selectedYear}-${index}`} event={event} index={index} showPastEvents={showPastEvents} />
             ))}
           </div>
+          )}
         </div>
       </div>
       <Footer />

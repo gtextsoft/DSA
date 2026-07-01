@@ -7,7 +7,7 @@ export default function AboutQuote() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-black mb-4 sm:mb-5 md:mb-6 uppercase tracking-tight leading-[1.1] sm:leading-tight px-2">
             SUCCESS IS YOUR
-            <span className="block text-red-600 border-b-2 md:border-b-4 border-red-600 inline-block pb-1 sm:pb-2 mt-1 sm:mt-2">
+            <span className="block text-luxury-gold border-b-2 md:border-b-4 border-luxury-gold inline-block pb-1 sm:pb-2 mt-1 sm:mt-2">
               DUTY, OBLIGATION, RESPONSIBILITY
             </span>
           </h2>

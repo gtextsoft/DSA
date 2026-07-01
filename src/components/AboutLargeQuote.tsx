@@ -25,7 +25,7 @@ export default function AboutLargeQuote() {
               "The single biggest financial mistake I've made was not thinking big enough. I encourage you to go for more than 
               a million. There is no shortage of money on this planet, only a shortage of people thinking big enough."
             </blockquote>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-red-600 uppercase tracking-wider px-2">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-luxury-gold uppercase tracking-wider px-2">
               — DR. STEPHEN AKINTAYO
             </p>
           </div>

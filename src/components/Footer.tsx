@@ -53,10 +53,9 @@ export default function Footer() {
 
       <div className="container-custom">
         {/* Main Footer Content */}
-        <div className="py-24 sm:py-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-8">
-            {/* Brand Section */}
-            <div className="lg:col-span-2 space-y-10">
+        <div className="py-16 sm:py-24">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
+            <div className="col-span-2 space-y-8">
               <Link href="/" className="inline-block group">
                 <div className="relative w-48 h-24 transition-transform duration-500 group-hover:scale-105">
                   <Image
@@ -86,7 +85,7 @@ export default function Footer() {
 
             {/* Links Sections */}
             {Object.entries(footerLinks).map(([category, links]) => (
-              <div key={category} className="space-y-8">
+              <div key={category} className="space-y-6">
                 <h4 className="text-luxury-gold font-bold text-xs uppercase tracking-[0.3em] font-serif italic">{category}</h4>
                 <ul className="space-y-4">
                   {links.map((link, index) => (

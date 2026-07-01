@@ -25,14 +25,14 @@ export default function OfferingsSection() {
       title: 'SA UNIVERSITY',
       subtitle: 'Mastery',
       description: 'Comprehensive investment and wealth-building training programs tailored for the elite.',
-      image: '/images/bgc261.jpg',
+      image: '/images/stephen.png',
       href: 'https://stephenakintayouniversity.com/',
     },
     {
       title: 'SA STORE',
       subtitle: 'Legacy',
       description: 'Browse our collection of 45+ books, courses, and exclusive mentorship products.',
-      image: '/images/bgc262.jpg',
+      image: '/images/book-billionaire-habits.jpg',
       href: EXTERNAL_LINKS.officialStore,
       isStore: true
     }

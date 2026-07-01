@@ -45,23 +45,23 @@ export default function BooksSection() {
   ]
 
   return (
-    <section className="bg-black py-16 sm:py-20 md:py-24 lg:py-28">
+    <section className="bg-deep-navy py-16 sm:py-20 md:py-24 lg:py-28">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <div className="inline-block mb-6">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-1 h-8 bg-red-600"></div>
+              <div className="w-1 h-8 bg-luxury-gold"></div>
               <span className="text-white/70 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">
                 New York Times Best-Selling Author
               </span>
-              <div className="w-1 h-8 bg-red-600"></div>
+              <div className="w-1 h-8 bg-luxury-gold"></div>
             </div>
           </div>
           
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight leading-tight mb-6">
             Transform Your Life With
-            <span className="block text-red-600 mt-2">These Powerful Books</span>
+            <span className="block text-luxury-gold mt-2">These Powerful Books</span>
           </h2>
           
           <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
@@ -85,7 +85,7 @@ export default function BooksSection() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <div className="flex flex-col h-full bg-gray-900 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/20 hover:-translate-y-2">
+                <div className="flex flex-col h-full bg-gray-900 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-luxury-gold/20 hover:-translate-y-2">
                   {/* Book Cover */}
                   <div className={`relative ${!book.image ? `${book.gradient} ${book.coverColor}` : ''} aspect-[2/3] flex flex-col justify-between p-6 sm:p-8 overflow-hidden`}>
                     {/* Book Image */}
@@ -145,9 +145,9 @@ export default function BooksSection() {
                     </p>
                     
                     {/* CTA Button */}
-                    <button className="mt-auto w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-md transition-all duration-300 text-sm sm:text-base uppercase tracking-wider transform group-hover:scale-105 shadow-lg">
+                    <span className="mt-auto w-full btn-luxury block text-center pointer-events-none">
                       Order Now
-                    </button>
+                    </span>
                   </div>
                 </div>
               </a>
@@ -160,10 +160,10 @@ export default function BooksSection() {
           <p className="text-white/60 text-sm sm:text-base mb-6">
             Start your transformation journey today
           </p>
-          <div className="flex items-center justify-center gap-2 text-red-600">
-            <span className="w-12 h-0.5 bg-red-600"></span>
+          <div className="flex items-center justify-center gap-2 text-luxury-gold">
+            <span className="w-12 h-0.5 bg-luxury-gold"></span>
             <span className="text-sm font-semibold uppercase tracking-wider">Available on Amazon</span>
-            <span className="w-12 h-0.5 bg-red-600"></span>
+            <span className="w-12 h-0.5 bg-luxury-gold"></span>
           </div>
         </div>
       </div>

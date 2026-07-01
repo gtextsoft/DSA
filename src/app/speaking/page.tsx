@@ -68,7 +68,7 @@ export default function Speaking() {
                 onChange={handleChange}
                 placeholder="Enter your name"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
               />
             </div>
 
@@ -84,7 +84,7 @@ export default function Speaking() {
                 onChange={handleChange}
                 placeholder="Enter your organisation"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
               />
             </div>
 
@@ -98,7 +98,7 @@ export default function Speaking() {
                 value={formData.eventType}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
               >
                 <option value="">Select event type</option>
                 <option value="conference">Conference</option>
@@ -122,7 +122,7 @@ export default function Speaking() {
                 onChange={handleChange}
                 placeholder="Enter audience size"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
               />
             </div>
 
@@ -138,7 +138,7 @@ export default function Speaking() {
                 onChange={handleChange}
                 placeholder="Enter location"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
               />
             </div>
 
@@ -153,7 +153,7 @@ export default function Speaking() {
                 value={formData.date}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
               />
             </div>
 
@@ -169,13 +169,13 @@ export default function Speaking() {
                 placeholder="Enter your message"
                 rows={5}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent resize-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 text-base md:text-lg"
+              className="w-full btn-luxury"
             >
               Submit
             </button>

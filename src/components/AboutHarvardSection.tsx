@@ -32,7 +32,7 @@ export default function AboutHarvardSection() {
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-4 sm:mb-5 md:mb-6 uppercase tracking-tight px-2">
             HARVARD BUSINESS
-            <span className="block text-red-600 border-b-2 md:border-b-4 border-red-600 inline-block pb-1 sm:pb-2 mt-1 sm:mt-2">
+            <span className="block text-luxury-gold border-b-2 md:border-b-4 border-luxury-gold inline-block pb-1 sm:pb-2 mt-1 sm:mt-2">
               SCHOOL GRADUATE
             </span>
           </h2>
@@ -44,7 +44,7 @@ export default function AboutHarvardSection() {
             <Link
               key={index}
               href={facet.href}
-              className="group bg-white border-2 border-gray-200 hover:border-red-600 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] sm:hover:scale-105"
+              className="group bg-white border-2 border-gray-200 hover:border-luxury-gold rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] sm:hover:scale-105"
               {...(facet.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
             >
               {/* Image */}
@@ -66,7 +66,7 @@ export default function AboutHarvardSection() {
                 <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed line-clamp-4">
                   {facet.description}
                 </p>
-                <div className="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wider group-hover:text-red-700">
+                <div className="text-luxury-gold font-bold text-xs sm:text-sm uppercase tracking-wider group-hover:text-gold-dark">
                   LEARN MORE →
                 </div>
               </div>

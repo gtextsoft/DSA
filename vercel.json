@@ -1631,8 +1631,8 @@
       "permanent": false
     },
     {
-      "source": "/usvolunteer",
-      "destination": "https://volunteers.stephenakintayofoundation.org",
+      "source": "/usvolunteers",
+      "destination": "https://usvolunteers.stephenakintayofoundation.org",
       "permanent": false
     },
     {

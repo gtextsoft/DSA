@@ -1639,6 +1639,11 @@
       "source": "/sanfrancisco",
       "destination": "https://sanfrancisco.stephenakintayofoundation.org",
       "permanent": false
+    },
+    {
+      "source": "/missouri",
+      "destination": "https://missouri.stephenakintayofoundation.org",
+      "permanent": false
     }
   ]
 }

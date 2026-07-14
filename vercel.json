@@ -1629,6 +1629,16 @@
       "source": "/gbt",
       "destination": "https://stephenakintayoconsulting.com/globalbooktour",
       "permanent": false
+    },
+    {
+      "source": "/usvolunteer",
+      "destination": "https://volunteers.stephenakintayofoundation.org",
+      "permanent": false
+    },
+    {
+      "source": "/sanfrancisco",
+      "destination": "https://sanfrancisco.stephenakintayofoundation.org",
+      "permanent": false
     }
   ]
 }

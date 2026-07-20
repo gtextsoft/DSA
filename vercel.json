@@ -186,6 +186,16 @@
       "permanent": false
     },
     {
+      "source": "/event",
+      "destination": "https://www.stephenakintayo.com/events",
+      "permanent": false
+    },
+    {
+      "source": "/EVENT",
+      "destination": "https://www.stephenakintayo.com/events",
+      "permanent": false
+    },
+    {
       "source": "/salesmasterclass",
       "destination": "https://smc-coral-beta.vercel.app",
       "permanent": false

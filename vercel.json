@@ -1654,6 +1654,11 @@
       "source": "/missouri",
       "destination": "https://missouri.stephenakintayofoundation.org",
       "permanent": false
+    },
+    {
+      "source": "/bundle",
+      "destination": "https://bundle.stephenakintayofoundation.org",
+      "permanent": false
     }
   ]
 }

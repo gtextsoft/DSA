@@ -12,6 +12,7 @@ const MOBILE_MENU_ID = 'mobile-nav-drawer'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false)
+  const [isMentorshipDropdownOpen, setIsMentorshipDropdownOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -22,6 +23,7 @@ export default function Header() {
   useEffect(() => {
     closeMenu()
     setIsContactDropdownOpen(false)
+    setIsMentorshipDropdownOpen(false)
   }, [pathname])
 
   useEffect(() => {
@@ -72,7 +74,11 @@ export default function Header() {
     { name: 'Events', href: '/events' },
     { name: 'Foundation', href: EXTERNAL_LINKS.foundation, external: true },
     { name: 'SACI Holdings', href: EXTERNAL_LINKS.saciHolding, external: true },
-    { name: 'Book Mentorship', href: 'https://paystack.shop/pay/drkshfwy1g', isHighlight: true, external: true },
+  ]
+
+  const mentorshipOptions = [
+    { name: 'Pay in Naira', href: 'https://paystack.shop/pay/drkshfwy1g' },
+    { name: 'Pay in Dollars', href: 'https://buy.stripe.com/9B66oI8wYaXR68C2oQew80t' },
   ]
 
   const contactOptions = [
@@ -87,13 +93,16 @@ export default function Header() {
       if (!target.closest('.contact-dropdown')) {
         setIsContactDropdownOpen(false)
       }
+      if (!target.closest('.mentorship-dropdown')) {
+        setIsMentorshipDropdownOpen(false)
+      }
     }
 
-    if (isContactDropdownOpen) {
+    if (isContactDropdownOpen || isMentorshipDropdownOpen) {
       document.addEventListener('mousedown', handleClickOutside)
       return () => document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [isContactDropdownOpen])
+  }, [isContactDropdownOpen, isMentorshipDropdownOpen])
 
   return (
     <header
@@ -145,29 +154,72 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={`group relative text-[11px] 2xl:text-[13px] font-bold uppercase tracking-[0.15em] transition-colors duration-300 whitespace-nowrap ${
-                  item.isHighlight
-                    ? 'bg-luxury-gold hover:bg-gold-dark text-deep-navy px-5 py-3 rounded-sm shadow-[0_5px_15px_rgba(212,175,55,0.2)]'
-                    : pathname === item.href
-                      ? 'text-luxury-gold'
-                      : 'text-white hover:text-luxury-gold'
+                  pathname === item.href
+                    ? 'text-luxury-gold'
+                    : 'text-white hover:text-luxury-gold'
                 }`}
                 {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
               >
                 {item.name}
-                {!item.isHighlight && (
-                  <span
-                    className={`absolute -bottom-1 left-0 w-0 h-[2px] bg-luxury-gold transition-all duration-300 group-hover:w-full ${
-                      pathname === item.href ? 'w-full' : ''
-                    }`}
-                  ></span>
-                )}
+                <span
+                  className={`absolute -bottom-1 left-0 w-0 h-[2px] bg-luxury-gold transition-all duration-300 group-hover:w-full ${
+                    pathname === item.href ? 'w-full' : ''
+                  }`}
+                ></span>
               </Link>
             ))}
+
+            <div className="relative mentorship-dropdown">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMentorshipDropdownOpen(!isMentorshipDropdownOpen)
+                  setIsContactDropdownOpen(false)
+                }}
+                aria-expanded={isMentorshipDropdownOpen}
+                className="bg-luxury-gold hover:bg-gold-dark text-deep-navy px-5 py-3 rounded-sm shadow-[0_5px_15px_rgba(212,175,55,0.2)] text-[11px] 2xl:text-[13px] font-bold uppercase tracking-[0.15em] transition-colors duration-300 flex items-center gap-2 whitespace-nowrap"
+              >
+                Book Mentorship
+                <i
+                  className={`fas fa-chevron-down text-[10px] transition-transform duration-500 ${
+                    isMentorshipDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                  aria-hidden="true"
+                ></i>
+              </button>
+
+              <AnimatePresence>
+                {isMentorshipDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full right-0 mt-4 w-64 glass-dark rounded-sm overflow-hidden z-50 p-2"
+                  >
+                    {mentorshipOptions.map((option, index) => (
+                      <a
+                        key={index}
+                        href={option.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-6 py-4 text-[11px] font-bold uppercase tracking-widest text-white/80 hover:bg-luxury-gold hover:text-deep-navy transition-all duration-300 rounded-sm mb-1 last:mb-0"
+                        onClick={() => setIsMentorshipDropdownOpen(false)}
+                      >
+                        {option.name}
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <div className="relative contact-dropdown">
               <button
                 type="button"
-                onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}
+                onClick={() => {
+                  setIsContactDropdownOpen(!isContactDropdownOpen)
+                  setIsMentorshipDropdownOpen(false)
+                }}
                 aria-expanded={isContactDropdownOpen}
                 className={`text-[11px] 2xl:text-[13px] font-bold uppercase tracking-[0.15em] transition-colors duration-300 flex items-center gap-2 ${
                   pathname === '/contact' ? 'text-luxury-gold' : 'text-white hover:text-luxury-gold'
@@ -270,11 +322,9 @@ export default function Header() {
                     key={item.name}
                     href={item.href}
                     className={`block py-4 px-6 text-[11px] font-bold uppercase tracking-widest transition-all duration-300 rounded-sm ${
-                      item.isHighlight
-                        ? 'bg-luxury-gold text-deep-navy text-center'
-                        : pathname === item.href
-                          ? 'text-luxury-gold bg-white/5'
-                          : 'text-white hover:text-luxury-gold hover:bg-white/5'
+                      pathname === item.href
+                        ? 'text-luxury-gold bg-white/5'
+                        : 'text-white hover:text-luxury-gold hover:bg-white/5'
                     }`}
                     onClick={closeMenu}
                     {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
@@ -282,6 +332,24 @@ export default function Header() {
                     {item.name}
                   </Link>
                 ))}
+
+                <div className="pt-2">
+                  <div className="px-6 mb-2 text-[10px] font-bold uppercase tracking-widest text-luxury-gold">
+                    Book Mentorship
+                  </div>
+                  {mentorshipOptions.map((option, index) => (
+                    <a
+                      key={index}
+                      href={option.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block py-3 px-6 mx-2 mb-1 text-[10px] font-bold uppercase tracking-[0.15em] bg-luxury-gold/10 text-white hover:bg-luxury-gold hover:text-deep-navy transition-all duration-300 rounded-sm"
+                      onClick={closeMenu}
+                    >
+                      {option.name}
+                    </a>
+                  ))}
+                </div>
 
                 <div className="pt-4 border-t border-white/10 mt-4">
                   <div className="px-6 mb-4 text-[10px] font-bold uppercase tracking-widest text-white/40">

@@ -1659,6 +1659,11 @@
       "source": "/bundle",
       "destination": "https://bundle.stephenakintayofoundation.org",
       "permanent": false
+    },
+    {
+      "source": "/wellness",
+      "destination": "https://marketplace.drstellamd.com/yistglobal",
+      "permanent": false
     }
   ]
 }

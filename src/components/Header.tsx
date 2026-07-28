@@ -104,11 +104,14 @@ export default function Header() {
     }
   }, [isContactDropdownOpen, isMentorshipDropdownOpen])
 
+  const showHeader = isVisible || isMenuOpen
+
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-deep-navy/95 backdrop-blur-lg shadow-2xl py-2' : 'bg-transparent py-4'
-      } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
+        isScrolled || isMenuOpen ? 'bg-deep-navy/95 backdrop-blur-lg shadow-2xl py-2' : 'bg-transparent py-4'
+      } ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}
     >
       {/* Top highlight bar — hidden on small screens */}
       <div
@@ -258,33 +261,84 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            className="xl:hidden text-white flex flex-col items-center justify-center w-10 h-10 space-y-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-luxury-gold rounded-sm"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-expanded={isMenuOpen}
-            aria-controls={MOBILE_MENU_ID}
-            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-500 ${
-                isMenuOpen ? 'rotate-45 translate-y-2 !bg-luxury-gold' : ''
-              }`}
-            ></span>
-            <span
-              className={`block w-4 h-0.5 bg-white transition-all duration-500 ${isMenuOpen ? 'opacity-0' : ''}`}
-            ></span>
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-500 ${
-                isMenuOpen ? '-rotate-45 -translate-y-2 !bg-luxury-gold' : ''
-              }`}
-            ></span>
-          </button>
+          {/* Mobile: Book Mentorship CTA + hamburger */}
+          <div className="flex xl:hidden items-center gap-2 sm:gap-3 flex-shrink-0">
+            <div className="relative mentorship-dropdown">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMentorshipDropdownOpen(!isMentorshipDropdownOpen)
+                  setIsMenuOpen(false)
+                }}
+                aria-expanded={isMentorshipDropdownOpen}
+                className="bg-luxury-gold hover:bg-gold-dark text-deep-navy px-3 py-2 sm:px-4 sm:py-2.5 rounded-sm shadow-[0_5px_15px_rgba(212,175,55,0.2)] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.12em] transition-colors duration-300 flex items-center gap-1.5 whitespace-nowrap"
+              >
+                <span className="hidden sm:inline">Book Mentorship</span>
+                <span className="sm:hidden">Mentorship</span>
+                <i
+                  className={`fas fa-chevron-down text-[8px] transition-transform duration-500 ${
+                    isMentorshipDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                  aria-hidden="true"
+                ></i>
+              </button>
+
+              <AnimatePresence>
+                {isMentorshipDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full right-0 mt-3 w-56 glass-dark rounded-sm overflow-hidden z-50 p-2"
+                  >
+                    {mentorshipOptions.map((option, index) => (
+                      <a
+                        key={index}
+                        href={option.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-white/80 hover:bg-luxury-gold hover:text-deep-navy transition-all duration-300 rounded-sm mb-1 last:mb-0"
+                        onClick={() => setIsMentorshipDropdownOpen(false)}
+                      >
+                        {option.name}
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <button
+              type="button"
+              className="text-white flex flex-col items-center justify-center w-10 h-10 space-y-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-luxury-gold rounded-sm"
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen)
+                setIsMentorshipDropdownOpen(false)
+              }}
+              aria-expanded={isMenuOpen}
+              aria-controls={MOBILE_MENU_ID}
+              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            >
+              <span
+                className={`block w-6 h-0.5 bg-white transition-all duration-500 ${
+                  isMenuOpen ? 'rotate-45 translate-y-2 !bg-luxury-gold' : ''
+                }`}
+              ></span>
+              <span
+                className={`block w-4 h-0.5 bg-white transition-all duration-500 ${isMenuOpen ? 'opacity-0' : ''}`}
+              ></span>
+              <span
+                className={`block w-6 h-0.5 bg-white transition-all duration-500 ${
+                  isMenuOpen ? '-rotate-45 -translate-y-2 !bg-luxury-gold' : ''
+                }`}
+              ></span>
+            </button>
+          </div>
         </div>
       </div>
+    </header>
 
-      {/* Full-screen mobile drawer */}
+      {/* Full-screen mobile drawer — outside header so transform doesn't clip fixed positioning */}
       <AnimatePresence>
         {isMenuOpen && (
           <>
@@ -293,7 +347,7 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 xl:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] xl:hidden"
               onClick={closeMenu}
               aria-label="Close navigation menu"
             />
@@ -303,7 +357,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-deep-navy z-50 xl:hidden overflow-y-auto border-l border-white/10 shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-deep-navy z-[70] xl:hidden overflow-y-auto border-l border-white/10 shadow-2xl"
             >
               <div className="flex items-center justify-between p-6 border-b border-white/10">
                 <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.2em]">Menu</span>
@@ -316,12 +370,12 @@ export default function Header() {
                   <i className="fas fa-times text-xl" aria-hidden="true"></i>
                 </button>
               </div>
-              <nav className="p-6 flex flex-col space-y-2">
+              <nav className="p-6 flex flex-col space-y-1">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`block py-4 px-6 text-[11px] font-bold uppercase tracking-widest transition-all duration-300 rounded-sm ${
+                    className={`block py-4 px-6 text-[12px] font-bold uppercase tracking-widest transition-all duration-300 rounded-sm ${
                       pathname === item.href
                         ? 'text-luxury-gold bg-white/5'
                         : 'text-white hover:text-luxury-gold hover:bg-white/5'
@@ -333,8 +387,8 @@ export default function Header() {
                   </Link>
                 ))}
 
-                <div className="pt-2">
-                  <div className="px-6 mb-2 text-[10px] font-bold uppercase tracking-widest text-luxury-gold">
+                <div className="pt-4 mt-2 border-t border-white/10">
+                  <div className="px-6 mb-3 text-[10px] font-bold uppercase tracking-widest text-white/40">
                     Book Mentorship
                   </div>
                   {mentorshipOptions.map((option, index) => (
@@ -343,7 +397,7 @@ export default function Header() {
                       href={option.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block py-3 px-6 mx-2 mb-1 text-[10px] font-bold uppercase tracking-[0.15em] bg-luxury-gold/10 text-white hover:bg-luxury-gold hover:text-deep-navy transition-all duration-300 rounded-sm"
+                      className="block py-3.5 px-6 mx-2 mb-2 text-[11px] font-bold uppercase tracking-[0.15em] bg-luxury-gold text-deep-navy hover:bg-gold-dark transition-all duration-300 rounded-sm text-center"
                       onClick={closeMenu}
                     >
                       {option.name}
@@ -352,14 +406,14 @@ export default function Header() {
                 </div>
 
                 <div className="pt-4 border-t border-white/10 mt-4">
-                  <div className="px-6 mb-4 text-[10px] font-bold uppercase tracking-widest text-white/40">
+                  <div className="px-6 mb-3 text-[10px] font-bold uppercase tracking-widest text-white/40">
                     Contact Us
                   </div>
                   {contactOptions.map((option, index) => (
                     <Link
                       key={index}
                       href={option.href}
-                      className="block py-3 px-6 text-[10px] font-bold uppercase tracking-[0.15em] text-white/70 hover:text-luxury-gold transition-colors"
+                      className="block py-3 px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-white/70 hover:text-luxury-gold transition-colors"
                       onClick={closeMenu}
                     >
                       {option.name}
@@ -371,6 +425,6 @@ export default function Header() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   )
 }

@@ -64,12 +64,12 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const PHONE_PATTERN = /^[0-9\s-]{6,15}$/
 
 /**
- * Optional collection endpoint (Google Apps Script, Formspree, MailingBoss, …).
- * The site is a static export, so there is no API route to post to — when this
- * is unset the form validates and confirms locally, matching the other forms
- * on the site.
+ * Submissions go to Formspree — the site is a static export, so there is no API
+ * route of our own to post to. Override with NEXT_PUBLIC_VOLUNTEER_FORM_ENDPOINT
+ * if the collection point ever moves.
  */
-const ENDPOINT = process.env.NEXT_PUBLIC_VOLUNTEER_FORM_ENDPOINT
+const ENDPOINT =
+  process.env.NEXT_PUBLIC_VOLUNTEER_FORM_ENDPOINT || 'https://formspree.io/f/mbgrrpll'
 
 const inputClass = (hasError: boolean) =>
   `w-full bg-white/[0.03] border text-white py-4 px-5 rounded-sm font-medium placeholder:text-white/25 focus:outline-none focus:bg-white/[0.06] transition-all duration-300 ${
@@ -210,36 +210,53 @@ export default function GlobalVolunteersForm() {
 
     setIsSubmitting(true)
 
+    const fullName = form.fullName.trim()
+
+    // Keys double as the field labels in the Formspree dashboard and notification
+    // email, so they are written out in full. `name` and `email` are Formspree's
+    // own reserved fields — it uses them for the submission title and reply-to.
     const payload = {
-      fullName: form.fullName.trim(),
+      name: fullName,
       email: form.email.trim(),
-      whatsapp: `${form.dialCode} ${form.phone.trim()}`,
-      genderPronouns: form.gender === SELF_DESCRIBE ? form.genderSelfDescribe.trim() : form.gender,
-      ageRange: form.ageRange,
-      dateOfBirth: form.dateOfBirth || null,
-      country: form.country,
-      region: form.region.trim(),
-      timeZone: form.timeZone,
-      availability: form.availability,
-      codeOfConductAccepted: form.codeOfConduct,
-      dataPrivacyAccepted: form.dataPrivacy,
+      'WhatsApp Number': `${form.dialCode} ${form.phone.trim()}`,
+      'Gender / Pronouns':
+        form.gender === SELF_DESCRIBE ? form.genderSelfDescribe.trim() : form.gender,
+      'Age Range': form.ageRange,
+      'Date of Birth': form.dateOfBirth || 'Not provided',
+      'Country of Residence': form.country,
+      'State / City / Province': form.region.trim(),
+      'Time Zone': form.timeZone,
+      'Availability Status': form.availability,
+      'Code of Conduct Agreement': form.codeOfConduct ? 'Accepted' : 'Not accepted',
+      'Data Privacy Consent': form.dataPrivacy ? 'Accepted' : 'Not accepted',
+      _subject: `New global volunteer application — ${fullName}`,
     }
 
     try {
-      if (ENDPOINT) {
-        const response = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        })
-        if (!response.ok) throw new Error(`Request failed with status ${response.status}`)
-      } else {
-        await new Promise((resolve) => setTimeout(resolve, 900))
+      const response = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Without this Formspree replies with a redirect to its own thank-you page.
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => null)
+        const detail = body?.errors?.[0]?.message
+        throw new Error(detail || `Request failed with status ${response.status}`)
       }
+
       setIsSubmitted(true)
       window.scrollTo({ top: 0, behavior: 'smooth' })
-    } catch {
-      setSubmitError('We could not submit your application. Please try again in a moment.')
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error && error.message
+          ? `We could not submit your application: ${error.message}`
+          : 'We could not submit your application. Please try again in a moment.',
+      )
     } finally {
       setIsSubmitting(false)
     }

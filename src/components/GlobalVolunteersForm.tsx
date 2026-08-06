@@ -4,17 +4,36 @@ import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { COUNTRIES, TIME_ZONES, detectTimeZoneValue } from '@/lib/geo'
 
-const GENDER_OPTIONS = [
-  'Woman (she/her)',
-  'Man (he/him)',
-  'Non-binary (they/them)',
-  'Prefer to self-describe',
-  'Prefer not to say',
-]
-
-const SELF_DESCRIBE = 'Prefer to self-describe'
+const GENDER_OPTIONS = ['Male', 'Female']
 
 const AGE_RANGES = ['Under 18', '18 – 24', '25 – 34', '35 – 44', '45 – 54', '55 – 64', '65+']
+
+/**
+ * The four chapters volunteers can join. Each carries the WhatsApp invite that is
+ * surfaced automatically on the confirmation screen once the form is submitted.
+ */
+const CHAPTERS = [
+  {
+    city: 'Lagos',
+    country: 'Nigeria',
+    whatsapp: 'https://chat.whatsapp.com/E3DLEnUgmCdKiCn99A23FS?s=cl&p=i&mlu=4',
+  },
+  {
+    city: 'Abuja',
+    country: 'Nigeria',
+    whatsapp: 'https://chat.whatsapp.com/GFlTXUT2WuZJzD9bXuTr7g?s=cl&p=i&mlu=4',
+  },
+  {
+    city: 'London',
+    country: 'United Kingdom',
+    whatsapp: 'https://chat.whatsapp.com/FD9ombf3DLT42IJDVNDsQw?s=cl&p=i&mlu=4',
+  },
+  {
+    city: 'Houston',
+    country: 'United States',
+    whatsapp: 'https://chat.whatsapp.com/BlAAeoYhHtTAMWiy7Rxx1a?s=cl&p=i&mlu=4',
+  },
+]
 
 const AVAILABILITY_OPTIONS = [
   { value: 'Full-time', detail: '30+ hours a week' },
@@ -27,14 +46,15 @@ const AVAILABILITY_OPTIONS = [
 type FormState = {
   fullName: string
   email: string
-  dialCode: string
+  /** ISO code of the phone's country — dial codes are not unique (+1 alone covers ~20). */
+  phoneCountry: string
   phone: string
   gender: string
-  genderSelfDescribe: string
   ageRange: string
   dateOfBirth: string
   country: string
   region: string
+  chapter: string
   timeZone: string
   availability: string
   codeOfConduct: boolean
@@ -44,14 +64,14 @@ type FormState = {
 const INITIAL_STATE: FormState = {
   fullName: '',
   email: '',
-  dialCode: '',
+  phoneCountry: '',
   phone: '',
   gender: '',
-  genderSelfDescribe: '',
   ageRange: '',
   dateOfBirth: '',
   country: '',
   region: '',
+  chapter: '',
   timeZone: '',
   availability: '',
   codeOfConduct: false,
@@ -59,6 +79,9 @@ const INITIAL_STATE: FormState = {
 }
 
 type Errors = Partial<Record<keyof FormState, string>>
+
+const dialCodeFor = (isoCode: string) =>
+  COUNTRIES.find((country) => country.code === isoCode)?.dial ?? ''
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const PHONE_PATTERN = /^[0-9\s-]{6,15}$/
@@ -132,13 +155,13 @@ export default function GlobalVolunteersForm() {
     setSubmitError(null)
   }
 
-  // Selecting a country fills in its dialling code unless one was typed already.
+  // Selecting a country fills in its dialling code unless one was chosen already.
   const handleCountryChange = (name: string) => {
     const country = COUNTRIES.find((item) => item.name === name)
     setForm((previous) => ({
       ...previous,
       country: name,
-      dialCode: previous.dialCode || (country ? country.dial : ''),
+      phoneCountry: previous.phoneCountry || (country ? country.code : ''),
     }))
     setErrors((previous) => ({ ...previous, country: undefined }))
   }
@@ -147,11 +170,12 @@ export default function GlobalVolunteersForm() {
     const checks = [
       form.fullName.trim() !== '',
       form.email.trim() !== '',
-      form.dialCode.trim() !== '' && form.phone.trim() !== '',
-      form.gender !== '' && (form.gender !== SELF_DESCRIBE || form.genderSelfDescribe.trim() !== ''),
+      form.phoneCountry !== '' && form.phone.trim() !== '',
+      form.gender !== '',
       form.ageRange !== '',
       form.country !== '',
       form.region.trim() !== '',
+      form.chapter !== '',
       form.timeZone !== '',
       form.availability !== '',
       form.codeOfConduct,
@@ -169,21 +193,21 @@ export default function GlobalVolunteersForm() {
     if (!form.email.trim()) next.email = 'Please enter your email address.'
     else if (!EMAIL_PATTERN.test(form.email.trim())) next.email = 'Please enter a valid email address.'
 
-    if (!form.dialCode.trim()) next.dialCode = 'Select your country code.'
+    if (!form.phoneCountry) next.phoneCountry = 'Select your country.'
 
     if (!form.phone.trim()) next.phone = 'Please enter your WhatsApp number.'
     else if (!PHONE_PATTERN.test(form.phone.trim()))
       next.phone = 'Digits only, without the country code.'
 
     if (!form.gender) next.gender = 'Please choose an option.'
-    else if (form.gender === SELF_DESCRIBE && !form.genderSelfDescribe.trim())
-      next.genderSelfDescribe = 'Please tell us how you identify.'
 
     if (!form.ageRange) next.ageRange = 'Please select your age range.'
 
     if (!form.country) next.country = 'Please select your country of residence.'
 
     if (!form.region.trim()) next.region = 'Please enter your state, city or province.'
+
+    if (!form.chapter) next.chapter = 'Please choose the city you are volunteering in.'
 
     if (!form.timeZone) next.timeZone = 'Please select your time zone.'
 
@@ -218,13 +242,13 @@ export default function GlobalVolunteersForm() {
     const payload = {
       name: fullName,
       email: form.email.trim(),
-      'WhatsApp Number': `${form.dialCode} ${form.phone.trim()}`,
-      'Gender / Pronouns':
-        form.gender === SELF_DESCRIBE ? form.genderSelfDescribe.trim() : form.gender,
+      'WhatsApp Number': `${dialCodeFor(form.phoneCountry)} ${form.phone.trim()}`,
+      Gender: form.gender,
       'Age Range': form.ageRange,
       'Date of Birth': form.dateOfBirth || 'Not provided',
       'Country of Residence': form.country,
       'State / City / Province': form.region.trim(),
+      'Volunteer City': form.chapter,
       'Time Zone': form.timeZone,
       'Availability Status': form.availability,
       'Code of Conduct Agreement': form.codeOfConduct ? 'Accepted' : 'Not accepted',
@@ -263,6 +287,8 @@ export default function GlobalVolunteersForm() {
   }
 
   if (isSubmitted) {
+    const chapter = CHAPTERS.find((item) => item.city === form.chapter)
+
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
@@ -291,14 +317,38 @@ export default function GlobalVolunteersForm() {
             Thank you, {form.fullName.split(' ')[0]}. Your application has been logged. Our
             volunteer coordination team reviews every submission and will reach out on WhatsApp at{' '}
             <span className="text-luxury-gold font-semibold">
-              {form.dialCode} {form.phone}
+              {dialCodeFor(form.phoneCountry)} {form.phone}
             </span>{' '}
             with your onboarding details.
           </p>
 
+          {chapter && (
+            <div className="mt-10 mx-auto max-w-xl border border-luxury-gold/30 bg-luxury-gold/[0.06] rounded-sm px-6 py-8 sm:px-10">
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-luxury-gold/70">
+                Your next step
+              </p>
+              <h3 className="mt-3 text-xl sm:text-2xl font-black text-white">
+                Join the {chapter.city} volunteer group
+              </h3>
+              <p className="mt-3 text-sm text-white/50 leading-relaxed">
+                Everything for the {chapter.city} chapter — briefings, rotas and activations — runs
+                through this WhatsApp group. Tap below to join now.
+              </p>
+              <a
+                href={chapter.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center justify-center gap-3 rounded-sm bg-[#25D366] px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] text-[#0b3d24] transition-all duration-300 hover:bg-[#1ebe5a] hover:shadow-[0_0_30px_rgba(37,211,102,0.35)]"
+              >
+                <i className="fab fa-whatsapp text-xl"></i>
+                Join {chapter.city} Group
+              </a>
+            </div>
+          )}
+
           <div className="mt-10 grid sm:grid-cols-3 gap-px bg-white/10 border border-white/10">
             {[
-              { label: 'Region', value: form.country },
+              { label: 'Chapter', value: form.chapter },
               { label: 'Time Zone', value: form.timeZone },
               { label: 'Availability', value: form.availability },
             ].map((item) => (
@@ -397,23 +447,23 @@ export default function GlobalVolunteersForm() {
               <label htmlFor="phone" className={labelClass}>
                 WhatsApp Number <span className="text-luxury-gold">*</span>
               </label>
-              <div className="grid grid-cols-[minmax(0,9rem)_1fr] gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,17rem)_1fr] gap-3">
                 <div className="relative">
                   <select
-                    id="dialCode"
-                    name="dialCode"
+                    id="phoneCountry"
+                    name="phoneCountry"
                     aria-label="Country dialling code"
-                    value={form.dialCode}
-                    onChange={(event) => update('dialCode', event.target.value)}
-                    aria-invalid={Boolean(errors.dialCode)}
-                    className={selectClass(Boolean(errors.dialCode))}
+                    value={form.phoneCountry}
+                    onChange={(event) => update('phoneCountry', event.target.value)}
+                    aria-invalid={Boolean(errors.phoneCountry)}
+                    className={selectClass(Boolean(errors.phoneCountry))}
                   >
                     <option value="" className="bg-deep-navy">
-                      Code
+                      Select country
                     </option>
                     {COUNTRIES.map((country) => (
-                      <option key={country.code} value={country.dial} className="bg-deep-navy">
-                        {country.dial} · {country.code}
+                      <option key={country.code} value={country.code} className="bg-deep-navy">
+                        {country.name} ({country.dial})
                       </option>
                     ))}
                   </select>
@@ -435,12 +485,12 @@ export default function GlobalVolunteersForm() {
               <p className="mt-2 text-xs text-white/30">
                 Include your country code — this is how our coordinators will reach you.
               </p>
-              <FieldError message={errors.dialCode ?? errors.phone} />
+              <FieldError message={errors.phoneCountry ?? errors.phone} />
             </div>
 
             <div>
               <label htmlFor="gender" className={labelClass}>
-                Gender / Pronouns <span className="text-luxury-gold">*</span>
+                Gender <span className="text-luxury-gold">*</span>
               </label>
               <div className="relative">
                 <select
@@ -463,23 +513,6 @@ export default function GlobalVolunteersForm() {
                 <Chevron />
               </div>
               <FieldError message={errors.gender} />
-
-              {form.gender === SELF_DESCRIBE && (
-                <div className="mt-4">
-                  <input
-                    id="genderSelfDescribe"
-                    name="genderSelfDescribe"
-                    type="text"
-                    aria-label="How you identify"
-                    value={form.genderSelfDescribe}
-                    onChange={(event) => update('genderSelfDescribe', event.target.value)}
-                    aria-invalid={Boolean(errors.genderSelfDescribe)}
-                    placeholder="How you identify, and your pronouns"
-                    className={inputClass(Boolean(errors.genderSelfDescribe))}
-                  />
-                  <FieldError message={errors.genderSelfDescribe} />
-                </div>
-              )}
             </div>
 
             <div className="grid sm:grid-cols-2 gap-6">
@@ -591,6 +624,62 @@ export default function GlobalVolunteersForm() {
                 />
                 <FieldError message={errors.region} />
               </div>
+            </div>
+
+            <div>
+              <span className={labelClass}>
+                City You Are Volunteering In <span className="text-luxury-gold">*</span>
+              </span>
+              <div
+                role="radiogroup"
+                aria-label="City you are volunteering in"
+                aria-invalid={Boolean(errors.chapter)}
+                className="grid sm:grid-cols-2 gap-3"
+              >
+                {CHAPTERS.map((chapter) => {
+                  const isActive = form.chapter === chapter.city
+                  return (
+                    <label
+                      key={chapter.city}
+                      className={`group relative flex cursor-pointer items-center gap-4 rounded-sm border px-5 py-4 transition-all duration-300 ${
+                        isActive
+                          ? 'border-luxury-gold bg-luxury-gold/10'
+                          : 'border-white/10 bg-white/[0.03] hover:border-luxury-gold/40 hover:bg-white/[0.06]'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="chapter"
+                        value={chapter.city}
+                        checked={isActive}
+                        onChange={(event) => update('chapter', event.target.value)}
+                        className="sr-only"
+                      />
+                      <span
+                        className={`h-4 w-4 flex-shrink-0 rounded-full border transition-all duration-300 ${
+                          isActive
+                            ? 'border-luxury-gold bg-luxury-gold shadow-[0_0_0_3px_rgba(212,175,55,0.2)]'
+                            : 'border-white/25 group-hover:border-luxury-gold/50'
+                        }`}
+                      ></span>
+                      <span className="min-w-0">
+                        <span
+                          className={`block text-sm font-bold ${
+                            isActive ? 'text-white' : 'text-white/80'
+                          }`}
+                        >
+                          {chapter.city}
+                        </span>
+                        <span className="block text-xs text-white/40 mt-0.5">{chapter.country}</span>
+                      </span>
+                    </label>
+                  )
+                })}
+              </div>
+              <p className="mt-2 text-xs text-white/30">
+                You&apos;ll get the WhatsApp group for this chapter as soon as you submit.
+              </p>
+              <FieldError message={errors.chapter} />
             </div>
 
             <div>

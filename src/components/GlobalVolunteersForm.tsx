@@ -26,7 +26,7 @@ const CHAPTERS = [
   {
     city: 'London',
     country: 'United Kingdom',
-    whatsapp: 'https://chat.whatsapp.com/FD9ombf3DLT42IJDVNDsQw?s=cl&p=i&mlu=4',
+    whatsapp: 'https://chat.whatsapp.com/C3DWXaLlDiHEC2sjW8dGsA?s=sw&p=i&mlu=4',
   },
   {
     city: 'Houston',

@@ -1,4 +1,35 @@
 {
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self' https://api.web3forms.com https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com https://formspree.io; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    }
+  ],
   "redirects": [
     {
       "source": "/store",
@@ -11,29 +42,19 @@
       "permanent": true
     },
     {
-      "source": "/old-page",
-      "destination": "https://www.stephenakintayo.com/new-page",
-      "permanent": true
-    },
-    {
-      "source": "/another-page",
-      "destination": "https://www.stephenakintayo.com/another-new-page",
-      "permanent": true
-    },
-    {
       "source": "/houston",
       "destination": "https://houston.stephenakintayofoundation.org",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/dallas",
       "destination": "https://dallas.stephenakintayofoundation.org",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/business",
       "destination": "https://business.stephenakintayofoundation.org",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/cmsc",
@@ -61,11 +82,6 @@
       "permanent": true
     },
     {
-      "source": "/promo",
-      "destination": "https://promocombo.netlify.app",
-      "permanent": true
-    },
-    {
       "source": "/germany",
       "destination": "https://germany.stephenakintayofoundation.org/",
       "permanent": true
@@ -86,11 +102,6 @@
       "permanent": true
     },
     {
-      "source": "/live",
-      "destination": "https://streaming-leads.vercel.app",
-      "permanent": true
-    },
-    {
       "source": "/iri",
       "destination": "https://iri.stephenakintayofoundation.org/",
       "permanent": true
@@ -98,21 +109,6 @@
     {
       "source": "/london",
       "destination": "https://foundersmeet.stephenakintayofoundation.org/",
-      "permanent": true
-    },
-    {
-      "source": "/aicc",
-      "destination": "https://gtextsoft.github.io/AI-Class/",
-      "permanent": true
-    },
-    {
-      "source": "/chinabhm",
-      "destination": "https://gtextsoft.github.io/Chinabhm/",
-      "permanent": true
-    },
-    {
-      "source": "/aiclass",
-      "destination": "https://gtextsoft.github.io/AIWorkShop-Form/",
       "permanent": true
     },
     {
@@ -128,11 +124,6 @@
     {
       "source": "/selarrbm",
       "destination": "https://stephenakintayo.selar.com/hon7r3if90",
-      "permanent": true
-    },
-    {
-      "source": "/s90c",
-      "destination": "https://gtextsoft.github.io/S90C/",
       "permanent": true
     },
     {
@@ -158,1401 +149,1101 @@
     {
       "source": "/payment",
       "destination": "https://buy.stripe.com/dRm5kE6JUeS61VB8794c800",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle16",
       "destination": "https://www.forbes.com/councils/forbesbusinesscouncil/2026/02/27/the-leadership-shift-required-for-sustainable-growth/",
-      "permanent": false
-    },
-    {
-      "source": "/foundersretreat",
-      "destination": "https://foundersretreat.vercel.app/",
-      "permanent": false
-    },
-    {
-      "source": "/ceobarbecue",
-      "destination": "https://ceobarbecue.vercel.app/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/products",
       "destination": "https://stephenakintayouniversity.com/products",
-      "permanent": false
-    },
-    {
-      "source": "/events",
-      "destination": "https://drstephenakintayo.vercel.app/events",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/event",
-      "destination": "https://www.stephenakintayo.com/events",
-      "permanent": false
+      "destination": "/events",
+      "permanent": true
     },
     {
       "source": "/EVENT",
-      "destination": "https://www.stephenakintayo.com/events",
-      "permanent": false
-    },
-    {
-      "source": "/salesmasterclass",
-      "destination": "https://smc-coral-beta.vercel.app",
-      "permanent": false
+      "destination": "/events",
+      "permanent": true
     },
     {
       "source": "/retreat",
       "destination": "https://lakowe.stephenakintayofoundation.org/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/japanretreat",
       "destination": "https://japan.stephenakintayofoundation.org/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/chinaretreat",
       "destination": "https://china.stephenakintayofoundation.org/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/virtual",
       "destination": "https://pay.gtextglobal.com/virtual-to-the-singapore-retreat/",
-      "permanent": false
-    },
-    {
-      "source": "/reih",
-      "destination": "https://app.mailingboss.com/lists/690db7e34ef72/subscribe",
-      "permanent": false
-    },
-    {
-      "source": "/atlanta",
-      "destination": "https://atlantamg.vercel.app/",
-      "permanent": false
-    },
-    {
-      "source": "/sales",
-      "destination": "https://remsclass.vercel.app/",
-      "permanent": false
-    },
-    {
-      "source": "/france",
-      "destination": "https://app.mailingboss.com/lists/68dfe7c1c1103/subscribe",
-      "permanent": false
-    },
-    {
-      "source": "/kenyameet",
-      "destination": "https://app.mailingboss.com/lists/68d51b541de63/subscribe",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bookings",
-      "destination": "/booking",
-      "permanent": false
+      "destination": "/contact",
+      "permanent": true
     },
     {
       "source": "/booking",
-      "destination": "https://form.typeform.com/to/Wznl2Ip9",
-      "permanent": false
-    },
-    {
-      "source": "/kenyaretreat",
-      "destination": "https://kenyasummit.vercel.app/",
-      "permanent": false
+      "destination": "/contact",
+      "permanent": true
     },
     {
       "source": "/saopm",
       "destination": "https://paystack.shop/pay/bjlum9ccdj",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ustour",
       "destination": "https://mentorme.stephenakintayo.com/landing-page-crim-us",
-      "permanent": false
-    },
-    {
-      "source": "/singaporeretreat",
-      "destination": "https://saf-singapore.vercel.app/",
-      "permanent": false
-    },
-    {
-      "source": "/community",
-      "destination": "https://saf-community.vercel.app/",
-      "permanent": false
-    },
-    {
-      "source": "/fightbb",
-      "destination": "https://offer-virid.vercel.app/",
-      "permanent": false
-    },
-    {
-      "source": "/fightbusinessbullying",
-      "destination": "https://offer-virid.vercel.app/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/UIM",
       "destination": "https://us06web.zoom.us/webinar/register/WN_0thy_rmCRq-53tSaNf1xSg",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/uim",
       "destination": "https://us06web.zoom.us/webinar/register/WN_0thy_rmCRq-53tSaNf1xSg",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/dsaboatcriuse",
       "destination": "https://dohatour.stephenakintayofoundation.org/",
-      "permanent": false
-    },
-    {
-      "source": "/lasvegas",
-      "destination": "https://meet-and-greet-event-las-vegas.vercel.app/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/digitalbookspromo",
       "destination": "https://safbook.stephenakintayo.com/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ylc",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSflFf_ewO_y6lp0EJ5lyrTPJCOjNIp1d5NsM5mL12m9CBisAA/viewform?usp=header",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/dim",
       "destination": "https://doha.gvestglobal.com",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/lim",
       "destination": "https://london.gvestglobal.com",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/doharetreat",
       "destination": "https://doharetreat.stephenakintayofoundation.org/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/mentees",
       "destination": "https://us06web.zoom.us/webinar/register/WN_e-egnN_JQUC8XebMZ1_pug",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bookclub",
       "destination": "https://chat.whatsapp.com/Iun3G7i2Ltf7zzfbck61jm",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/grei",
       "destination": "https://us06web.zoom.us/webinar/register/WN_e-egnN_JQUC8XebMZ1_pug",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bbr",
       "destination": "https://paystack.com/pay/f2f0eh7o99",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bgm",
       "destination": "https://stephenakintayo.selar.co/80z463",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ebookpromo",
       "destination": "https://pay.gtextglobal.com/all-softcopies-book-offer/",
-      "permanent": false
-    },
-    {
-      "source": "/vancouver",
-      "destination": "https://app.mailingboss.com/lists/66fbc2239ebe8/subscribe",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bwcvolunteers",
       "destination": "https://chat.whatsapp.com/C314s2CuRCZDdZPbsMYu5L",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/finance",
       "destination": "https://us06web.zoom.us/meeting/register/J3Bd4MoQRSOsbC2t0CAeEg",
-      "permanent": false
-    },
-    {
-      "source": "/newbook",
-      "destination": "https://gtextholdings.clickfunnels.com/integritybook",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/toronto",
       "destination": "https://chat.whatsapp.com/FzqBE9pfbeVGC90U2d7JzM",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/freesau",
       "destination": "https://pay.gtextglobal.com/sau2500",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/brokeragefirm",
       "destination": "https://stephenakintayostore.com/brokeragefirm",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/volunteers",
       "destination": "https://chat.whatsapp.com/EPlkfAJpNaz1nXK2hDImIp",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/foodbank",
       "destination": "https://pay.gtextglobal.com/saffd/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/agro",
       "destination": "https://stephenakintayostore.com/agritourism",
-      "permanent": false
-    },
-    {
-      "source": "/booklaunch",
-      "destination": "https://gtextholdings.clickfunnels.com/foodbankproject",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/combo",
       "destination": "https://paystack.com/pay/tbwpg6qwu8",
-      "permanent": false
-    },
-    {
-      "source": "/cameroon",
-      "destination": "https://app.mailingboss.com/lists/6720ca55eb42d/subscribe",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/leeds",
       "destination": "https://leeds.stephenakintayofoundation.org",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/riw",
       "destination": "https://www.gtexthomesusa.com/riw",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/canada",
       "destination": "https://mentorme.stephenakintayo.com/canada-tour-2024",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gwffeedbackform",
       "destination": "https://forms.gle/7rUnFqpP2vGGn7u59",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/globalrim",
       "destination": "https://mentorme.stephenakintayo.com/globalrim",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bsense",
       "destination": "https://mentorme.stephenakintayo.com/business-sense-home",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/apprenticeship",
       "destination": "https://forms.gle/MeiDM3iFWnzDpPTX9",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/birmingham",
       "destination": "https://birmingham.stephenakintayofoundation.org",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/mgbaltimore",
       "destination": "https://forms.gle/6r1JtrzRPAF2EAft6",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ric",
       "destination": "https://pay.gtextglobal.com/ricpastorandchurch/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/foundersconference",
-      "destination": "/gfwc",
-      "permanent": false
+      "destination": "https://mentorme.stephenakintayo.com/gfwc",
+      "permanent": true
     },
     {
       "source": "/bookofthemonth",
       "destination": "https://mentorme.stephenakintayo.com/bookofthemonth",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/realestateclub",
       "destination": "https://mentorme.stephenakintayo.com/join",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/rimlondon",
       "destination": "https://mentorme.stephenakintayo.com/ceim_london",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/houstonmandt",
       "destination": "https://forms.gle/xHwWd9qEmrf5bhRu9",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/dallasmandt",
       "destination": "https://forms.gle/tGoUbEQKXtRXmmmb9",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/italy",
       "destination": "https://forms.gle/ui3b4Y5xomwaxRdf7",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/manchester",
       "destination": "https://manchester.stephenakintayofoundation.org",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/chicago",
       "destination": "https://forms.gle/ysyd8MiDJQLqq8cY9",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/dohaoffer",
       "destination": "https://mentorme.stephenakintayo.com/thank-you-page43pvdise",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/qatar",
       "destination": "https://forms.gle/PoXA1BaBE6rMbkKL7",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/professional",
       "destination": "https://us06web.zoom.us/webinar/register/WN_A79SbC4fQHWGTjnOtq66GQ",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/crimdubai",
       "destination": "https://mentorme.stephenakintayo.com/rimindubai",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/anniversary",
       "destination": "https://mentorme.stephenakintayo.com/anniversary",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/glasgow",
       "destination": "https://glasgow.stephenakintayofoundation.org/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/newyork",
       "destination": "https://forms.gle/JuumzLf2t1y3w5hn8",
-      "permanent": false
-    },
-    {
-      "source": "/amsterdam",
-      "destination": "https://app.mailingboss.com/lists/68d7ef7ba34b1/subscribe",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/retreatpay",
       "destination": "https://pay.gtextglobal.com/ceo-leadership-retreat/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/apply",
       "destination": "https://forms.gle/twEjaxWpwBy64ySKA",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gwfnigeria",
       "destination": "https://mentorme.stephenakintayo.com/gwf-nigeria",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gpc",
-      "destination": "/gpbc",
-      "permanent": false
+      "destination": "https://mentorme.stephenakintayo.com/gpc-update",
+      "permanent": true
     },
     {
       "source": "/gpbc",
       "destination": "https://mentorme.stephenakintayo.com/gpc-update",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gwfusa",
       "destination": "https://www.globalwealthfestival.com",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/GWFUSA",
-      "destination": "/gwfusa",
-      "permanent": false
+      "destination": "https://www.globalwealthfestival.com",
+      "permanent": true
     },
     {
       "source": "/gffcbooks",
       "destination": "https://pay.gtextglobal.com/gffcbook/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gffcmentorship",
       "destination": "https://pay.gtextglobal.com/gffc-coaching/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gffcpromo",
       "destination": "https://pay.gtextglobal.com/global-family-finance-conference-promo/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gffc",
       "destination": "https://us06web.zoom.us/webinar/register/WN_ePqu3m-7TVCJwG6M5lfDsA",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bhvictory",
       "destination": "https://paystack.com/pay/bhvictory",
-      "permanent": false
-    },
-    {
-      "source": "/victory",
-      "destination": "https://app.mailingboss.com/lists/661859b983a21/subscribe",
-      "permanent": false
-    },
-    {
-      "source": "/mrei",
-      "destination": "https://app.mailingboss.com/lists/660265442dd6f/subscribe",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/saic",
       "destination": "https://us06web.zoom.us/webinar/register/WN_Pl9TyRujR9CVW4WOW1WN4g",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/investmentclub",
       "destination": "https://forms.gle/aAFwWQXTP8xNEdeTA",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/easterpromo",
       "destination": "https://mentorme.stephenakintayo.com/easter",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/askdsa",
       "destination": "https://us06web.zoom.us/webinar/register/WN_y0UpcIxmSnuUxz2KndfVnQ",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bookme",
       "destination": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3hj8j_A_OFWLdwI3JUcc50xOFUyEj59EIC8WPZfEPLSWbxTuVPursSDz9IA9elQES6ewgzy1BX",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forum",
       "destination": "https://us06web.zoom.us/webinar/register/WN_2B8CcODvTkedupqo3zTKhw",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/videopack",
       "destination": "https://pay.gtextglobal.com/ceo-retreat-video-pack/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/cyprus",
       "destination": "https://forms.gle/Z88gKzTfy12N1yWUA",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/paris",
       "destination": "https://forms.gle/8TsRNTjBF1NkJ18V9",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/sauwebinar",
       "destination": "https://us06web.zoom.us/webinar/register/WN_NoFwHJYIQjCwOCL5A7_I0w",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gfwc",
       "destination": "https://mentorme.stephenakintayo.com/gfwc",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/BWC",
-      "destination": "/bwc",
-      "permanent": false
+      "destination": "https://us06web.zoom.us/webinar/register/WN_okh7XJJrRoaHy2TehEejIQ",
+      "permanent": true
     },
     {
       "source": "/bwc",
       "destination": "https://us06web.zoom.us/webinar/register/WN_okh7XJJrRoaHy2TehEejIQ",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/diasporaoffer",
       "destination": "https://pay.gtextglobal.com/diaspora-real-estate-wealth-conference/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/entrepreneurcombo",
       "destination": "https://mentorme.stephenakintayo.com/mbc",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/realestatecombo",
       "destination": "https://marketing.stephenakintayo.com/realestatecombo",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/motivationcombo",
       "destination": "https://marketing.stephenakintayo.com/motivationalcombo",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/onlinebusinesscombo",
       "destination": "https://marketing.stephenakintayo.com/onlinebusinesscombo",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/allcombo",
       "destination": "https://marketing.stephenakintayo.com/allbookscombo",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/estatemedia",
       "destination": "https://drive.google.com/drive/folders/1ZodblhCvw5nzql8WlzwXezWH7-088rRi",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/DIASPORAREC",
-      "destination": "/diasporarec",
-      "permanent": false
-    },
-    {
-      "source": "/GPBC",
-      "destination": "https://cmoads.systeme.io/gpbm",
-      "permanent": false
+      "destination": "https://marketing.stephenakintayo.com/diasporarec",
+      "permanent": true
     },
     {
       "source": "/paysadollar",
       "destination": "https://pay.gtextglobal.com/paysadollar/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bomus",
       "destination": "https://mentorme.stephenakintayo.com/bom-2023v8c6bryu",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/rimhouston",
       "destination": "https://mentorme.stephenakintayo.com/landing-page-crim-us-2023jgbsrcw3",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/board",
       "destination": "https://forms.gle/RYmgDrTrF3jK2L4PA",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bomukoffer",
       "destination": "https://pay.gtextglobal.com/bomukoffer/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/coachingcall",
       "destination": "https://mentorme.stephenakintayo.com/homeuii5gq4q",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/diasporarec",
       "destination": "https://marketing.stephenakintayo.com/diasporarec",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/cybermonday",
       "destination": "https://mentorme.stephenakintayo.com/blackfriday70off",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/rimuk",
       "destination": "https://mentorme.stephenakintayo.com/rim_london",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ceoretreatrecording",
       "destination": "https://pay.gtextglobal.com/ceo-retreat-recording---january-2024/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/switzerland",
       "destination": "https://forms.gle/q9Rgm68We9oGE6XD9",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/pay",
       "destination": "https://pay.gtextglobal.com/paysa/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/blackfriday",
       "destination": "https://mentorme.stephenakintayo.com/blackfriday70off",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/rimuae",
       "destination": "https://mentorme.stephenakintayo.com/rimindubai",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ukbompromo",
       "destination": "https://pay.gtextglobal.com/the-billionaire-series-uk-bom-promo/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/teensbootcamp",
       "destination": "https://stephenakintayo.selar.co/77j631",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/csw",
       "destination": "https://us06web.zoom.us/webinar/register/WN_gtmeA5hcTo2lMEYwVCYbRg",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/prebom",
       "destination": "https://us06web.zoom.us/webinar/register/WN_crkOLjHQRhOGABWvZOjx9Q",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/israeltour",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSejVi6Cf31nQAGXkGUoNnZHupC4izkpnKe9qmHkuzXT0A5U9w/viewform?usp=sf_link",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/mfmw",
       "destination": "https://us06web.zoom.us/webinar/register/WN_VAiq-vv6Q9-Y1gnTbRW0qw",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/canadatour",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSefLUqe6FWJ9UppXmS0ItEZeYZiSdUOBtgvw_cHPGDaigyH-A/viewform?usp=sf_link",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/rimus",
       "destination": "https://mentorme.stephenakintayo.com/landing-page-crim-us",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bomuk",
       "destination": "https://mentorme.stephenakintayo.com/bom-ukjnns7vgf",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bomwebinar",
       "destination": "https://us06web.zoom.us/webinar/register/WN_8Zio6XQVQmm_AcaJSSrgUQ",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/usbooktour",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSeA22yxaIHJlEeVNaNN0_z5p0Tr0pK36Aq65j_3GWwneJw7yA/viewform?usp=sf_link",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bommentorship",
       "destination": "https://mentorme.stephenakintayo.com/bommentorship",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/100mchallenge",
       "destination": "https://mentorme.stephenakintayo.com/100mchallenge",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle3",
       "destination": "https://www.forbes.com/sites/forbesbusinesscouncil/2023/05/04/pros-cons-and-best-practices-for-real-estate-investment-in-2023/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle4",
       "destination": "https://www.forbes.com/sites/forbesbusinesscouncil/2023/06/20/diversification-the-key-to-building-transgenerational-wealth/?sh=7fa5d193e938",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle5",
       "destination": "https://www.forbes.com/sites/forbesbusinesscouncil/2023/08/31/long-term-success-getting-your-business-to-the-10-year-mark/?sh=63e9e1ee5c73",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle6",
       "destination": "https://www.forbes.com/sites/forbesbusinesscouncil/2023/12/22/leadership-and-mentorship-guiding-aspiring-entrepreneurs-in-africa/?sh=5501231b78e2",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle7",
       "destination": "https://www.forbes.com/sites/forbesbusinesscouncil/2024/03/21/3-strategies-for-real-estate-investment-in-africa/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle8",
       "destination": "https://www.forbes.com/sites/forbesbusinesscouncil/2024/05/15/how-mindset-can-influence-financial-and-business-success/?sh=3fa386f81f73",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle9",
       "destination": "https://www.forbes.com/sites/forbesbusinesscouncil/2024/07/05/from-vision-to-reality-lessons-from-a-real-estate-mogul/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle10",
       "destination": "https://www.forbes.com/councils/forbesbusinesscouncil/2024/09/13/leadership-and-mentorship-guiding-the-next-generation-of-african-entrepreneurs/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle11",
       "destination": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/02/14/the-abcs-of-american-real-estate-investment-your-blueprint-to-financial-independence/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle12",
       "destination": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/03/31/lessons-learned-on-navigating-global-real-estate-investments/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle13",
       "destination": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/05/09/why-integrity-is-your-biggest-asset-when-scaling-up/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle14",
       "destination": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/08/04/how-to-build-a-billion-dollar-business-mindset-in-a-volatile-economy/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle15",
       "destination": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/10/23/ai-as-the-new-industrial-revolution-how-businesses-can-future-proof-their-strategy/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/rcp",
       "destination": "https://pay.gtextglobal.com/growth/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/pibm",
       "destination": "https://mentorme.stephenakintayo.com/pibm",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/eaglesnuggets",
       "destination": "https://mentorme.stephenakintayo.com/dan",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/pastordownload",
       "destination": "https://forms.gle/PXiZtD78eYZA8J9K8",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/realestateceo",
       "destination": "https://mentorme.stephenakintayo.com/ceo-retreat-lead-formh8n0gx3f",
-      "permanent": false
-    },
-    {
-      "source": "/freeweek",
-      "destination": "https://app.mailingboss.com/lists/64cd1a6294094/subscribe",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/clientmeeting",
       "destination": "https://mentorme.stephenakintayo.com/client-s-meetingoyjuokgd",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bomecom",
       "destination": "https://pay.gtextglobal.com/business-opportunity-masterclass-ecom/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bhpsurvey",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSd2UEWDdmWbz_6ZsBpiusvX15HzlVU_uTIB3KLxue-vF13mAg/viewform",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/affiliates",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSe1_Usf25hE3s8SiASiUWLkN-LJu6Q9A-b8Ls8zwvah_1C4AQ/viewform?usp=sf_link",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/leadvolunteers",
       "destination": "https://chat.whatsapp.com/KXJaktkYacx5BmHFThGfn3",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/contactme",
-      "destination": "https://wa.link/nlehhq",
-      "permanent": false
+      "destination": "https://wa.me/447949652845?text=Hello%20Dr.%20Stephen%2C%20%0A%0AI%20saw%20your%20advert%20online%2C%20and%20I%20will%20love%20to%20invest%20in%20real%20estate%20with%20your%20company.",
+      "permanent": true
     },
     {
       "source": "/blb",
       "destination": "https://mentorme.stephenakintayo.com/blb-page",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/personalcoaching",
       "destination": "https://pay.gtextglobal.com/stephen-akintayos-personal/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/groupcoaching",
       "destination": "https://pay.gtextglobal.com/stephen-akintayos-group-coaching/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/mentee",
       "destination": "https://us02web.zoom.us/webinar/register/WN_e94w0xV2QMSuT05HSwAcHw",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bhforpastor",
       "destination": "https://docs.google.com/document/d/1faTj3EG-QQ0Wk5vG3k_QsBKEd_TzTRpc9R2FBVgCULk/edit?usp=sharing",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/twitter",
       "destination": "https://twitter.com/drsakintayo?t=ReDF6RP70xWw-SOtOebtow&s=09",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/tiktok",
       "destination": "https://www.tiktok.com/@drsakintayo?_t=8YwSVQ3f3pt&_r=1",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/youtube",
       "destination": "https://www.youtube.com/@DrSAkintayo",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/instagram",
       "destination": "https://instagram.com/stephenakintayo",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/facebook",
       "destination": "https://facebook.com/drsakintayo",
-      "permanent": false
-    },
-    {
-      "source": "/cryptoclass",
-      "destination": "https://watch-me.easywebinar.live/ficrypto/cryptoclass",
-      "permanent": false
-    },
-    {
-      "source": "/forexclass",
-      "destination": "https://watch-me.easywebinar.live/registration-312",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/personalfinance",
       "destination": "https://gtextandassociates.com/rem/personalfinance/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/testimony",
       "destination": "https://us02web.zoom.us/webinar/register/WN_vFqpjgBDSruF6QXEUlNxRg",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle2",
       "destination": "https://www.forbes.com/sites/forbesbusinesscouncil/2022/12/22/five-tips-for-maximizing-real-estate-investment-as-a-buffer-against-inflation/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gfpfreegift",
       "destination": "https://soundcloud.com/stephenakintayo/sets/billionaire-habits/s-ENIBsEPkMte?si=b8618005f0c64dca924a9d3350a35e4e&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gfpoffer",
       "destination": "https://pay.gtextglobal.com/gfp/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/joboffer",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLScOUj1fHkyHCEOKlfsfRkmOG06zCuNV6ZJNbhcqPTOlQ1HOZg/viewform?usp=sf_link",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gfp",
       "destination": "https://us02web.zoom.us/webinar/register/WN_r49e4x1MRD-CNA8Y98uqcw",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/fioffer",
       "destination": "https://pay.gtextglobal.com/financialchallenge/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ecom",
       "destination": "https://us06web.zoom.us/webinar/register/WN_dx5wFSYFTOGkoTDXj0A3Xg",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ecompayment",
       "destination": "https://buy.stripe.com/4gwaEJaZA0fU8XC9BV",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bhe",
       "destination": "https://pay.gtextglobal.com/bhe-preorder/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bhp",
       "destination": "https://mentorme.stephenakintayo.com/bhpastors",
-      "permanent": false
-    },
-    {
-      "source": "/realestateclass",
-      "destination": "https://watch-me.easywebinar.live/registration-311",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/mentorme",
       "destination": "https://stephenakintayostore.com/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/oneonone",
       "destination": "https://pay.gtextglobal.com/one-on-one/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/prayer",
       "destination": "https://us02web.zoom.us/j/89668986573?pwd=OE9LeUpxWG9HK2xkZ0c2T0xDaWxBZz09",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/billionairecombo",
       "destination": "https://mentorme.stephenakintayo.com/billionairecombo",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/rim",
       "destination": "https://mentorme.stephenakintayo.com/newcrim",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/RIM",
       "destination": "https://mentorme.stephenakintayo.com/newcrim",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gbec",
       "destination": "https://www.globalwealthfestival.com/gbec",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/saproperty",
       "destination": "https://mentorme.stephenakintayo.com/saproperty",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bomoffer",
       "destination": "https://pay.gtextglobal.com/bom/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/forbesarticle1",
       "destination": "https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/16/6-tips-for-building-your-business-into-an-empire/?sh=68e79dc4438b",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/masterclass",
       "destination": "https://us02web.zoom.us/webinar/register/WN_dPV35mTNRuqOmoAYJnVB-w",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/asuuoffer",
       "destination": "https://pay.gtextglobal.com/entre-offer/?coupon=ENTASUU",
-      "permanent": false
-    },
-    {
-      "source": "/fiforum",
-      "destination": "https://t.me/+sUxlHtmun1tmMmE0",
-      "permanent": false
-    },
-    {
-      "source": "/figoldclub",
-      "destination": "https://t.me/+yO4_BnC3mPAyOTI0",
-      "permanent": false
-    },
-    {
-      "source": "/fipremierclub",
-      "destination": "https://t.me/+LFQQG_nEWqpkMDA0",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/sauoffer",
       "destination": "https://pay.gtextglobal.com/sauoffer/?coupon=ENTOFFER",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/empoffer",
       "destination": "https://pay.gtextglobal.com/sauoffer",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/asuubc",
       "destination": "https://pay.stephenakintayo.com/offers/optin/bhcode-sau",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/orientation",
       "destination": "https://us02web.zoom.us/webinar/register/WN_GIhwPst4TM-IRzcml3ntrA",
-      "permanent": false
-    },
-    {
-      "source": "/crypto-webinar",
-      "destination": "https://watch-me.easywebinar.live/event-registration-301",
-      "permanent": false
-    },
-    {
-      "source": "/ecom-webinar",
-      "destination": "https://watch-me.easywebinar.live/event-registration-302",
-      "permanent": false
-    },
-    {
-      "source": "/forex-webinar",
-      "destination": "https://watch-me.easywebinar.live/event-registration-303",
-      "permanent": false
-    },
-    {
-      "source": "/realestate-webinar",
-      "destination": "https://watch-me.easywebinar.live/event-registration-304",
-      "permanent": false
-    },
-    {
-      "source": "/stocks-webinar",
-      "destination": "https://watch-me.easywebinar.live/event-registration-305",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/failingforward",
       "destination": "https://us02web.zoom.us/webinar/register/WN_dPV35mTNRuqOmoAYJnVB-w",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/billionairepromocombo",
       "destination": "https://pay.gtextglobal.com/billionaire-promo-combo/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/billionairebookcombo",
       "destination": "https://pay.gtextglobal.com/billionaire-promo-combo/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bookreading",
       "destination": "https://forms.gle/zi9Mb9rxwo9tLyBDA",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/survey",
       "destination": "https://forms.gle/w8guBWXAasLmjdwKA",
-      "permanent": false
-    },
-    {
-      "source": "/billionairecode",
-      "destination": "/billionairecodes",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/firecording",
       "destination": "https://pay.gtextglobal.com/fichallenge/?coupon=FIC250",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/fichallenge",
       "destination": "https://us02web.zoom.us/webinar/register/WN_2itWectPQX28Pn543M7_xQ",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/47usd",
       "destination": "https://pay.gtextglobal.com/47usd/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/chatme",
-      "destination": "https://wa.link/xwazjo",
-      "permanent": false
+      "destination": "https://wa.me/18577015527?text=I%20am%20interested%20in%20Real%20Estate%20Investment.",
+      "permanent": true
     },
     {
       "source": "/richallenge",
       "destination": "https://us02web.zoom.us/meeting/register/tZMkd-ChqTojEtG4dr84zTJFIqA0gi8AVc4b",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/goldmine",
       "destination": "https://us02web.zoom.us/webinar/register/WN_31XyEABySyuiy5FGiPw4Nw",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bfm",
       "destination": "https://pay.gtextglobal.com/mentorship-programme-black-friday/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/roi",
       "destination": "https://us02web.zoom.us/webinar/register/WN_3-6IAy63TTaEGIk1pZfYFQ",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/reb",
       "destination": "https://us02web.zoom.us/webinar/register/WN_Q9S5scGMTyqMN8tT2YWL0w",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/empowerment",
       "destination": "https://us02web.zoom.us/webinar/register/WN_vX9LzptCTfm3_BkhnTLFEQ",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/dailymail",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLScVLR8cKK8ubyIgBiQuetQXK3nUWTS4y0n3syxsCGgK9Z8M2g/viewform",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ffcfeedback",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSdxQMBaoCnig6eNdwnFark5ZLafawOkYoBQLBq3f1m_DYXyoA/viewform",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/personalmentorship",
       "destination": "https://pay.gtextglobal.com/personal-mentorship/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/abeokutaclass",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSf49uxWmPDVGynHg5SOjAXa1NSU68d0ybKqAuGgcfiAFFTIXw/viewform?usp=sf_link",
-      "permanent": false
-    },
-    {
-      "source": "/bhmasterclass",
-      "destination": "https://stephenakintayo.com/bhm",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/landbanking",
       "destination": "https://www.stephenakintayouniversity.com/landbankingwebinar",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/freegift",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSd-pYDEY7uFOdCaVh5bL_2fN1jxKt81jD-D1wkNWyCh_X_9Bg/viewform?usp=pp_url",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/videocourses",
       "destination": "https://pay.gtextglobal.com/stephen-akintayo-video-courses/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/appointments",
       "destination": "https://forms.gle/R1iCSVQVa5WGtgus8",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/globalwebinar",
       "destination": "https://us02web.zoom.us/webinar/register/WN_H-t5iOiDQ1y4TX4VC9FtyA",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/clubhouse",
       "destination": "https://www.clubhouse.com/@stephenakintayo",
-      "permanent": false
-    },
-    {
-      "source": "/coaching",
-      "destination": "/mentorshipwithsa",
-      "permanent": false
-    },
-    {
-      "source": "/ecommerceclass",
-      "destination": "https://watch-me.easywebinar.live/ecom",
-      "permanent": false
-    },
-    {
-      "source": "/authorsclass",
-      "destination": "https://watch-me.easywebinar.live/author",
-      "permanent": false
-    },
-    {
-      "source": "/virtuallaunch",
-      "destination": "https://stephenakintayo.com/globallaunch",
-      "permanent": false
-    },
-    {
-      "source": "/dailyincomesystem",
-      "destination": "https://watch-me.easywebinar.live/registration-292",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/webinar",
       "destination": "https://us02web.zoom.us/webinar/register/WN_m4KRrj7uSKa_ehu6rp8yYQ",
-      "permanent": false
-    },
-    {
-      "source": "/bhlagos",
-      "destination": "https://stephenakintayo.com/bhtour",
-      "permanent": false
-    },
-    {
-      "source": "/bhabuja",
-      "destination": "https://stephenakintayo.com/bhtour",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ecomgoldmine",
       "destination": "https://us02web.zoom.us/webinar/register/WN_jrUTeLkaSAODbEIrdFxTcA",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/bhghana",
       "destination": "https://us02web.zoom.us/webinar/register/WN_IOMDvTqHThaHVPWdX0W5kw",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/fandcwebinar",
       "destination": "https://us02web.zoom.us/webinar/register/WN_t4tXmkXtTZupgSp0hTujMw",
-      "permanent": false
-    },
-    {
-      "source": "/bhvideo",
-      "destination": "https://stephenakintayo.com/billionairehabitsvideo/",
-      "permanent": false
-    },
-    {
-      "source": "/ecommerce",
-      "destination": "https://watch-me.easywebinar.live/registration-278",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/realestatewebinar",
       "destination": "https://us02web.zoom.us/webinar/register/WN_ZrbiGPJrSPGXyeVfZeDrGQ",
-      "permanent": false
-    },
-    {
-      "source": "/billionairehabits",
-      "destination": "https://stephenakintayo.com/bh-booklaunch/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ibadanlaunch",
       "destination": "https://us02web.zoom.us/webinar/register/WN_m4KRrj7uSKa_ehu6rp8yYQ",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ecommercewebinar",
       "destination": "https://us02web.zoom.us/webinar/register/WN_ZrbiGPJrSPGXyeVfZeDrGQ",
-      "permanent": false
-    },
-    {
-      "source": "/creativezone",
-      "destination": "https://www.creativezone.ae/ad/stephenakintayo/?fbclid=IwAR3tL_3tg22jJz7xDiD3s3tN-LuDJ2dB2L2p_P4_gTon7V9AoC_0tV2Gkks",
-      "permanent": false
-    },
-    {
-      "source": "/scdog",
-      "destination": "https://www.creativezone.ae/events/setting-up-a-company-in-dubai-and-operate-globally/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/university",
       "destination": "https://www.stephenakintayouniversity.com",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/soarcoaching",
       "destination": "/coaching",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/promentorship",
       "destination": "/coaching",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/sacoaching",
       "destination": "https://us02web.zoom.us/j/87501723358?pwd=ZTJ6RE9zY1FqUmkvQlJUQmVoZk1Pdz09",
-      "permanent": false
-    },
-    {
-      "source": "/realestategoldminebundle",
-      "destination": "https://stephenakintayo.com/real-estate-coaching/",
-      "permanent": false
-    },
-    {
-      "source": "/authorsmentorship",
-      "destination": "https://stephenakintayo.com/speakerandauthors",
-      "permanent": true
-    },
-    {
-      "source": "/digitalmentorship",
-      "destination": "https://stephenakintayo.com/digitalpromo",
-      "permanent": true
-    },
-    {
-      "source": "/realestatementorship",
-      "destination": "https://stephenakintayo.com/real-estate-coaching/",
-      "permanent": true
-    },
-    {
-      "source": "/freelancementorship",
-      "destination": "https://stephenakintayo.com/freelance-coaching/",
-      "permanent": true
-    },
-    {
-      "source": "/ecommentorship",
-      "destination": "https://stephenakintayo.com/miniimportation/",
-      "permanent": true
-    },
-    {
-      "source": "/forexmentorship",
-      "destination": "https://stephenakintayo.com/forexcoaching/",
-      "permanent": false
-    },
-    {
-      "source": "/cryptomentorship",
-      "destination": "https://stephenakintayo.com/cryptocoaching/",
-      "permanent": false
-    },
-    {
-      "source": "/forex-mentorship",
-      "destination": "https://stephenakintayo.com/forexcoaching/",
-      "permanent": true
-    },
-    {
-      "source": "/crypto-mentorship",
-      "destination": "https://stephenakintayo.com/cryptocoaching/",
-      "permanent": true
-    },
-    {
-      "source": "/12internetbizbookgift",
-      "destination": "https://stephenakintayo.com/Introduction-to-12-Internet-Businesses.pdf",
       "permanent": true
     },
     {
@@ -1578,36 +1269,16 @@
     {
       "source": "/birthday",
       "destination": "https://stephenakintayofoundation.org/birthday",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/birthdaygiveaway",
       "destination": "https://stephenakintayofoundation.org/birthday",
-      "permanent": false
-    },
-    {
-      "source": "/pscb",
-      "destination": "https://stephenakintayo.com/global-property-sales-boot-camp-2021?ref001",
-      "permanent": true
-    },
-    {
-      "source": "/PSCB",
-      "destination": "https://stephenakintayo.com/global-property-sales-boot-camp-2021?ref001",
-      "permanent": true
-    },
-    {
-      "source": "/salesbootcamp",
-      "destination": "https://stephenakintayo.com/global-property-sales-boot-camp-2021?ref001",
       "permanent": true
     },
     {
       "source": "/newwhatsapp",
-      "destination": "https://bit.ly/37wtj5U",
-      "permanent": true
-    },
-    {
-      "source": "/decemberpromo",
-      "destination": "https://bit.ly/2LpR5ta",
+      "destination": "https://wa.me/message/PHWV3I2FPKELP1",
       "permanent": true
     },
     {
@@ -1616,23 +1287,8 @@
       "permanent": true
     },
     {
-      "source": "/highrisk",
-      "destination": "https://bit.ly/highriskbiz",
-      "permanent": true
-    },
-    {
-      "source": "/digitalbookoffer",
-      "destination": "https://stephenakintayo.thrivecart.com/digitalmarketerbook/",
-      "permanent": true
-    },
-    {
-      "source": "/survivalbook",
-      "destination": "https://bit.ly/30YGvyn",
-      "permanent": true
-    },
-    {
       "source": "/whatsappchat",
-      "destination": "https://bit.ly/3iG59tn",
+      "destination": "https://wa.me/message/5BLTVSR6V6E6O1",
       "permanent": true
     },
     {
@@ -1658,11 +1314,6 @@
     {
       "source": "/bundle",
       "destination": "https://bundle.stephenakintayofoundation.org",
-      "permanent": true
-    },
-    {
-      "source": "/wellness",
-      "destination": "https://marketplace.drstellamd.com/yistglobal",
       "permanent": true
     }
   ]

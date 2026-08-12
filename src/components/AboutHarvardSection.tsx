@@ -9,19 +9,19 @@ export default function AboutHarvardSection() {
       title: 'Harvard Business School Graduate',
       description: 'Dr. Stephen Akintayo completed the prestigious Business Owner Management program at Harvard Business School, one of the world\'s most renowned business institutions. This elite education has enhanced his expertise in strategic leadership and business management.',
       image: '/images/stephen.png',
-      href: 'https://hvevnt.vercel.app/'
+      href: '/events'
     },
     {
       title: 'Business Owner Management Expertise',
       description: 'Through Harvard\'s rigorous curriculum, Dr. Akintayo gained cutting-edge insights into scaling businesses, strategic decision-making, and building sustainable enterprises. He now shares these advanced frameworks with business owners worldwide.',
       image: '/images/stephen.png',
-      href: 'https://hvevnt.vercel.app/'
+      href: '/events'
     },
     {
       title: 'Harvard Debrief Program Facilitator',
       description: 'Dr. Akintayo facilitates the Harvard Business School Debrief Program, helping serious business owners apply world-class methodologies to transform their enterprises. No wannabes, no tag-alongs—only those who sign the pay-check and carry the weight.',
       image: '/images/stephen.png',
-      href: 'https://hvevnt.vercel.app/'
+      href: '/events'
     }
   ]
 

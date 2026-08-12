@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { submitWeb3Form } from '@/lib/web3forms'
 
 export default function Contact() {
   const [result, setResult] = useState('')
@@ -14,15 +15,10 @@ export default function Contact() {
     setResult('Sending...')
 
     const formData = new FormData(event.currentTarget)
-    formData.append('access_key', '2c6e8a6c-10b8-49dc-a43a-b81253879c6a')
+    formData.append('subject', 'Website contact form')
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      })
-
-      const data = await response.json()
+      const data = await submitWeb3Form(formData)
 
       if (data.success) {
         setResult('Thank you! Your message has been sent successfully.')

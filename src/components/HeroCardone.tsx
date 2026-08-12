@@ -37,12 +37,12 @@ function SummitCard({ className = '', onDismiss }: { className?: string; onDismi
           <div className="text-luxury-gold text-xs font-bold leading-snug">7-Day · 4 Cities · 2026</div>
         </div>
       </div>
-      <Link
-        href="https://stephenakintayo.com/chinaretreat"
+      <a
+        href="/chinaretreat"
         className="mt-6 block text-center py-3 bg-luxury-gold text-deep-navy text-[10px] font-black uppercase tracking-widest hover:bg-gold-dark transition-colors duration-300"
       >
         Claim Your Access
-      </Link>
+      </a>
     </div>
   )
 }
@@ -70,7 +70,7 @@ export default function HeroCardone() {
       {/* Background video */}
       <motion.div style={{ y: y1 }} className="absolute inset-0 w-full h-full overflow-hidden">
         <iframe
-          src="https://www.youtube.com/embed/i45_4AMAx54?autoplay=1&loop=1&mute=1&playlist=i45_4AMAx54&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
+          src="https://www.youtube-nocookie.com/embed/i45_4AMAx54?autoplay=1&loop=1&mute=1&playlist=i45_4AMAx54&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
           className="absolute top-1/2 left-1/2 w-[177.77777778vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 scale-110"
           style={{
             pointerEvents: 'none',

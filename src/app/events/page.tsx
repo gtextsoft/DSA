@@ -133,7 +133,7 @@ export default function Events() {
       date: 'January 28, 2026',
       location: '',
       description: 'Join Dr. Stephen Akintayo for an exclusive sales masterclass designed for business owners, combined with a special birthday celebration.',
-      link: 'https://stephenakintayo.com/salesmasterclass',
+      link: EXTERNAL_LINKS.youtubeProduction,
       done: true,
       recapLink: EXTERNAL_LINKS.youtubeProduction,
     },
@@ -185,7 +185,7 @@ export default function Events() {
       date: '2026',
       location: 'Shenzhen · Shanghai · Guangzhou · Beijing, China',
       description: 'A 7-day luxury business, trade, and investment immersion into China’s manufacturing, sourcing, and innovation ecosystems—factory and market access, strategy sessions with Dr. Stephen Akintayo, and curated networking. Limited to 25 seats; visa support included.',
-      link: 'https://stephenakintayo.com/chinaretreat'
+      link: '/chinaretreat'
     },
     {
       title: 'Guinness World Record event',
@@ -199,7 +199,7 @@ export default function Events() {
       date: 'April 20-26, 2026',
       location: 'Kenya',
       description: 'A week-long intensive leadership retreat in Kenya designed for corporate leaders seeking to transform their leadership capabilities and strategic vision.',
-      link: 'https://www.stephenakintayo.com/kenyaretreat'
+      link: '/contact'
     },
     {
       title: 'Doha Retreat',

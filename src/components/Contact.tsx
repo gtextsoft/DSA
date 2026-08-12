@@ -81,8 +81,8 @@ export default function Contact() {
     {
       icon: 'fas fa-globe',
       title: 'Website',
-      value: 'www.stephenakintayo.com/booking',
-      link: 'https://stephenakintayo.com/booking'
+      value: 'www.stephenakintayo.com/contact',
+      link: '/contact'
     }
   ]
 

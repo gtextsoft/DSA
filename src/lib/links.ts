@@ -12,4 +12,3 @@ export const EXTERNAL_LINKS = {
 
 // Recommended DNS-level 301 redirects (configure on respective domains):
 // - books.stephenakintayo.com → https://store.stephenakintayofoundation.org/
-// - hvevnt.vercel.app → https://stephenakintayo.com/events

@@ -3,10 +3,12 @@
 import { useState } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { submitWeb3Form } from '@/lib/web3forms'
 
 export default function Speaking() {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     organisation: '',
     eventType: '',
     audienceSize: '',
@@ -14,6 +16,8 @@ export default function Speaking() {
     date: '',
     message: ''
   })
+  const [result, setResult] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -22,11 +26,37 @@ export default function Speaking() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your booking request. We will contact you soon!')
+    setIsSubmitting(true)
+    setResult('Sending...')
+
+    const payload = new FormData(e.currentTarget)
+    payload.append('subject', 'Speaking engagement request')
+
+    try {
+      const data = await submitWeb3Form(payload)
+      if (data.success) {
+        setResult('Thank you for your booking request. We will contact you soon.')
+        e.currentTarget.reset()
+        setFormData({
+          name: '',
+          email: '',
+          organisation: '',
+          eventType: '',
+          audienceSize: '',
+          location: '',
+          date: '',
+          message: ''
+        })
+      } else {
+        setResult(data.message || 'Something went wrong. Please try again.')
+      }
+    } catch {
+      setResult('Something went wrong. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const socialLinks = [
@@ -51,7 +81,7 @@ export default function Speaking() {
           <div className="mb-12 space-y-2 text-gray-700 text-base md:text-lg">
             <p><strong>Email:</strong> ea@stephenakintayo.com</p>
             <p><strong>Phone:</strong> +1 (443) 790-3925</p>
-            <p><strong>Website:</strong> www.stephenakintayo.com/booking</p>
+            <p><strong>Website:</strong> www.stephenakintayo.com/contact</p>
           </div>
 
           {/* Booking Form */}
@@ -67,6 +97,22 @@ export default function Speaking() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter your name"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-gray-900 font-semibold mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
                 required
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-amber-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
               />
@@ -175,10 +221,25 @@ export default function Speaking() {
 
             <button
               type="submit"
-              className="w-full btn-luxury"
+              disabled={isSubmitting}
+              className="w-full btn-luxury disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Submit
+              {isSubmitting ? 'Sending...' : 'Submit'}
             </button>
+
+            {result && (
+              <p
+                className={`text-center font-medium ${
+                  result.includes('Thank you')
+                    ? 'text-green-700'
+                    : result === 'Sending...'
+                      ? 'text-gray-600'
+                      : 'text-red-700'
+                }`}
+              >
+                {result}
+              </p>
+            )}
           </form>
 
           {/* Connect with Dr. Akintayo Section */}

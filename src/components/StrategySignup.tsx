@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { submitWeb3Form } from '@/lib/web3forms'
 
 type FormStatus = 'idle' | 'success' | 'error'
 
@@ -21,11 +22,22 @@ export default function StrategySignup() {
     }
 
     setIsSubmitting(true)
-    setTimeout(() => {
+    try {
+      const formData = new FormData()
+      formData.append('email', email.trim())
+      formData.append('subject', 'Wealth Intelligence newsletter signup')
+      const data = await submitWeb3Form(formData)
+      if (data.success) {
+        setEmail('')
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    } finally {
       setIsSubmitting(false)
-      setEmail('')
-      setStatus('success')
-    }, 1000)
+    }
   }
 
   return (

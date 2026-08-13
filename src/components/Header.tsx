@@ -72,7 +72,7 @@ export default function Header() {
     { name: 'About', href: '/about' },
     { name: 'Blog', href: EXTERNAL_LINKS.blog, external: true },
     { name: 'Events', href: '/events' },
-    { name: 'Store', href: EXTERNAL_LINKS.officialStore, external: true },
+    { name: 'Store', href: EXTERNAL_LINKS.officialStore },
     { name: 'Foundation', href: EXTERNAL_LINKS.foundation, external: true },
     { name: 'SACI Holdings', href: EXTERNAL_LINKS.saciHolding, external: true },
   ]

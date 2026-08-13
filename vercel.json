@@ -28,14 +28,59 @@
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self' https://api.web3forms.com https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com https://formspree.io; frame-ancestors 'none'; upgrade-insecure-requests"
         }
       ]
+    },
+    {
+      "source": "/store",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; img-src * data: blob:; connect-src *; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/store/:path*",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; img-src * data: blob:; connect-src *; frame-ancestors 'none'; upgrade-insecure-requests"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/store",
+      "destination": "https://store.stephenakintayofoundation.org/"
+    },
+    {
+      "source": "/store/:path*",
+      "destination": "https://store.stephenakintayofoundation.org/:path*"
+    },
+    {
+      "source": "/_next/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "referer",
+          "value": "https://(www\\.)?stephenakintayo\\.com/store"
+        }
+      ],
+      "destination": "https://store.stephenakintayofoundation.org/_next/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "referer",
+          "value": "https://(www\\.)?stephenakintayo\\.com/store"
+        }
+      ],
+      "destination": "https://store.stephenakintayofoundation.org/api/:path*"
     }
   ],
   "redirects": [
-    {
-      "source": "/store",
-      "destination": "https://store.stephenakintayofoundation.org/",
-      "permanent": true
-    },
     {
       "source": "/foundation",
       "destination": "https://stephenakintayofoundation.org",

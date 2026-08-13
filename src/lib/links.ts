@@ -6,7 +6,7 @@ export const EXTERNAL_LINKS = {
   university: 'https://stephenakintayouniversity.com/',
   saciHolding: 'https://saciholdings.com/',
   amazonBooks: 'https://www.amazon.com/s?k=stephen+akintayo&ref=sr_pg_1',
-  officialStore: 'https://store.stephenakintayofoundation.org/',
+  officialStore: '/store',
   youtubeProduction: 'https://www.youtube.com/@StephenAkintayoProduction',
 } as const
 

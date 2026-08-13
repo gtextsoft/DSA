@@ -100,8 +100,7 @@ export default function OfferingsSection() {
                       <a
                         key={optIdx}
                         href={option.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        {...(option.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
                         className="text-[10px] font-bold text-white uppercase tracking-widest hover:text-luxury-gold py-2 border-b border-white/10"
                       >
                         {option.name}

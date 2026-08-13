@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
+import { isCampaignPath } from '@/lib/campaigns'
 
 interface Message {
   type: 'user' | 'bot'
@@ -228,7 +229,7 @@ export default function Chatbot() {
     }, 500)
   }
 
-  if (pathname === '/store') {
+  if (isCampaignPath(pathname)) {
     return null
   }
 

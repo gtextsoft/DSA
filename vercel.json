@@ -25,7 +25,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://store.stephenakintayofoundation.org; connect-src 'self' https://api.web3forms.com https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com https://formspree.io; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://*.stephenakintayofoundation.org https://buy.stripe.com https://js.stripe.com https://checkout.stripe.com; connect-src 'self' https://api.web3forms.com https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com https://formspree.io; frame-ancestors 'none'; upgrade-insecure-requests"
         }
       ]
     }
@@ -37,28 +37,13 @@
       "permanent": true
     },
     {
-      "source": "/houston",
-      "destination": "https://houston.stephenakintayofoundation.org",
-      "permanent": true
-    },
-    {
-      "source": "/dallas",
-      "destination": "https://dallas.stephenakintayofoundation.org",
-      "permanent": true
-    },
-    {
-      "source": "/business",
-      "destination": "https://business.stephenakintayofoundation.org",
-      "permanent": true
-    },
-    {
       "source": "/cmsc",
       "destination": "https://cmsc.stephenakintayofoundation.org",
       "permanent": true
     },
     {
       "source": "/Houston",
-      "destination": "https://houston.stephenakintayofoundation.org",
+      "destination": "/houston",
       "permanent": true
     },
     {
@@ -67,43 +52,13 @@
       "permanent": true
     },
     {
-      "source": "/chinameet",
-      "destination": "https://chinameet.stephenakintayofoundation.org",
-      "permanent": true
-    },
-    {
-      "source": "/pjmentorship",
-      "destination": "https://pjmentorship.stephenakintayofoundation.org/",
-      "permanent": true
-    },
-    {
-      "source": "/germany",
-      "destination": "https://germany.stephenakintayofoundation.org/",
-      "permanent": true
-    },
-    {
       "source": "/cr",
       "destination": "https://chinamarketingretreat.stephenakintayofoundation.org/",
       "permanent": true
     },
     {
-      "source": "/mentorship",
-      "destination": "https://mentorship.stephenakintayofoundation.org",
-      "permanent": true
-    },
-    {
-      "source": "/doha",
-      "destination": "https://dohameet.stephenakintayofoundation.org",
-      "permanent": true
-    },
-    {
       "source": "/iri",
       "destination": "https://iri.stephenakintayofoundation.org/",
-      "permanent": true
-    },
-    {
-      "source": "/london",
-      "destination": "https://foundersmeet.stephenakintayofoundation.org/",
       "permanent": true
     },
     {
@@ -122,11 +77,6 @@
       "permanent": true
     },
     {
-      "source": "/foundersmeet",
-      "destination": "https://foundersmeet.stephenakintayofoundation.org/",
-      "permanent": true
-    },
-    {
       "source": "/editor",
       "destination": "https://forms.gle/iR1dLevhWPtxutz48",
       "permanent": true
@@ -134,16 +84,6 @@
     {
       "source": "/abo",
       "destination": "https://abo.stephenakintayofoundation.org/",
-      "permanent": true
-    },
-    {
-      "source": "/rbm",
-      "destination": "https://rim.stephenakintayofoundation.org/",
-      "permanent": true
-    },
-    {
-      "source": "/payment",
-      "destination": "https://buy.stripe.com/dRm5kE6JUeS61VB8794c800",
       "permanent": true
     },
     {
@@ -164,21 +104,6 @@
     {
       "source": "/EVENT",
       "destination": "/events",
-      "permanent": true
-    },
-    {
-      "source": "/retreat",
-      "destination": "https://lakowe.stephenakintayofoundation.org/",
-      "permanent": true
-    },
-    {
-      "source": "/japanretreat",
-      "destination": "https://japan.stephenakintayofoundation.org/",
-      "permanent": true
-    },
-    {
-      "source": "/chinaretreat",
-      "destination": "https://china.stephenakintayofoundation.org/",
       "permanent": true
     },
     {
@@ -404,11 +329,6 @@
     {
       "source": "/italy",
       "destination": "https://forms.gle/ui3b4Y5xomwaxRdf7",
-      "permanent": true
-    },
-    {
-      "source": "/manchester",
-      "destination": "https://manchester.stephenakintayofoundation.org",
       "permanent": true
     },
     {
@@ -1304,11 +1224,6 @@
     {
       "source": "/missouri",
       "destination": "https://missouri.stephenakintayofoundation.org",
-      "permanent": true
-    },
-    {
-      "source": "/bundle",
-      "destination": "https://bundle.stephenakintayofoundation.org",
       "permanent": true
     },
     {

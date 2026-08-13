@@ -50,7 +50,7 @@ export default function AboutIntroduction() {
           <motion.div variants={itemVariants} className="grid md:grid-cols-2 gap-12 text-lg text-text-dark/80 leading-relaxed font-medium">
             <div className="space-y-6">
               <p>
-                Dr. Stephen Akintayo has partnered with global entities like <span className="text-deep-navy font-bold underline decoration-luxury-gold/30">Google, Microsoft, and IBM</span> to transform their investment landscapes. As the founder of Gtext Holdings, his visionary leadership has built a $200M empire.
+                Dr. Stephen Akintayo has partnered with global entities like <span className="text-deep-navy font-bold underline decoration-luxury-gold/30">Google, Microsoft, and IBM</span> to transform their investment landscapes. As Chairman of SACI Holdings and Founder of Gtext Holdings, he leads a private equity and venture capital platform while stewarding a $200M real estate and investment empire.
               </p>
               <p>
                 His journey is a testament to the power of <span className="text-deep-navy font-bold">Billionaire Habits</span>—a framework he developed through decades of high-stakes real estate and investment mastery.
@@ -58,7 +58,7 @@ export default function AboutIntroduction() {
             </div>
             <div className="space-y-6 md:pt-12">
               <p>
-                Beyond business, Dr. Akintayo's commitment to service is unparalleled. Through the MM2050 Foundation, he is dedicated to lifting millions out of poverty and creating a legacy of global impact.
+                Beyond business, Dr. Akintayo's commitment to service is unparalleled. Through the Stephen Akintayo Foundation, he is dedicated to lifting millions out of poverty and raising a generation of ethical wealth creators.
               </p>
               <div className="p-8 border-l-2 border-luxury-gold/20 bg-luxury-gold/5 italic font-serif text-deep-navy">
                 "Wealth is not just a destination; it's a vehicle for transformation and service to humanity."

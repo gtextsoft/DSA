@@ -77,10 +77,10 @@ export default function About() {
                 <strong> real estate, investment, and wealth education.</strong>
               </p>
               <p className="text-sm sm:text-base md:text-lg text-text-dark leading-relaxed">
-                As the <strong>Chairman of SACI Holdings</strong>, a multinational investment conglomerate operating in the 
-                <strong> United States, the United Kingdom, Dubai, and Nigeria</strong>, Dr. Akintayo has redefined global investment strategy. 
-                Under his leadership, SACI Holdings is spearheading a <strong>$200 million expansion project across the U.S.</strong>, 
-                positioning the group as a leader in <strong>smart and sustainable real estate development.</strong>
+                As the <strong>Chairman of SACI Holdings</strong>, a Houston-based private equity and venture capital firm, 
+                Dr. Akintayo is building a multi-sector investment platform across AI, logistics, biotech, and real estate. 
+                He is also the <strong>Founder of Gtext Holdings</strong>, a multinational conglomerate operating in the 
+                <strong> United States, the United Kingdom, Dubai, and Nigeria</strong>.
               </p>
             </div>
 
@@ -98,11 +98,12 @@ export default function About() {
                 <div className="bg-light-blue p-3 sm:p-4 rounded-lg">
                   <h5 className="font-semibold text-dark-blue mb-2 text-sm sm:text-base">Academic Achievements</h5>
                   <ul className="text-xs sm:text-sm text-text-dark space-y-1">
+                    <li>• Harvard Business School — Owner/President Management (OPM), graduating 2027</li>
+                    <li>• Harvard Business School — Real Estate Investment & Development</li>
+                    <li>• Stanford Graduate School of Business — Mergers & Acquisitions (2026)</li>
+                    <li>• The Wharton School — Venture Capital Program (2026)</li>
                     <li>• Doctor of Science (Honoris Causa) — Real Estate Development & Corporate Leadership (European American University)</li>
-                    <li>• Doctorate in Strategic Leadership & Management (Myles Leadership University, Benin Republic)</li>
-                    <li>• Harvard University Alumnus — Executive Programs</li>
                     <li>• Certified Coach — The Coaching Academy, UK</li>
-                    <li>• Member — Institute of Strategic Management, Nigeria</li>
                   </ul>
                 </div>
                 <div className="bg-light-blue p-3 sm:p-4 rounded-lg">
@@ -154,7 +155,7 @@ export default function About() {
             <div className="space-y-3 sm:space-y-4">
               <h4 className="text-base sm:text-lg md:text-xl font-semibold text-dark-blue">Personal Life</h4>
               <p className="text-sm sm:text-base text-text-dark leading-relaxed">
-                Dr. Akintayo is happily married and blessed with three children. His family remains his anchor as he continues to travel the world, 
+                Dr. Akintayo resides between Houston, Texas and Nigeria. He is happily married and blessed with three children. His family remains his anchor as he continues to travel the world, 
                 teaching, investing, and transforming lives.
               </p>
             </div>

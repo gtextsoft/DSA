@@ -101,11 +101,11 @@ export default function HeroCardone() {
             <span className="text-gradient-gold non-italic font-sans">Akintayo</span>
           </h1>
           <p className="text-luxury-gold text-sm sm:text-base font-bold uppercase tracking-[0.25em] mb-6">
-            Entrepreneur · Investor · Real Estate Mogul
+            Real Estate Investor · Private Equity & Venture Capital
           </p>
 
           <p className="text-white/80 text-lg sm:text-xl md:text-2xl max-w-2xl mb-10 font-medium leading-relaxed">
-            Chairman & CEO of Gtext Holdings. Private Equity Fund Manager, Real Estate Mogul & Global Investment Coach.
+            Chairman of SACI Holdings. Founder of Gtext Holdings and the Stephen Akintayo Foundation. Helping entrepreneurs raise capital and build wealth globally.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 mb-8 lg:mb-0">

@@ -23,7 +23,7 @@ export default function Hero() {
               <div className="space-y-6">
                 {/* Small Title/Subtitle */}
                 <div className="text-white/80 text-sm sm:text-base font-semibold uppercase tracking-wider">
-                  PRIVATE EQUITY FUND MANAGER & REAL ESTATE INVESTOR
+                  PRIVATE EQUITY & VENTURE CAPITAL ENTREPRENEUR
                 </div>
                 
                 {/* Main Heading - Bold and Impactful */}
@@ -34,7 +34,7 @@ export default function Hero() {
                 
                 {/* Role/Tagline */}
                 <p className="text-white text-lg sm:text-xl md:text-2xl font-medium max-w-2xl leading-relaxed">
-                  CEO of Gtext Holdings and Global Investment Group
+                  Chairman of SACI Holdings. Founder of Gtext Holdings and the Stephen Akintayo Foundation.
                 </p>
               </div>
 

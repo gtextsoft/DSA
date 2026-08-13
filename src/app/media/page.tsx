@@ -43,7 +43,8 @@ const pressFeatures = [
 
 const awards = [
   'Forbes Best of Africa Leading Investment Coach and Real Estate Mogul',
-  'Chairman & CEO, Gtext Holdings',
+  'Chairman, SACI Holdings',
+  'Founder, Gtext Holdings',
   'Author of 45+ books on wealth-building and real estate',
   'Founder, Stephen Akintayo Foundation',
 ]

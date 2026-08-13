@@ -87,7 +87,7 @@ export default function Contact() {
   ]
 
   const socialLinks = [
-    { icon: 'fab fa-linkedin', link: 'https://linkedin.com/in/stephenakintayo', label: 'LinkedIn' },
+    { icon: 'fab fa-linkedin', link: 'https://linkedin.com/in/drstephenakintayo', label: 'LinkedIn' },
     { icon: 'fab fa-twitter', link: 'https://twitter.com/stephenakintayo', label: 'Twitter' },
     { icon: 'fab fa-instagram', link: 'https://instagram.com/stephenakintayo', label: 'Instagram' },
     { icon: 'fab fa-youtube', link: 'https://youtube.com/@stephenakintayo', label: 'YouTube' }

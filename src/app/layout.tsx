@@ -8,13 +8,13 @@ import { organizationSchema, personSchema, websiteSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   metadataBase: new URL('https://stephenakintayo.com'),
   title: {
-    default: 'Dr. Stephen Akintayo - Entrepreneur, Investor & Real Estate Mogul',
+    default: 'Dr. Stephen Akintayo - Chairman, SACI Holdings | Investor & Real Estate Entrepreneur',
     template: '%s | Dr. Stephen Akintayo',
   },
   description:
-    'Dr. Stephen Akintayo is a distinguished Nigerian entrepreneur, investor, and mentor. Chairman & CEO of Gtext Holdings, Forbes Best of Africa Leading Investment Coach, and author of 45+ books on real estate and wealth-building.',
+    'Dr. Stephen Akintayo is Chairman of SACI Holdings, Founder of Gtext Holdings and the Stephen Akintayo Foundation. Real estate investor, private equity and venture capital entrepreneur helping founders raise capital and build wealth globally. Forbes Best of Africa Leading Investment Coach and author of 45+ books.',
   keywords:
-    'Stephen Akintayo, real estate, investment coach, entrepreneur, Gtext Holdings, Forbes Best of Africa, billionaire habits, real estate investment, wealth building, Nigeria entrepreneur',
+    'Stephen Akintayo, SACI Holdings, Gtext Holdings, private equity, venture capital, real estate investor, investment coach, Forbes Best of Africa, billionaire habits, wealth building, Houston',
   icons: {
     icon: '/images/SAL.png',
     shortcut: '/images/SAL.png',

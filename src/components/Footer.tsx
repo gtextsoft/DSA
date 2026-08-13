@@ -15,9 +15,9 @@ export default function Footer() {
       { name: 'Foundation Impact', href: EXTERNAL_LINKS.foundation }
     ],
     'ECOSYSTEM': [
+      { name: 'SACI Holdings', href: EXTERNAL_LINKS.saciHolding },
       { name: 'Gtext Holdings', href: '/businesses' },
       { name: 'SA University', href: EXTERNAL_LINKS.university },
-      { name: 'Ventures & Equity', href: '/businesses' },
       { name: 'Global Store', href: EXTERNAL_LINKS.officialStore }
     ],
     'CLIENT CARE': [
@@ -38,7 +38,7 @@ export default function Footer() {
     { icon: 'fab fa-youtube', href: 'https://youtube.com/@stephenakintayo' },
     { icon: 'fab fa-instagram', href: 'https://instagram.com/stephenakintayo' },
     { icon: 'fab fa-facebook', href: 'https://facebook.com/stephenakintayo' },
-    { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/stephenakintayo' },
+    { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/drstephenakintayo' },
     { icon: 'fab fa-twitter', href: 'https://twitter.com/stephenakintayo' }
   ]
 
@@ -67,7 +67,7 @@ export default function Footer() {
                 </div>
               </Link>
               <p className="text-white/50 text-base max-w-sm leading-relaxed">
-                Empowering individuals and corporations worldwide through strategic investment coaching and real estate excellence. Voted Forbes Best of Africa Leading Investment Coach.
+                Helping entrepreneurs raise capital and build wealth globally. Chairman of SACI Holdings, Founder of Gtext Holdings, and Forbes Best of Africa Leading Investment Coach.
               </p>
               <div className="flex gap-6">
                 {socialLinks.map((social, index) => (

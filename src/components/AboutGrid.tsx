@@ -34,8 +34,8 @@ export default function AboutGrid() {
       href: '/events'
     },
     {
-      title: 'Gtext Holdings CEO',
-      description: 'At the helm of a $200M investment powerhouse. A visionary disrupting real estate, technology, and equity markets.',
+      title: 'Chairman, SACI Holdings',
+      description: 'Leading a Houston-based private equity and venture capital firm dedicated to acquiring high-impact enterprises across AI, logistics, biotech, and real estate.',
       image: '/images/stephen.png',
       href: '/businesses'
     },
@@ -46,14 +46,14 @@ export default function AboutGrid() {
       href: '/media'
     },
     {
-      title: 'Real Estate Mogul',
-      description: 'Leading a private equity real estate portfolio worth over $200M. Africa\'s most transparent crowdfunding pioneer.',
+      title: 'Private Equity Real Estate',
+      description: 'Leading a private equity real estate portfolio worth over $200M. Founder of Gtext Holdings, with estates across Africa, the UAE, the UK, and the United States.',
       image: '/images/stephen.png',
       href: '/businesses'
     },
     {
       title: 'Impact Philanthropy',
-      description: 'Through the MM2050 Foundation, he is architecting a future where every youth has the tools for financial dominance.',
+      description: 'Through the Stephen Akintayo Foundation, he is architecting a future where every youth has the tools for financial dominance.',
       image: '/images/stephen.png',
       href: EXTERNAL_LINKS.foundation,
       external: true,

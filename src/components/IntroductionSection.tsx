@@ -38,7 +38,7 @@ export default function IntroductionSection() {
               </h2>
 
               <p className="text-luxury-gold font-bold text-lg uppercase tracking-widest bg-deep-navy/5 inline-block px-4 py-2 border-l-4 border-luxury-gold">
-                Investment Coach & Philanthropist
+                Private Equity · Venture Capital · Philanthropy
               </p>
             </motion.div>
 
@@ -50,7 +50,9 @@ export default function IntroductionSection() {
               className="space-y-6 text-lg leading-relaxed text-text-dark/80"
             >
               <p>
-                Dr. Stephen Akintayo owns and operates multiple privately held companies, and an investment firm,{' '}
+                Dr. Stephen Akintayo is Chairman of{' '}
+                <span className="font-bold text-deep-navy">SACI Holdings</span>, a private equity and venture capital firm
+                based in Houston, Texas. He is also the Founder of{' '}
                 <span className="font-bold text-deep-navy">Gtext Holdings</span>, with a portfolio of assets worth over{' '}
                 <span className="font-bold text-luxury-gold">$200 Million</span>.
               </p>

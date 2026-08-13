@@ -6,20 +6,20 @@ import Link from 'next/link'
 export default function AboutHarvardSection() {
   const harvardFacets = [
     {
-      title: 'Harvard Business School Graduate',
-      description: 'Dr. Stephen Akintayo completed the prestigious Business Owner Management program at Harvard Business School, one of the world\'s most renowned business institutions. This elite education has enhanced his expertise in strategic leadership and business management.',
+      title: 'Harvard Business School OPM',
+      description: 'Dr. Stephen Akintayo is enrolled in the Owner/President Management program at Harvard Business School, graduating in 2027. The elite curriculum is sharpening his expertise in strategic leadership, capital allocation, and scaling global enterprises.',
       image: '/images/stephen.png',
       href: '/events'
     },
     {
-      title: 'Business Owner Management Expertise',
-      description: 'Through Harvard\'s rigorous curriculum, Dr. Akintayo gained cutting-edge insights into scaling businesses, strategic decision-making, and building sustainable enterprises. He now shares these advanced frameworks with business owners worldwide.',
+      title: 'Harvard Real Estate Investment',
+      description: 'He completed Harvard Business School executive education in Real Estate Investment and Development, deepening his command of global property markets, deal structuring, and institutional-grade real estate strategy.',
       image: '/images/stephen.png',
       href: '/events'
     },
     {
-      title: 'Harvard Debrief Program Facilitator',
-      description: 'Dr. Akintayo facilitates the Harvard Business School Debrief Program, helping serious business owners apply world-class methodologies to transform their enterprises. No wannabes, no tag-alongs—only those who sign the pay-check and carry the weight.',
+      title: 'Stanford & Wharton Executive Education',
+      description: 'In 2026 he completed Mergers and Acquisitions at Stanford Graduate School of Business and the Venture Capital Program at the Wharton School — preparing SACI Holdings to compete at the highest level of private equity and venture capital.',
       image: '/images/stephen.png',
       href: '/events'
     }
@@ -31,9 +31,9 @@ export default function AboutHarvardSection() {
         {/* Section Title */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-4 sm:mb-5 md:mb-6 uppercase tracking-tight px-2">
-            HARVARD BUSINESS
+            HARVARD · STANFORD
             <span className="block text-luxury-gold border-b-2 md:border-b-4 border-luxury-gold inline-block pb-1 sm:pb-2 mt-1 sm:mt-2">
-              SCHOOL GRADUATE
+              WHARTON
             </span>
           </h2>
         </div>

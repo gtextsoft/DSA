@@ -9,7 +9,7 @@ export default function SocialConnection() {
     { icon: 'fab fa-facebook', href: 'https://facebook.com/stephenakintayo', label: 'Facebook' },
     { icon: 'fab fa-tiktok', href: 'https://tiktok.com/@stephenakintayo', label: 'TikTok' },
     { icon: 'fab fa-spotify', href: 'https://open.spotify.com/show/1OBuNEZ0NQWYG9g5fqhEG9?si=eaf1020392804fe4', label: 'Spotify' },
-    { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/stephenakintayo', label: 'LinkedIn' },
+    { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/drstephenakintayo', label: 'LinkedIn' },
     { icon: 'fab fa-twitter', href: 'https://twitter.com/stephenakintayo', label: 'X (Twitter)' },
   ]
 

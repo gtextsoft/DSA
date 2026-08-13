@@ -28,7 +28,7 @@ export default function AboutHero() {
               Legacy of a Giant
             </h2>
             <p className="text-white/80 text-lg sm:text-xl max-w-xl leading-relaxed">
-              Dr. Stephen Akintayo is a Forbes-recognized leader, managing over $200M in assets. A pioneer in real estate and a mentor to millions worldwide.
+              Chairman of SACI Holdings, Founder of Gtext Holdings, and a Forbes-recognized investment coach. A private equity and venture capital entrepreneur helping founders raise capital and build wealth globally.
             </p>
           </motion.div>
 

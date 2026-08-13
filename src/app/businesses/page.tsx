@@ -3,15 +3,20 @@ import Header from '@/components/Header'
 import { createPageMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Stephen Akintayo Businesses & Ventures - Gtext Holdings',
+  title: 'Stephen Akintayo Businesses & Ventures - SACI Holdings & Gtext',
   description:
-    'Explore the Stephen Akintayo business ecosystem including Gtext Homes, Gtext Land, GVest, Gtext Media, and SACI Holdings portfolio companies.',
+    'Explore the Stephen Akintayo business ecosystem: SACI Holdings, the Houston-based private equity and venture capital firm, plus Gtext Homes, Gtext Land, GVest, Gtext Media, and more.',
   path: '/businesses',
 })
 import Footer from '@/components/Footer'
 
 export default function Businesses() {
   const businesses = [
+    {
+      name: 'SACI Holdings',
+      description: 'Private equity and venture capital — Houston, Texas',
+      icon: '🏦'
+    },
     {
       name: 'Gtext Homes',
       description: 'Real estate development',
@@ -70,10 +75,13 @@ export default function Businesses() {
               Stephen Akintayo Businesses &amp; Ventures
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 mb-6">
-              SACI Holdings Portfolio
+              SACI Holdings
             </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mb-6 leading-relaxed">
+              Dr. Stephen Akintayo is Chairman of SACI Holdings, a Houston-based private equity and venture capital firm dedicated to acquiring and scaling high-impact enterprises across AI, logistics, electric vehicles, biotech, and real estate.
+            </p>
             <p className="text-lg md:text-xl text-gray-700 max-w-3xl mb-12 leading-relaxed">
-              SACI Holdings is the parent company of a diverse portfolio of businesses, each contributing to our mission of empowering individuals and communities through innovative solutions and impactful initiatives.
+              He is also the Founder of Gtext Holdings, a multinational conglomerate whose subsidiaries include the ventures below.
             </p>
 
             {/* Business Cards Grid */}

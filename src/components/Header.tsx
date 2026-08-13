@@ -123,10 +123,10 @@ export default function Header() {
         <div className="container-custom flex items-center justify-between h-full min-w-0 gap-4">
           <div className="flex items-center gap-4 lg:gap-6 text-[10px] uppercase tracking-[0.2em] font-bold text-white/70 min-w-0">
             <span className="hover:text-luxury-gold cursor-pointer transition-colors truncate">
-              Global Investment Group
+              Chairman, SACI Holdings
             </span>
             <span className="hover:text-luxury-gold cursor-pointer transition-colors hidden lg:block">
-              Real Estate Mogul
+              Private Equity & Venture Capital
             </span>
           </div>
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.1em] font-bold text-luxury-gold flex-shrink-0 max-w-[50%]">

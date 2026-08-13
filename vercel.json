@@ -1315,6 +1315,16 @@
       "source": "/bundle",
       "destination": "https://bundle.stephenakintayofoundation.org",
       "permanent": true
+    },
+    {
+      "source": "/wellness",
+      "destination": "https://marketplace.drstellamd.com/yistglobal",
+      "permanent": true
+    },
+    {
+      "source": "/wellness",
+      "destination": "https://marketplace.drstellamd.com/stephenakintayo",
+      "permanent": true
     }
   ]
 }

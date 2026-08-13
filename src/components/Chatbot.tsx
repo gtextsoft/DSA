@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 interface Message {
   type: 'user' | 'bot'
@@ -17,6 +18,7 @@ interface UserData {
 }
 
 export default function Chatbot() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
   const [showForm, setShowForm] = useState(false)
@@ -224,6 +226,10 @@ export default function Chatbot() {
       setShowForm(true)
       setCurrentStep('form')
     }, 500)
+  }
+
+  if (pathname === '/store') {
+    return null
   }
 
   if (!isOpen) {

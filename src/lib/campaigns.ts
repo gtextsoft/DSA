@@ -89,6 +89,11 @@ export const CAMPAIGNS = {
     title: 'Bundle — Dr. Stephen Akintayo',
     description: 'Book and product bundles from Dr. Stephen Akintayo.',
   },
+  wellness: {
+    src: 'https://marketplace.drstellamd.com/stephenakintayo',
+    title: 'Wellness — Dr. Stephen Akintayo',
+    description: 'Wellness marketplace with Dr. Stephen Akintayo.',
+  },
 } as const
 
 export type CampaignSlug = keyof typeof CAMPAIGNS

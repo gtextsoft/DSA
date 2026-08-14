@@ -95,9 +95,10 @@ export const CAMPAIGNS = {
     description: 'Wellness marketplace with Dr. Stephen Akintayo.',
   },
   aicc: {
-    src: 'https://aiclass.stephenakintayofoundation.org/',
-    title: 'AI Class — Dr. Stephen Akintayo',
-    description: 'Join the AI class with Dr. Stephen Akintayo.',
+    src: 'https://aimsclass.vercel.app/',
+    title: '4 Weeks AI Course — Dr. Stephen Akintayo',
+    description:
+      'Four-week AI Course Certification 2.0 with Dr. Stephen Akintayo. Live every Thursday from 17 September to 8 October 2026.',
   },
 } as const
 

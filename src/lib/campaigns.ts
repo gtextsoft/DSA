@@ -94,6 +94,11 @@ export const CAMPAIGNS = {
     title: 'Wellness — Dr. Stephen Akintayo',
     description: 'Wellness marketplace with Dr. Stephen Akintayo.',
   },
+  aicc: {
+    src: 'https://aiclass.stephenakintayofoundation.org/',
+    title: 'AI Class — Dr. Stephen Akintayo',
+    description: 'Join the AI class with Dr. Stephen Akintayo.',
+  },
 } as const
 
 export type CampaignSlug = keyof typeof CAMPAIGNS

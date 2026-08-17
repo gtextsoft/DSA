@@ -74,11 +74,6 @@ export const CAMPAIGNS = {
     title: 'Founders Meet — Dr. Stephen Akintayo',
     description: 'Founders meet with Dr. Stephen Akintayo.',
   },
-  payment: {
-    src: 'https://buy.stripe.com/dRm5kE6JUeS61VB8794c800',
-    title: 'Payment — Dr. Stephen Akintayo',
-    description: 'Complete your payment to Dr. Stephen Akintayo.',
-  },
   retreat: {
     src: 'https://lakowe.stephenakintayofoundation.org/',
     title: 'Retreat — Dr. Stephen Akintayo',
@@ -109,5 +104,5 @@ export const CAMPAIGN_SLUGS = Object.keys(CAMPAIGNS) as CampaignSlug[]
 export function isCampaignPath(pathname: string | null): boolean {
   if (!pathname) return false
   const slug = pathname.replace(/^\//, '').replace(/\/$/, '')
-  return slug === 'store' || slug in CAMPAIGNS
+  return slug in CAMPAIGNS
 }

@@ -101,6 +101,12 @@ export const CAMPAIGNS = {
     description:
       'Build a consulting or speaking business that commands premium fees. A seven-day virtual challenge with Stephen Akintayo, 8–14 September 2026.',
   },
+  aiworkshop: {
+    src: 'https://aiworksop.vercel.app/',
+    title: 'AI Master Class 2.0 — Dr. Stephen Akintayo',
+    description:
+      'Discover your AI advantage. AI Master Class 2.0 certification with the Stephen Akintayo Foundation. Next cohort: 17 September 2026.',
+  },
 } as const
 
 export type CampaignSlug = keyof typeof CAMPAIGNS

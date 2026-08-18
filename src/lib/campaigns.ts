@@ -95,6 +95,12 @@ export const CAMPAIGNS = {
     description:
       'Four-week AI Course Certification 2.0 with Dr. Stephen Akintayo. Live every Thursday from 17 September to 8 October 2026.',
   },
+  OWNERS: {
+    src: 'https://ownersconsulting.vercel.app/',
+    title: 'Seven-Day Virtual Challenge — Stephen Akintayo Consulting',
+    description:
+      'Build a consulting or speaking business that commands premium fees. A seven-day virtual challenge with Stephen Akintayo, 8–14 September 2026.',
+  },
 } as const
 
 export type CampaignSlug = keyof typeof CAMPAIGNS

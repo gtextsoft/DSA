@@ -34,5 +34,11 @@ export default function CampaignPage({ params }: PageProps) {
   const campaign = getCampaign(params.campaign)
   if (!campaign) notFound()
 
-  return <CampaignEmbed src={campaign.src} title={campaign.title} />
+  return (
+    <CampaignEmbed
+      src={campaign.src}
+      title={campaign.title}
+      description={campaign.description}
+    />
+  )
 }

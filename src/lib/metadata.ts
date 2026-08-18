@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-export const SITE_URL = 'https://stephenakintayo.com'
+export const SITE_URL = 'https://www.stephenakintayo.com'
 
 const DEFAULT_OG_IMAGE = {
   url: '/images/stephen-akintayo-profile.jpg',

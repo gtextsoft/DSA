@@ -3,10 +3,11 @@ import './globals.css'
 import Chatbot from '@/components/Chatbot'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import JsonLd from '@/components/JsonLd'
+import { SITE_URL } from '@/lib/metadata'
 import { organizationSchema, personSchema, websiteSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://stephenakintayo.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Dr. Stephen Akintayo - Chairman, SACI Holdings | Investor & Real Estate Entrepreneur',
     template: '%s | Dr. Stephen Akintayo',

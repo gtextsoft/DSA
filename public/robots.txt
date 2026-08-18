@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stephenakintayo.com/sitemap.xml
+Sitemap: https://www.stephenakintayo.com/sitemap.xml
 
 Disallow: /admin/
 Disallow: /private/

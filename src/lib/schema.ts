@@ -66,6 +66,52 @@ export const websiteSchema = {
   },
 }
 
+export const homepageGraphSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/#person`,
+      name: 'Dr. Stephen Akintayo',
+      url: `${SITE_URL}/`,
+      jobTitle: 'Entrepreneur, Investor, Real Estate Mogul and Global Investment Coach',
+      description:
+        'Dr. Stephen Akintayo is an entrepreneur, investor, real estate mogul, global investment coach and philanthropist. The official website identifies him as Chairman & CEO of Gtext Holdings.',
+      worksFor: { '@id': `${SITE_URL}/#organization` },
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: 'Gtext Holdings',
+      url: `${SITE_URL}/`,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: 'Dr. Stephen Akintayo',
+      publisher: { '@id': `${SITE_URL}/#person` },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/#webpage`,
+      url: `${SITE_URL}/`,
+      name: 'Dr. Stephen Akintayo - Entrepreneur, Investor & Real Estate Mogul',
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      about: { '@id': `${SITE_URL}/#person` },
+    },
+  ],
+}
+
+export const eventsCollectionPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${SITE_URL}/events/#webpage`,
+  url: `${SITE_URL}/events/`,
+  name: 'Events - Dr. Stephen Akintayo',
+  about: { '@id': `${SITE_URL}/#person` },
+}
+
 export const eventsItemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',

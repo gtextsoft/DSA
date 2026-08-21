@@ -1,0 +1,11 @@
+STEPHENAKINTAYO.COM — SEO + AI/GEO IMPLEMENTATION
+
+1. Upload sitemap.xml to the website root.
+2. Upload robots.txt to the website root.
+3. Upload llms.txt to the website root.
+4. Add schema-homepage.jsonld to the homepage <head>.
+5. Add schema-events.jsonld to the Events page.
+
+
+IMPORTANT AI/GEO NOTE:
+robots.txt and llms.txt do not force ChatGPT, Gemini, Claude or Perplexity to cite or recommend a website. They improve machine-readable guidance/crawl access. AI visibility also depends on crawlability, authoritative content, structured data, consistent entity information and independent corroboration.

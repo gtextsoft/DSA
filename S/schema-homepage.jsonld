@@ -1,0 +1,37 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.stephenakintayo.com/#person",
+      "name": "Dr. Stephen Akintayo",
+      "url": "https://www.stephenakintayo.com/",
+      "jobTitle": "Entrepreneur, Investor, Real Estate Mogul and Global Investment Coach",
+      "description": "Dr. Stephen Akintayo is an entrepreneur, investor, real estate mogul, global investment coach and philanthropist. The official website identifies him as Chairman & CEO of Gtext Holdings.",
+      "worksFor": {"@id": "https://www.stephenakintayo.com/#organization"}
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.stephenakintayo.com/#organization",
+      "name": "Gtext Holdings",
+      "url": "https://www.stephenakintayo.com/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stephenakintayo.com/#website",
+      "url": "https://www.stephenakintayo.com/",
+      "name": "Dr. Stephen Akintayo",
+      "publisher": {"@id": "https://www.stephenakintayo.com/#person"}
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stephenakintayo.com/#webpage",
+      "url": "https://www.stephenakintayo.com/",
+      "name": "Dr. Stephen Akintayo - Entrepreneur, Investor & Real Estate Mogul",
+      "isPartOf": {"@id": "https://www.stephenakintayo.com/#website"},
+      "about": {"@id": "https://www.stephenakintayo.com/#person"}
+    }
+  ]
+}
+</script>

@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
 
 # AI/search crawlers
 User-agent: GPTBot

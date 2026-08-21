@@ -25,7 +25,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://*.stephenakintayofoundation.org https://marketplace.drstellamd.com https://aimsclass.vercel.app https://ownersconsulting.vercel.app https://aiworksop.vercel.app; connect-src 'self' https://api.web3forms.com https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com https://formspree.io; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.youtube.com https://www.youtube-nocookie.com https://safpayment.vercel.app; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://safpayment.vercel.app; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com https://fonts.googleapis.com data:; img-src 'self' data: https:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://*.stephenakintayofoundation.org https://marketplace.drstellamd.com https://aimsclass.vercel.app https://ownersconsulting.vercel.app https://aiworksop.vercel.app https://safpayment.vercel.app; connect-src 'self' https://api.web3forms.com https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com https://safpayment.vercel.app; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com https://formspree.io; frame-ancestors 'none'; upgrade-insecure-requests"
         }
       ]
     }
@@ -614,11 +614,6 @@
     {
       "source": "/pay",
       "destination": "https://pay.gtextglobal.com/paysa/",
-      "permanent": true
-    },
-    {
-      "source": "/payment",
-      "destination": "https://safpayment.vercel.app/",
       "permanent": true
     },
     {

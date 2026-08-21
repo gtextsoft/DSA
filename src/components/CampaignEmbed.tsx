@@ -1,5 +1,3 @@
-import PaymentDesk from '@/components/PaymentDesk'
-
 type CampaignEmbedProps = {
   src: string
   title: string
@@ -7,10 +5,6 @@ type CampaignEmbedProps = {
 }
 
 export default function CampaignEmbed({ src, title, description }: CampaignEmbedProps) {
-  if (src.startsWith('https://safpayment.vercel.app')) {
-    return <PaymentDesk description={description} />
-  }
-
   return (
     <>
       <header className="sr-only">

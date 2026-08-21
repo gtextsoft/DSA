@@ -107,12 +107,6 @@ export const CAMPAIGNS = {
     description:
       'Discover your AI advantage. AI Master Class 2.0 certification with the Stephen Akintayo Foundation. Next cohort: 17 September 2026.',
   },
-  payment: {
-    src: 'https://safpayment.vercel.app/',
-    title: 'General Payment — Stephen Akintayo Foundation',
-    description:
-      'Complete your payment. Secure checkout via Stripe and Paystack in USD, NGN, or EUR.',
-  },
 } as const
 
 export type CampaignSlug = keyof typeof CAMPAIGNS

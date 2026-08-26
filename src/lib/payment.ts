@@ -26,6 +26,15 @@ export const PAYMENT_OPTIONS = [
     cta: 'Continue to Stripe',
     href: 'https://buy.stripe.com/cNi9AS36xf1ngEIb2vcAo2k',
   },
+  {
+    id: 'gbp',
+    flag: 'GBP',
+    symbol: '£',
+    title: 'Pay in Pounds',
+    description: 'UK card checkout through Stripe.',
+    cta: 'Continue to Stripe',
+    href: 'https://buy.stripe.com/6oUeVedRi2rl0Oi8Neew80P',
+  },
 ] as const
 
 export const BANK_TRANSFER = {

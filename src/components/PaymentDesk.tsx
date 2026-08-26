@@ -59,7 +59,7 @@ export default function PaymentDesk() {
       <section className="bg-white py-16 sm:py-20">
         <div className="container-custom">
           <h2 className="mb-10 text-3xl font-bold text-gray-900 md:text-4xl">Payment options</h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 md:gap-8">
             {PAYMENT_OPTIONS.map((option) => (
               <article
                 key={option.id}

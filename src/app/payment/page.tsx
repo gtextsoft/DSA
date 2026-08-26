@@ -7,7 +7,7 @@ import { createPageMetadata } from '@/lib/metadata'
 export const metadata: Metadata = createPageMetadata({
   title: 'General Payment - Stephen Akintayo Foundation',
   description:
-    'Complete your payment to Stephen Akintayo Foundation via Stripe (USD/EUR), Paystack (NGN), or direct bank transfer.',
+    'Complete your payment to Stephen Akintayo Foundation via Stripe (USD/EUR/GBP), Paystack (NGN), or direct bank transfer.',
   path: '/payment',
 })
 

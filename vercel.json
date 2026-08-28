@@ -1255,6 +1255,11 @@
       "source": "/signedbooks",
       "destination": "https://store.stephenakintayofoundation.org/signedbooks",
       "permanent": true
+    },
+    {
+      "source": "/salesapplication",
+      "destination": "https://salesapplication.vercel.app/",
+      "permanent": true
     }
   ]
 }

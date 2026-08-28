@@ -107,6 +107,11 @@ export const CAMPAIGNS = {
     description:
       'Discover your AI advantage. AI Master Class 2.0 certification with the Stephen Akintayo Foundation. Next cohort: 17 September 2026.',
   },
+  salesapplication: {
+    src: 'https://salesapplication.vercel.app/',
+    title: 'Sales Application — Dr. Stephen Akintayo',
+    description: 'Apply to join the sales team with Dr. Stephen Akintayo.',
+  },
 } as const
 
 export type CampaignSlug = keyof typeof CAMPAIGNS

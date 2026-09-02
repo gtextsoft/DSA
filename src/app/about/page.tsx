@@ -3,9 +3,9 @@ import Header from '@/components/Header'
 import { createPageMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'About Dr. Stephen Akintayo - Biography & Legacy',
+  title: 'About Stephen Akintayo | Nigerian American Business Leader',
   description:
-    'Learn about Dr. Stephen Akintayo — Chairman of SACI Holdings, Founder of Gtext Holdings, Forbes-recognized investment coach, private equity entrepreneur, philanthropist, and mentor to millions worldwide.',
+    'Learn about Dr. Stephen Akintayo, a Nigerian American business leader, his journey as a real estate investor, entrepreneur, bestselling author and founder of businesses focused on wealth creation and investment.',
   path: '/about',
 })
 import AboutHero from '@/components/AboutHero'

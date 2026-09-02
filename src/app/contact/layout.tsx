@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { createPageMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Contact Dr. Stephen Akintayo - Speaking & Consultation',
+  title: 'Contact Stephen Akintayo | Business & Investment Inquiries',
   description:
-    'Contact Dr. Stephen Akintayo for speaking engagements, one-on-one consultations, mentorship inquiries, and general business questions.',
+    'Contact Dr. Stephen Akintayo for business, investment, mentorship, speaking and partnership inquiries. Connect with his team for professional opportunities.',
   path: '/contact',
 })
 

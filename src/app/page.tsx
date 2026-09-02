@@ -13,9 +13,9 @@ import SocialConnection from '@/components/SocialConnection'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Dr. Stephen Akintayo - Chairman, SACI Holdings | Investor & Real Estate Entrepreneur',
+  title: 'Stephen Akintayo | Nigerian - American entrepreneur',
   description:
-    'Official home of Dr. Stephen Akintayo — Chairman of SACI Holdings, Founder of Gtext Holdings, Forbes Best of Africa Leading Investment Coach, and author of 45+ books on wealth-building and real estate.',
+    'Stephen Akintayo, a Nigerian-American entrepreneur, real estate investor, author, and business leader known for driving innovation, wealth creation, and global investment opportunities.',
   path: '/',
 })
 

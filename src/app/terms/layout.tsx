@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { createPageMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Terms & Conditions - Dr. Stephen Akintayo',
+  title: 'Terms & Conditions | Stephen Akintayo',
   description:
-    'Terms and Conditions governing use of stephenakintayo.com and services offered by Dr. Stephen Akintayo Global.',
+    "Read the Terms & Conditions for Stephen Akintayo's website, covering website use, intellectual property, services, disclaimers, liability and external links.",
   path: '/terms',
 })
 

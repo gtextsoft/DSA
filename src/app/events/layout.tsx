@@ -4,9 +4,9 @@ import { createPageMetadata } from '@/lib/metadata'
 import { eventsCollectionPageSchema, eventsItemListSchema } from '@/lib/schema'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Stephen Akintayo Events & Conferences',
+  title: 'Global Leadership Conference | Stephen Akintayo',
   description:
-    'Discover upcoming Stephen Akintayo events, business growth conferences, retreats, and masterclasses in Nigeria, USA, UK, and worldwide.',
+    'Join the Global Leadership Conference with Stephen Akintayo and gain insights from inspiring leaders, entrepreneurs, and industry experts on leadership, business, and global growth.',
   path: '/events',
 })
 

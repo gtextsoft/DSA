@@ -72,6 +72,11 @@
       "permanent": true
     },
     {
+      "source": "/chinaretreat",
+      "destination": "https://drsakintayo.com",
+      "permanent": true
+    },
+    {
       "source": "/cr",
       "destination": "https://chinamarketingretreat.stephenakintayofoundation.org/",
       "permanent": true

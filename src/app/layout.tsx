@@ -40,10 +40,12 @@ export default function RootLayout({
         <link rel="icon" href="/images/SAL.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/SAL.png" type="image/png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <meta name="google-adsense-account" content="ca-pub-5079272307733207" />
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5079272307733207"
           crossOrigin="anonymous"
+          strategy="beforeInteractive"
         />
         <JsonLd data={[personSchema, organizationSchema, websiteSchema]} />
       </head>

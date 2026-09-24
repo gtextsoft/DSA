@@ -3,14 +3,14 @@
   "/media/page": "app/media/page.js",
   "/about/page": "app/about/page.js",
   "/businesses/page": "app/businesses/page.js",
+  "/payment/page": "app/payment/page.js",
   "/coaching/page": "app/coaching/page.js",
   "/globalvolunteers/page": "app/globalvolunteers/page.js",
-  "/payment/page": "app/payment/page.js",
   "/page": "app/page.js",
   "/[campaign]/page": "app/[campaign]/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/speaking/page": "app/speaking/page.js",
   "/events/page": "app/events/page.js",
+  "/contact/page": "app/contact/page.js",
   "/privacy/page": "app/privacy/page.js",
+  "/speaking/page": "app/speaking/page.js",
   "/terms/page": "app/terms/page.js"
 }

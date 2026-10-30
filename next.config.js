@@ -2,10 +2,10 @@
 const nextConfig = {
   // App directory is stable in Next.js 14, no experimental flag needed
   
-  // Static export configuration for cPanel deployment
-  output: 'export',
-  
-  // Disable image optimization for static export
+  // Deployed on Vercel as a full Next.js app (not a static export) so the
+  // /api/chat route can call the Claude API with a server-side key.
+
+  // Images are served as-is
   images: {
     unoptimized: true,
   },

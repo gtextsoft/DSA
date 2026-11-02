@@ -112,6 +112,12 @@ export const CAMPAIGNS = {
     title: 'Sales Application — Dr. Stephen Akintayo',
     description: 'Apply to join the sales team with Dr. Stephen Akintayo.',
   },
+  mentorshipform: {
+    src: 'https://mentorshipform.stephenakintayo.com/',
+    title: "Members' Hub — Stephen Akintayo Mentorship",
+    description:
+      "A private members' hub for Dr. Stephen Akintayo's 6-Month Mentorship. Claim your bonus programmes and start tracking your business growth.",
+  },
 } as const
 
 export type CampaignSlug = keyof typeof CAMPAIGNS

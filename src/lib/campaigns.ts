@@ -118,6 +118,11 @@ export const CAMPAIGNS = {
     description:
       "A private members' hub for Dr. Stephen Akintayo's 6-Month Mentorship. Claim your bonus programmes and start tracking your business growth.",
   },
+  ohio: {
+    src: 'https://ohio.stephenakintayo.com/',
+    title: 'Ohio — Dr. Stephen Akintayo',
+    description: 'Ohio meet and event with Dr. Stephen Akintayo.',
+  },
 } as const
 
 export type CampaignSlug = keyof typeof CAMPAIGNS

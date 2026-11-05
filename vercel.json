@@ -47,6 +47,11 @@
       "permanent": true
     },
     {
+      "source": "/Ohio",
+      "destination": "/ohio",
+      "permanent": true
+    },
+    {
       "source": "/owners",
       "destination": "/OWNERS",
       "permanent": true

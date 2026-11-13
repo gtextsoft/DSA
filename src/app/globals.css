@@ -2,26 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
-
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     @apply bg-white text-deep-navy;
   }
 
   h1, h2, h3, h4, .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-display), ui-serif, Georgia, serif;
   }
 
   * {
     @apply box-border;
+  }
+
+  ::selection {
+    background: #D4AF37;
+    color: #0A1128;
+  }
+
+  :focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 3px;
   }
 }
 
@@ -46,6 +54,11 @@
     @apply bg-gradient-to-r from-luxury-gold via-gold-light to-gold-dark bg-clip-text text-transparent;
   }
 
+  /* Darker gold for headings on light backgrounds */
+  .text-gradient-gold-deep {
+    @apply bg-gradient-to-r from-gold-dark via-luxury-gold to-gold-dark bg-clip-text text-transparent;
+  }
+
   .luxury-border {
     position: relative;
     padding: 2px;
@@ -58,6 +71,52 @@
     border-radius: 2px;
     height: 100%;
     width: 100%;
+  }
+
+  /* Light sweep across gold buttons on hover */
+  .btn-luxury::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.9s ease;
+    pointer-events: none;
+  }
+
+  .btn-luxury:hover::after {
+    transform: translateX(120%);
+  }
+
+  .btn-ghost-light {
+    @apply border border-white/25 text-white hover:border-luxury-gold hover:text-luxury-gold font-bold py-4 px-8 rounded-sm transition-all duration-500 tracking-widest uppercase text-sm;
+  }
+
+  /* Underline that draws in from the left on hover */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s ease;
+  }
+
+  .link-draw:hover,
+  .group:hover .link-draw {
+    background-size: 100% 1px;
+  }
+
+  /* Fine gold survey grid used behind dark sections */
+  .plot-grid {
+    background-image:
+      linear-gradient(rgba(212, 175, 55, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212, 175, 55, 0.07) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  .marquee-mask {
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
 
   .section-padding {
@@ -93,4 +152,18 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #996515;
-} 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

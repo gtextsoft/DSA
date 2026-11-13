@@ -1,11 +1,27 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { Fraunces, Manrope } from 'next/font/google'
 import './globals.css'
 import Chatbot from '@/components/Chatbot'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import JsonLd from '@/components/JsonLd'
+import { MotionProvider } from '@/components/motion/Reveal'
 import { SITE_URL } from '@/lib/metadata'
 import { organizationSchema, personSchema, websiteSchema } from '@/lib/schema'
+
+// Self-hosted by Next at build time, so no font host is needed in the CSP.
+const display = Fraunces({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const body = Manrope({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -35,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <head>
         <link rel="icon" href="/images/SAL.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/SAL.png" type="image/png" />
@@ -51,7 +67,7 @@ export default function RootLayout({
       </head>
       <body className="font-inter">
         <GoogleAnalytics />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <Chatbot />
       </body>
     </html>

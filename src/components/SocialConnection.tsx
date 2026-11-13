@@ -36,12 +36,11 @@ export default function SocialConnection() {
                 <span className="w-8 h-[1px] bg-luxury-gold"></span>
                 <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.2em]">Global Network</span>
               </div>
-              <h2 className="text-4xl sm:text-6xl font-black text-deep-navy font-serif italic leading-tight">
-                Connect with the{' '}
-                <span className="text-gradient-gold non-italic font-sans uppercase block mt-2">Visionary</span>
+              <h2 className="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1] text-deep-navy">
+                Follow the <span className="italic text-gradient-gold-deep pr-1">daily lessons.</span>
               </h2>
               <p className="text-text-dark/90 text-lg leading-relaxed max-w-xl relative z-10">
-                Every day I share high-stakes strategies and wealth-building intelligence across all global platforms. Join our community of 1 million+ high-performers and transform your financial future.
+                Dr. Akintayo shares investment and business lessons every day. Pick the platform you already use.
               </p>
             </div>
 
@@ -50,7 +49,7 @@ export default function SocialConnection() {
                 href="/about"
                 className="text-deep-navy font-bold text-sm uppercase tracking-widest flex items-center gap-3 group"
               >
-                Learn More About the Mission
+                Read about the mission
                 <span className="w-10 h-[1px] bg-luxury-gold group-hover:w-16 transition-all"></span>
               </a>
             </div>

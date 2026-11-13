@@ -36,7 +36,7 @@ export default function AboutIntroduction() {
 
             <div className="relative z-10 space-y-8">
               <p className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-deep-navy leading-tight">
-                "I work with small companies and <span className="text-gradient-gold non-italic font-sans font-black">FORTUNE 500</span> giants to grow investments by finding overlooked opportunities and customizing the process of building wealth."
+                "I work with small companies and <span className="text-gradient-gold not-italic font-sans font-black">FORTUNE 500</span> giants to grow investments by finding overlooked opportunities and customizing the process of building wealth."
               </p>
 
               <div className="flex items-center gap-4">

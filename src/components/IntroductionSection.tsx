@@ -1,133 +1,103 @@
 'use client'
 
+import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { EXTERNAL_LINKS } from '@/lib/links'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { CountUp, Eyebrow, Reveal, Stagger, StaggerItem } from '@/components/motion/Reveal'
 
 const stats = [
-  { value: '$200M+', label: 'Assets Managed' },
-  { value: '850K+', label: 'Students Worldwide' },
-  { value: '45+', label: 'Books Published' },
-  { value: '20+', label: 'Years of Impact' },
+  { value: '$200M+', label: 'Portfolio of assets' },
+  { value: '850K+', label: 'People and businesses served' },
+  { value: '45+', label: 'Business books published' },
+  { value: '20+', label: 'Years of impact' },
 ]
 
 export default function IntroductionSection() {
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+  const imageY = useTransform(scrollYProgress, [0, 1], ['-6%', '6%'])
+
   return (
-    <section className="bg-white py-16 sm:py-24 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-deep-navy/5 -skew-x-12 transform translate-x-1/2"></div>
-
+    <section ref={ref} className="bg-white py-20 sm:py-28 relative overflow-hidden">
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="flex items-center gap-4">
-                <span className="w-8 h-[1px] bg-luxury-gold"></span>
-                <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.2em]">The Visionary</span>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Portrait */}
+          <Reveal from="left" className="lg:col-span-5">
+            <div className="relative max-w-md mx-auto lg:mx-0">
+              <div className="absolute -inset-3 sm:-inset-4 border border-luxury-gold/40 rounded-sm translate-x-4 translate-y-4 sm:translate-x-6 sm:translate-y-6" aria-hidden="true"></div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-mist">
+                <motion.div style={{ y: imageY }} className="absolute -inset-y-[8%] inset-x-0">
+                  <Image
+                    src="/images/stephen.png"
+                    alt="Dr. Stephen Akintayo"
+                    fill
+                    sizes="(max-width: 1024px) 90vw, 40vw"
+                    className="object-cover"
+                  />
+                </motion.div>
               </div>
-
-              <h2 className="text-5xl sm:text-6xl md:text-7xl font-black text-deep-navy leading-tight font-serif italic">
-                A Legacy of <br />
-                <span className="text-gradient-gold non-italic font-sans uppercase">Excellence</span>
-              </h2>
-
-              <p className="text-luxury-gold font-bold text-lg uppercase tracking-widest bg-deep-navy/5 inline-block px-4 py-2 border-l-4 border-luxury-gold">
-                Private Equity · Venture Capital · Philanthropy
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-6 text-lg leading-relaxed text-text-dark/80"
-            >
-              <p>
-                Dr. Stephen Akintayo is Chairman of{' '}
-                <span className="font-bold text-deep-navy">SACI Holdings</span>, a private equity and venture capital firm
-                based in Houston, Texas. He is also the Founder of{' '}
-                <span className="font-bold text-deep-navy">Gtext Holdings</span>, with a portfolio of assets worth over{' '}
-                <span className="font-bold text-luxury-gold">$200 Million</span>.
-              </p>
-              <p>
-                As a bestselling author of{' '}
-                <span className="font-bold text-deep-navy italic font-serif">45+ business books</span>, Dr. Akintayo has
-                established a global movement featuring investment conferences and wealth-building programs.
-              </p>
-              <p>
-                For over <span className="font-bold text-deep-navy">20 years</span>, his global investment group has
-                served over <span className="font-bold text-luxury-gold">850,000</span> individuals and businesses
-                worldwide.
-              </p>
-              <p className="border-l-4 border-luxury-gold pl-6 italic font-serif text-xl text-deep-navy/70">
-                &quot;Real estate is the only investment where you can use other people&apos;s money to build your own
-                wealth safely.&quot;
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6"
-            >
-              <Link href="/about" className="btn-luxury text-center">
-                Explore the Journey
-              </Link>
-              <a
-                href={EXTERNAL_LINKS.youtubeProduction}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline-gold text-center"
-              >
-                Stephen Akintayo Production
-              </a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4"
-            >
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="text-center sm:text-left border border-deep-navy/10 bg-deep-navy/5 p-4 rounded-sm"
-                >
-                  <div className="text-2xl sm:text-3xl font-black text-luxury-gold mb-1">{stat.value}</div>
-                  <div className="text-[10px] uppercase tracking-widest font-bold text-deep-navy/60">{stat.label}</div>
+              <div className="absolute -bottom-5 left-4 sm:left-6 bg-deep-navy text-white px-5 py-4 rounded-sm shadow-xl">
+                <div className="text-[10px] font-bold uppercase tracking-[0.24em] text-luxury-gold mb-1">
+                  Forbes Best of Africa
                 </div>
-              ))}
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="relative"
-          >
-            <div className="relative w-full aspect-[4/5] max-h-[600px] mx-auto overflow-hidden shadow-[20px_20px_0px_#0A1128] group">
-              <Image
-                src="/images/stephen.png"
-                alt="Dr. Stephen Akintayo"
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 border-[16px] border-white/10 pointer-events-none"></div>
+                <div className="text-sm font-semibold">Leading Investment Coach</div>
+              </div>
             </div>
-          </motion.div>
+          </Reveal>
+
+          {/* Story */}
+          <div className="lg:col-span-7 space-y-8">
+            <Reveal className="space-y-6">
+              <Eyebrow>Who you will learn from</Eyebrow>
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-deep-navy leading-[1.08] tracking-tight">
+                He teaches what he <span className="italic text-gradient-gold-deep pr-1">practises.</span>
+              </h2>
+            </Reveal>
+
+            <Reveal delay={0.1} className="space-y-5 text-lg leading-relaxed text-text-dark/80 max-w-2xl">
+              <p>
+                Dr. Stephen Akintayo is Chairman of <strong className="text-deep-navy">SACI Holdings</strong>, a private
+                equity and venture capital firm based in Houston, Texas, and Founder of{' '}
+                <strong className="text-deep-navy">Gtext Holdings</strong>, with a portfolio of assets worth over $200
+                million.
+              </p>
+              <p>
+                For more than 20 years his investment group has served over 850,000 individuals and businesses — through
+                conferences, mentorship and 45+ business books.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <blockquote className="border-l-2 border-luxury-gold pl-6 font-serif italic text-xl sm:text-2xl text-deep-navy/80 max-w-2xl leading-snug">
+                &ldquo;Real estate is the only investment where you can use other people&apos;s money to build your own
+                wealth safely.&rdquo;
+              </blockquote>
+            </Reveal>
+
+            <Stagger className="grid grid-cols-2 sm:grid-cols-4 border-t border-l border-deep-navy/10">
+              {stats.map((stat) => (
+                <StaggerItem key={stat.label} className="border-b border-r border-deep-navy/10 p-5">
+                  <CountUp
+                    value={stat.value}
+                    className="block font-serif text-2xl sm:text-[2rem] font-semibold text-deep-navy tabular-nums"
+                  />
+                  <span className="mt-2 block text-[11px] uppercase tracking-[0.14em] font-bold text-deep-navy/55 leading-snug">
+                    {stat.label}
+                  </span>
+                </StaggerItem>
+              ))}
+            </Stagger>
+
+            <Reveal delay={0.1} className="flex flex-col sm:flex-row gap-4">
+              <a href="#work-with-him" className="btn-luxury text-center">
+                See how to work with him
+              </a>
+              <Link href="/about" className="btn-outline-gold text-center">
+                Read his story
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

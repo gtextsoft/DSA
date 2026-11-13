@@ -82,7 +82,7 @@ export default function AboutGrid() {
             <span className="w-12 h-[1px] bg-luxury-gold"></span>
           </div>
           <h2 className="text-4xl sm:text-6xl font-black text-white font-serif italic mb-6">
-            Dimensions of <span className="text-gradient-gold non-italic font-sans uppercase">A Legacy</span>
+            Dimensions of <span className="text-gradient-gold not-italic font-sans uppercase">A Legacy</span>
           </h2>
           <p className="text-white/60 max-w-3xl mx-auto text-lg">
             A comprehensive overview of the facets that make Dr. Stephen Akintayo a global force in investment, mentorship, and excellence.

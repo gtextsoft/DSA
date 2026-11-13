@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function EventsHero() {
   return (
-    <section className="relative min-h-[45vh] bg-deep-navy pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
+    <section className="relative min-h-[45vh] bg-deep-navy pt-36 pb-16 sm:pt-44 sm:pb-20 overflow-hidden">
       <Image
         src="/images/bgc261.jpg"
         alt=""

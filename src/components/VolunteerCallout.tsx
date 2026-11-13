@@ -50,11 +50,11 @@ export default function VolunteerCallout() {
                 </span>
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-black text-white font-serif italic leading-[1.1]">
+              <h2 className="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1] text-white">
                 Give Your Time.
                 <br />
-                <span className="text-gradient-gold not-italic font-sans uppercase">
-                  Change a Continent
+                <span className="italic text-gradient-gold pr-1">
+                  Change a continent.
                 </span>
               </h2>
 

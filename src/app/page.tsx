@@ -6,6 +6,8 @@ import { homepageGraphSchema } from '@/lib/schema'
 import HeroCardone from '@/components/HeroCardone'
 import IntroductionSection from '@/components/IntroductionSection'
 import OfferingsSection from '@/components/OfferingsSection'
+import HomeEvents from '@/components/HomeEvents'
+import BooksSection from '@/components/BooksSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
 import VolunteerCallout from '@/components/VolunteerCallout'
 import StrategySignup from '@/components/StrategySignup'
@@ -27,9 +29,11 @@ export default function Home() {
       <HeroCardone />
       <IntroductionSection />
       <OfferingsSection />
+      <HomeEvents />
+      <BooksSection />
       <TestimonialsSection />
-      <VolunteerCallout />
       <StrategySignup />
+      <VolunteerCallout />
       <SocialConnection />
       <Footer />
     </main>

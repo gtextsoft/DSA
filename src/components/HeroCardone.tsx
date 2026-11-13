@@ -1,160 +1,182 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { EVENTS_2026, EVENTS_2027, type EventItem } from '@/lib/events'
+import { hasExactDate, upcomingEvents } from '@/lib/offers'
+import { EASE } from '@/components/motion/Reveal'
 
-const SUMMIT_DISMISS_KEY = 'hero-summit-dismissed'
+const HEADLINE = ['Raise capital.', 'Build wealth', 'that outlasts you.']
 
-function SummitCard({ className = '', onDismiss }: { className?: string; onDismiss?: () => void }) {
+const PROOF = [
+  'Forbes Best of Africa — Leading Investment Coach',
+  '$200M+ portfolio',
+  '45+ business books',
+  '850,000+ people and businesses served',
+  '20+ years of impact',
+  'Chairman, SACI Holdings',
+  'Founder, Gtext Holdings',
+  'Forbes Business Council',
+]
+
+function NextEventCard({ event }: { event: EventItem }) {
+  const external = event.link.startsWith('http')
   return (
-    <div className={`glass-dark p-6 rounded-sm border-l-4 border-luxury-gold max-w-sm relative ${className}`}>
-      {onDismiss && (
-        <button
-          type="button"
-          onClick={onDismiss}
-          className="absolute top-3 right-3 text-white/40 hover:text-luxury-gold transition-colors"
-          aria-label="Dismiss event card"
-        >
-          <i className="fas fa-times text-sm" aria-hidden="true"></i>
-        </button>
-      )}
-      <div className="text-luxury-gold text-[10px] font-black uppercase tracking-[0.2em] mb-4 pr-6">
-        Upcoming Global Summit
+    <motion.aside
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: EASE }}
+      className="glass-dark rounded-sm border-l-2 border-luxury-gold p-6 sm:p-7 w-full max-w-sm"
+      aria-label="Next event"
+    >
+      <div className="flex items-center gap-3 text-luxury-gold text-[10px] font-extrabold uppercase tracking-[0.24em] mb-4">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-luxury-gold opacity-60 animate-ping"></span>
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-luxury-gold"></span>
+        </span>
+        Next event
       </div>
-      <div className="flex gap-4 items-center">
-        <div className="w-16 h-16 rounded-sm overflow-hidden bg-luxury-gold/20 relative group flex-shrink-0">
-          <Image
-            src="/images/stephen.png"
-            alt="China Business Retreat 2026"
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-          />
+      <h2 className="text-white text-xl font-semibold leading-snug mb-3">{event.title}</h2>
+      <dl className="space-y-1.5 text-sm text-white/70 mb-6">
+        <div className="flex gap-3">
+          <dt className="sr-only">Date</dt>
+          <i className="far fa-calendar text-luxury-gold w-4 mt-0.5" aria-hidden="true"></i>
+          <dd>{event.date}</dd>
         </div>
-        <div>
-          <div className="text-white font-bold text-sm mb-1 leading-tight">CHINA BUSINESS RETREAT 2026</div>
-          <div className="text-luxury-gold text-xs font-bold leading-snug">7-Day · 4 Cities · 2026</div>
-        </div>
-      </div>
+        {event.location && (
+          <div className="flex gap-3">
+            <dt className="sr-only">Location</dt>
+            <i className="fas fa-location-dot text-luxury-gold w-4 mt-0.5" aria-hidden="true"></i>
+            <dd>{event.location}</dd>
+          </div>
+        )}
+      </dl>
       <a
-        href="/chinaretreat"
-        className="mt-6 block text-center py-3 bg-luxury-gold text-deep-navy text-[10px] font-black uppercase tracking-widest hover:bg-gold-dark transition-colors duration-300"
+        href={event.link}
+        {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
+        className="group flex items-center justify-between gap-4 bg-luxury-gold hover:bg-gold-light text-deep-navy text-[11px] font-extrabold uppercase tracking-[0.18em] py-3.5 px-5 rounded-sm transition-colors duration-300"
       >
-        Claim Your Access
+        {hasExactDate(event.date) ? 'Reserve your place' : 'See the details'}
+        <i className="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"></i>
       </a>
-    </div>
+    </motion.aside>
   )
 }
 
 export default function HeroCardone() {
-  const [summitDismissed, setSummitDismissed] = useState(false)
+  const [nextEvent, setNextEvent] = useState<EventItem | null>(null)
   const { scrollY } = useScroll()
+  const videoY = useTransform(scrollY, [0, 600], [0, 160])
+  const contentOpacity = useTransform(scrollY, [0, 500], [1, 0.25])
 
-  const y1 = useTransform(scrollY, [0, 500], [0, 200])
-  const opacity = useTransform(scrollY, [0, 300], [1, 0])
-
+  // Resolved after mount so the card always reflects today's date, not the build date.
   useEffect(() => {
-    if (localStorage.getItem(SUMMIT_DISMISS_KEY) === 'true') {
-      setSummitDismissed(true)
-    }
+    setNextEvent(upcomingEvents([...EVENTS_2026, ...EVENTS_2027], new Date())[0] ?? null)
   }, [])
 
-  const dismissSummit = () => {
-    localStorage.setItem(SUMMIT_DISMISS_KEY, 'true')
-    setSummitDismissed(true)
-  }
-
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-deep-navy">
+    <section className="relative w-full min-h-screen overflow-hidden bg-deep-navy flex flex-col">
       {/* Background video */}
-      <motion.div style={{ y: y1 }} className="absolute inset-0 w-full h-full overflow-hidden">
+      <motion.div style={{ y: videoY }} className="absolute inset-0 w-full h-full overflow-hidden" aria-hidden="true">
         <iframe
           src="https://www.youtube-nocookie.com/embed/i45_4AMAx54?autoplay=1&loop=1&mute=1&playlist=i45_4AMAx54&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
           className="absolute top-1/2 left-1/2 w-[177.77777778vh] h-[56.25vw] min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 scale-110"
-          style={{
-            pointerEvents: 'none',
-            border: 'none',
-            filter: 'grayscale(0.3) brightness(0.4)',
-          }}
+          style={{ pointerEvents: 'none', border: 'none', filter: 'grayscale(0.3) brightness(0.4)' }}
           allow="autoplay; encrypted-media"
-          allowFullScreen
-          frameBorder="0"
-          title="Cinematic Background"
+          tabIndex={-1}
+          title="Background video"
         />
-        {/* Dark scrim + gradients for consistent text contrast */}
-        <div className="absolute inset-0 bg-[rgba(10,15,50,0.7)]" aria-hidden="true"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-navy/60 via-deep-navy/30 to-deep-navy" aria-hidden="true"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/80 via-deep-navy/40 to-transparent" aria-hidden="true"></div>
+        <div className="absolute inset-0 bg-[rgba(10,15,50,0.72)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-deep-navy/70 via-deep-navy/20 to-deep-navy"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/90 via-deep-navy/50 to-transparent"></div>
+        <div className="absolute inset-0 plot-grid opacity-60"></div>
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom min-h-screen flex flex-col justify-center pt-24 pb-24 md:pb-16">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="max-w-4xl"
-        >
-          <h1 className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-4 italic font-serif drop-shadow-lg">
-            Dr. Stephen <br />
-            <span className="text-gradient-gold non-italic font-sans">Akintayo</span>
-          </h1>
-          <p className="text-luxury-gold text-sm sm:text-base font-bold uppercase tracking-[0.25em] mb-6">
-            Real Estate Investor · Private Equity & Venture Capital
-          </p>
+      <motion.div
+        style={{ opacity: contentOpacity }}
+        className="relative z-10 container-custom flex-1 flex items-center pt-36 sm:pt-44 pb-14"
+      >
+        <div className="grid xl:grid-cols-[minmax(0,1fr)_auto] gap-12 lg:gap-16 items-end w-full">
+          <div className="max-w-3xl">
+            <h1>
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, ease: EASE }}
+                className="flex items-center gap-4 font-sans text-luxury-gold text-xs sm:text-sm font-bold uppercase tracking-[0.3em] mb-6"
+              >
+                <span className="w-10 h-px bg-luxury-gold" aria-hidden="true"></span>
+                Dr. Stephen Akintayo
+              </motion.span>
 
-          <p className="text-white/80 text-lg sm:text-xl md:text-2xl max-w-2xl mb-10 font-medium leading-relaxed">
-            Chairman of SACI Holdings. Founder of Gtext Holdings and the Stephen Akintayo Foundation. Helping entrepreneurs raise capital and build wealth globally.
-          </p>
+              {HEADLINE.map((line, i) => (
+                <span key={line} className="block overflow-hidden pb-[0.22em] -mb-[0.22em]">
+                  <motion.span
+                    initial={{ y: '110%' }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.95, delay: 0.15 + i * 0.12, ease: EASE }}
+                    className={`block font-serif text-[2.9rem] leading-[1.02] sm:text-7xl xl:text-[5.6rem] tracking-tight ${
+                      i === 2 ? 'italic text-gradient-gold font-medium pb-[0.18em] pr-2' : 'text-white font-semibold'
+                    }`}
+                  >
+                    {line}
+                  </motion.span>
+                </span>
+              ))}
+            </h1>
 
-          <div className="flex flex-col sm:flex-row gap-6 mb-8 lg:mb-0">
-            <Link href="/events" className="btn-luxury text-center">
-              Secure Your Vision
-            </Link>
-            <Link href="/about" className="btn-outline-gold text-center">
-              The Legacy
-            </Link>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.65, ease: EASE }}
+              className="mt-8 text-white/75 text-lg sm:text-xl max-w-2xl leading-relaxed"
+            >
+              Mentorship, live events, books and courses from the Chairman of SACI Holdings and founder of Gtext
+              Holdings — for entrepreneurs and investors who want to learn from someone who has done it.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: EASE }}
+              className="mt-10 flex flex-col sm:flex-row gap-4"
+            >
+              <a href="#mentorship" className="btn-luxury text-center">
+                Book mentorship
+              </a>
+              <Link href="/events" className="btn-ghost-light text-center">
+                See upcoming events
+              </Link>
+            </motion.div>
           </div>
 
-          {/* Summit card — inline on mobile/tablet */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="lg:hidden mt-4"
-          >
-            <SummitCard />
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Summit card — floating on desktop */}
-      {!summitDismissed && (
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="absolute bottom-24 right-4 sm:right-8 md:right-12 lg:right-16 z-20 hidden lg:block"
-        >
-          <SummitCard onDismiss={dismissSummit} />
-        </motion.div>
-      )}
-
-      {/* Scroll indicator — desktop only, bottom anchored */}
-      <motion.div
-        style={{ opacity }}
-        className="hidden md:flex pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-3"
-      >
-        <span className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-bold">Scroll to Explore</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-luxury-gold via-luxury-gold/50 to-transparent">
-          <motion.div
-            animate={{ y: [0, 32, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-full h-1/3 bg-white"
-          />
+          {nextEvent && <NextEventCard event={nextEvent} />}
         </div>
       </motion.div>
+
+      {/* Proof strip */}
+      <div className="relative z-10 border-t border-white/10 bg-deep-navy/60 backdrop-blur-sm">
+        <ul className="sr-only">
+          {PROOF.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <div className="overflow-hidden marquee-mask py-5" aria-hidden="true">
+          <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+            {[...PROOF, ...PROOF].map((item, i) => (
+              <span
+                key={i}
+                className="flex items-center gap-8 pr-8 text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-white/60 whitespace-nowrap"
+              >
+                {item}
+                <span className="w-1.5 h-1.5 rotate-45 bg-luxury-gold"></span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

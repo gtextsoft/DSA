@@ -1,130 +1,156 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { EXTERNAL_LINKS } from '@/lib/links'
+import { MENTORSHIP_OPTIONS, OFFERS, type Offer } from '@/lib/offers'
+import { Eyebrow, Reveal, Stagger, StaggerItem } from '@/components/motion/Reveal'
+
+const MENTORSHIP_POINTS = [
+  'Mentorship focused on building wealth and raising capital',
+  'Frameworks drawn from two decades in real estate, private equity and venture capital',
+  'Secure checkout in naira (Paystack) or dollars (Stripe)',
+]
+
+function OfferCard({ offer }: { offer: Offer }) {
+  const external = offer.href.startsWith('http')
+  const className =
+    'group relative flex h-full flex-col overflow-hidden rounded-sm border border-white/10 bg-white/[0.03] p-7 sm:p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-luxury-gold/60 hover:bg-white/[0.06]'
+  const content = (
+    <>
+      <span
+        className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-luxury-gold transition-transform duration-700 group-hover:scale-x-100"
+        aria-hidden="true"
+      ></span>
+      <div className="flex items-center justify-between mb-8">
+        <span className="flex h-12 w-12 items-center justify-center rounded-sm border border-luxury-gold/30 bg-luxury-gold/10 text-luxury-gold transition-colors duration-500 group-hover:bg-luxury-gold group-hover:text-deep-navy">
+          <i className={offer.icon} aria-hidden="true"></i>
+        </span>
+        <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-white/40">{offer.kind}</span>
+      </div>
+      <h3 className="font-serif text-2xl font-semibold text-white mb-3">{offer.title}</h3>
+      <p className="text-white/60 text-[15px] leading-relaxed mb-6">{offer.description}</p>
+      <ul className="space-y-2 mb-8 text-sm text-white/70">
+        {offer.points.map((point) => (
+          <li key={point} className="flex items-start gap-3">
+            <i className="fas fa-check text-luxury-gold text-[10px] mt-1.5" aria-hidden="true"></i>
+            {point}
+          </li>
+        ))}
+      </ul>
+      <span className="mt-auto inline-flex items-center gap-3 text-luxury-gold text-xs font-extrabold uppercase tracking-[0.18em]">
+        <span className="link-draw pb-1">{offer.cta}</span>
+        <i
+          className={`fas ${external ? 'fa-arrow-up-right-from-square' : 'fa-arrow-right'} text-[10px] transition-transform duration-300 group-hover:translate-x-1`}
+          aria-hidden="true"
+        ></i>
+      </span>
+    </>
+  )
+
+  return external ? (
+    <a href={offer.href} target="_blank" rel="noopener noreferrer" className={className}>
+      {content}
+    </a>
+  ) : (
+    <Link href={offer.href} className={className}>
+      {content}
+    </Link>
+  )
+}
 
 export default function OfferingsSection() {
-  const offerings = [
-    {
-      title: 'GLOBAL EVENTS',
-      subtitle: 'Exclusive',
-      description: 'Join Dr. Stephen Akintayo at exclusive investment conferences and masterclasses worldwide.',
-      image: '/images/bgc261.jpg',
-      href: '/events',
-    },
-    {
-      title: 'STEPHEN AKINTAYO PRODUCTION',
-      subtitle: 'Impact',
-      description: 'Watch exclusive content, interviews, and productions from Dr. Stephen Akintayo on YouTube.',
-      image: '/images/bgc262.jpg',
-      href: EXTERNAL_LINKS.youtubeProduction,
-    },
-    {
-      title: 'SA UNIVERSITY',
-      subtitle: 'Mastery',
-      description: 'Comprehensive investment and wealth-building training programs tailored for the elite.',
-      image: '/images/stephen.png',
-      href: 'https://stephenakintayouniversity.com/',
-    },
-    {
-      title: 'SA STORE',
-      subtitle: 'Legacy',
-      description: 'Browse our collection of 45+ books, courses, and exclusive mentorship products.',
-      image: '/images/book-billionaire-habits.jpg',
-      href: EXTERNAL_LINKS.officialStore,
-      isStore: true
-    }
-  ]
-
-  const storeOptions = [
-    { name: 'Shop on Amazon', href: EXTERNAL_LINKS.amazonBooks },
-    { name: 'Official Store', href: EXTERNAL_LINKS.officialStore }
-  ]
-
   return (
-    <section className="bg-deep-navy py-24 sm:py-32 relative">
+    <section id="work-with-him" className="relative bg-deep-navy py-24 sm:py-32 overflow-hidden scroll-mt-20">
+      <div className="absolute inset-0 plot-grid" aria-hidden="true"></div>
+      <div className="absolute -top-40 -right-40 w-[32rem] h-[32rem] rounded-full bg-luxury-gold/10 blur-[120px]" aria-hidden="true"></div>
+
       <div className="container-custom relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          <div className="inline-block px-6 py-2 border border-luxury-gold/30 rounded-full mb-6">
-            <span className="text-luxury-gold text-xs font-bold uppercase tracking-[0.3em]">Our Ecosystem</span>
-          </div>
-          <h2 className="text-4xl sm:text-6xl font-black text-white font-serif italic mb-6">
-            The World of <span className="text-gradient-gold non-italic font-sans uppercase"> Stephen Akintayo</span>
+        <Reveal className="max-w-3xl mb-14 sm:mb-20">
+          <Eyebrow className="mb-6">Work with Dr. Akintayo</Eyebrow>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-[1.08] tracking-tight">
+            Five ways to start, <span className="italic text-gradient-gold">whatever your stage.</span>
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto text-lg">
-            Empowering the next generation of global leaders through high-stakes investment intelligence and real estate mastery.
+          <p className="mt-6 text-white/60 text-lg leading-relaxed">
+            Pick the level of access that fits where you are — from a book you can finish this week to mentorship with
+            Dr. Akintayo himself.
           </p>
-        </motion.div>
+        </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {offerings.map((offering, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative h-[450px] overflow-hidden"
-            >
-              <div className="absolute inset-0 transition-transform duration-1000 group-hover:scale-110">
-                <Image
-                  src={offering.image}
-                  alt={offering.title}
-                  fill
-                  className="object-cover opacity-40 group-hover:opacity-60 transition-opacity"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-deep-navy via-deep-navy/20 to-transparent"></div>
-              </div>
+        {/* Featured: mentorship */}
+        <Reveal>
+          <div
+            id="mentorship"
+            className="relative scroll-mt-28 overflow-hidden rounded-sm border border-luxury-gold/40 bg-gradient-to-br from-navy-soft to-deep-navy mb-6"
+          >
+            <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-luxury-gold/50" aria-hidden="true"></div>
+            <div className="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-luxury-gold/50" aria-hidden="true"></div>
 
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <span className="text-luxury-gold text-[10px] uppercase tracking-[0.4em] font-bold mb-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  {offering.subtitle}
+            <div className="relative grid lg:grid-cols-5 gap-10 lg:gap-0">
+              <div className="lg:col-span-3 p-8 sm:p-12 lg:p-14">
+                <span className="inline-block bg-luxury-gold text-deep-navy text-[10px] font-extrabold uppercase tracking-[0.22em] px-3 py-1.5 rounded-sm mb-6">
+                  Featured
                 </span>
-                <h3 className="text-2xl font-black text-white uppercase tracking-tighter mb-4">
-                  {offering.title}
+                <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-5">
+                  Mentorship with Dr. Stephen Akintayo
                 </h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-6 line-clamp-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                  {offering.description}
+                <p className="text-white/65 text-lg leading-relaxed max-w-xl mb-8">
+                  Learn the habits, deal structures and investment thinking behind a $200M+ portfolio — and apply them
+                  to your own business and money.
                 </p>
-
-                {offering.isStore ? (
-                  <div className="flex flex-col gap-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                    {storeOptions.map((option, optIdx) => (
-                      <a
-                        key={optIdx}
-                        href={option.href}
-                        {...(option.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
-                        className="text-[10px] font-bold text-white uppercase tracking-widest hover:text-luxury-gold py-2 border-b border-white/10"
-                      >
-                        {option.name}
-                      </a>
-                    ))}
-                  </div>
-                ) : (
-                  <Link
-                    href={offering.href}
-                    {...(offering.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
-                    className="inline-flex items-center gap-2 text-luxury-gold text-xs font-bold uppercase tracking-widest transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-200"
-                  >
-                    Explore Now <i className="fas fa-arrow-right text-[10px] transition-transform group-hover:translate-x-2"></i>
-                  </Link>
-                )}
+                <ul className="space-y-3.5 text-white/80">
+                  {MENTORSHIP_POINTS.map((point) => (
+                    <li key={point} className="flex items-start gap-4">
+                      <span className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-luxury-gold/15 text-luxury-gold">
+                        <i className="fas fa-check text-[9px]" aria-hidden="true"></i>
+                      </span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Decorative Luxury Border on hover */}
-              <div className="absolute inset-0 border border-luxury-gold/0 group-hover:border-luxury-gold/30 transition-all duration-500 pointer-events-none m-4"></div>
-            </motion.div>
+              <div className="lg:col-span-2 flex flex-col justify-center gap-4 p-8 sm:p-12 lg:p-14 border-t lg:border-t-0 lg:border-l border-white/10 bg-black/20">
+                <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-white/50 mb-2">
+                  Choose your currency to book
+                </p>
+                {MENTORSHIP_OPTIONS.map((option, i) => (
+                  <a
+                    key={option.currency}
+                    href={option.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${i === 0 ? 'btn-luxury' : 'btn-outline-gold'} flex items-center justify-between gap-4`}
+                  >
+                    <span>{option.name}</span>
+                    <span className="text-[10px] font-bold opacity-70 normal-case tracking-normal">
+                      via {option.provider}
+                    </span>
+                  </a>
+                ))}
+                <p className="text-sm text-white/50 leading-relaxed mt-2">
+                  Have a question first?{' '}
+                  <Link href="/contact?type=session" className="text-luxury-gold underline underline-offset-4 hover:text-gold-light">
+                    Talk to the team
+                  </Link>
+                  . Prefer a bank transfer?{' '}
+                  <Link href="/payment" className="text-luxury-gold underline underline-offset-4 hover:text-gold-light">
+                    See payment options
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* The other four */}
+        <Stagger className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          {OFFERS.map((offer) => (
+            <StaggerItem key={offer.id} className="h-full">
+              <OfferCard offer={offer} />
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )
 }
-

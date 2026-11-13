@@ -22,7 +22,7 @@ export default function AboutHero() {
             </div>
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white font-serif leading-[0.95] drop-shadow-lg">
               About Dr. Stephen <br />
-              <span className="text-gradient-gold non-italic font-sans uppercase">Akintayo</span>
+              <span className="text-gradient-gold not-italic font-sans uppercase">Akintayo</span>
             </h1>
             <h2 className="text-luxury-gold text-sm font-bold uppercase tracking-[0.3em]">
               Legacy of a Giant

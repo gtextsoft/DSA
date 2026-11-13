@@ -20,10 +20,14 @@ module.exports = {
         'dark-blue': '#4682B4',
         'text-dark': '#2C3E50',
         'text-light': '#7F8C8D',
+        'navy-soft': '#111B3D',
+        'mist': '#F1F3F8',
       },
       fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
-        'playfair': ['Playfair Display', 'serif'],
+        'sans': ['var(--font-body)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'serif': ['var(--font-display)', 'ui-serif', 'Georgia', 'serif'],
+        'inter': ['var(--font-body)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'playfair': ['var(--font-display)', 'ui-serif', 'Georgia', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out forwards',
@@ -32,6 +36,7 @@ module.exports = {
         'bounce-slow': 'bounce 3s infinite',
         'shimmer': 'shimmer 2s linear infinite',
         'float': 'float 6s ease-in-out infinite',
+        'marquee': 'marquee 38s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -48,6 +53,10 @@ module.exports = {
         },
         shimmer: {
           '100%': { transform: 'translateX(100%)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0)' },

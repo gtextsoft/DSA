@@ -41,7 +41,7 @@ export default function StrategySignup() {
   }
 
   return (
-    <section className="bg-deep-navy py-24 sm:py-32 relative overflow-hidden">
+    <section id="inner-circle" className="bg-navy-soft py-24 sm:py-32 relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:40px_40px]"></div>
       </div>
@@ -64,11 +64,11 @@ export default function StrategySignup() {
                 <span className="w-8 h-[1px] bg-luxury-gold"></span>
               </div>
 
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white font-serif italic mb-6">
-                Access the <span className="text-gradient-gold non-italic font-sans uppercase">Wealth Intelligence</span>
+              <h2 className="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1] text-white mb-6">
+                Get the weekly <span className="italic text-gradient-gold pr-1">wealth briefing.</span>
               </h2>
               <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                Join 850,000+ others receiving weekly high-stakes investment strategies and masterclass insights directly from Dr. Stephen Akintayo.
+                Investment strategies, event dates and masterclass notes from Dr. Stephen Akintayo, in your inbox once a week. Free.
               </p>
             </div>
 
@@ -83,9 +83,10 @@ export default function StrategySignup() {
                       if (status !== 'idle') setStatus('idle')
                     }}
                     placeholder="Your email address"
+                    aria-label="Email address"
                     required
                     aria-invalid={status === 'error'}
-                    className="w-full bg-white/5 border border-white/10 text-white py-4 px-6 rounded-sm font-medium focus:outline-none focus:border-luxury-gold transition-all duration-300 placeholder:text-white/20"
+                    className="w-full bg-white/5 border border-white/10 text-white py-4 px-6 rounded-sm font-medium focus:outline-none focus:border-luxury-gold transition-all duration-300 placeholder:text-white/40"
                   />
                 </div>
                 <button
@@ -93,13 +94,13 @@ export default function StrategySignup() {
                   disabled={isSubmitting}
                   className="btn-luxury whitespace-nowrap disabled:opacity-50 min-w-[200px]"
                 >
-                  {isSubmitting ? 'Processing...' : 'Secure Access'}
+                  {isSubmitting ? 'Subscribing…' : 'Subscribe'}
                 </button>
               </form>
 
               {status === 'success' && (
                 <p className="mt-4 text-sm font-semibold text-luxury-gold bg-luxury-gold/10 border border-luxury-gold/30 rounded-sm py-3 px-4" role="status">
-                  You&apos;re in! Check your inbox for confirmation.
+                  Subscribed. Check your inbox for confirmation.
                 </p>
               )}
               {status === 'error' && (
@@ -109,7 +110,7 @@ export default function StrategySignup() {
               )}
 
               <p className="mt-6 text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold">
-                Privacy Guaranteed. Exclusive Content Only.
+                No spam. Your email stays private.
               </p>
             </div>
           </div>

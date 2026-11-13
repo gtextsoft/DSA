@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import { EXTERNAL_LINKS } from '@/lib/links'
+import { MENTORSHIP_OPTIONS } from '@/lib/offers'
 
 const MOBILE_MENU_ID = 'mobile-nav-drawer'
 
@@ -17,6 +18,8 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const pathname = usePathname()
+  const { scrollYProgress } = useScroll()
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 })
 
   const closeMenu = () => setIsMenuOpen(false)
 
@@ -77,10 +80,7 @@ export default function Header() {
     { name: 'SACI Holdings', href: EXTERNAL_LINKS.saciHolding, external: true },
   ]
 
-  const mentorshipOptions = [
-    { name: 'Pay in Naira', href: 'https://paystack.shop/pay/drkshfwy1g' },
-    { name: 'Pay in Dollars', href: 'https://buy.stripe.com/9B66oI8wYaXR68C2oQew80t' },
-  ]
+  const mentorshipOptions = MENTORSHIP_OPTIONS
 
   const contactOptions = [
     { name: 'Book a Speaking Engagement', href: '/contact?type=event' },
@@ -338,6 +338,13 @@ export default function Header() {
         </div>
       </div>
     </header>
+
+      {/* Reading progress */}
+      <motion.div
+        aria-hidden="true"
+        style={{ scaleX: progress }}
+        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold-dark via-luxury-gold to-gold-light origin-left z-[55]"
+      />
 
       {/* Full-screen mobile drawer — outside header so transform doesn't clip fixed positioning */}
       <AnimatePresence>
